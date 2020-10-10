@@ -1,0 +1,129 @@
+.wholepage{
+  position:absolute;
+  left:5%;
+  width:1400px;
+  height:800px;
+  border-style: ridge;
+  border-width: 5px;
+  border-color: #000000;
+}
+
+.toptags{
+  width: 100%;
+  float: left;
+  padding-left: 50px;
+}
+
+#tag1{
+  width: 20%;
+  float: left;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 3px;
+  text-align: center;
+  margin-right:50px;
+
+}
+
+#tag2{
+  width: 20%;
+  float: left;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 3px;
+  margin-right:50px;
+  text-align: center;
+}
+
+#tag3{
+  width: 20%;
+  float: left;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  margin-right:50px;
+  border-right-style: solid;
+  border-width: 3px;
+  text-align: center;
+}
+
+#tag4{
+  width: 20%;
+  float: left;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 3px;
+  text-align: center;
+}
+
+#tag5{
+  float: left;
+}
+
+.bottom{
+  padding-left: 50px;
+	padding-top: 50px;
+    margin-top: 50px;
+}
+
+.parent{
+  width:100%;
+  float:left;
+}
+
+.left{
+  width:60%;
+  float:left;
+	border-style: solid;
+  border-width: 2px;
+  padding-bottom: 20px;
+}
+.left2{
+	margin-top: 20px;
+	border-style: solid;
+  border-width: 2px;
+  width:60%;
+  padding-bottom: 50px;
+  float:left;
+
+}
+.onetimetask{
+  border-style: solid;
+  border-width: 2px;
+}
+
+.everydaytask{
+  border-style: solid;
+  border-width: 2px;
+}
+
+.todylist{
+  width:30%;
+  float:right;
+  border-style: solid;
+  border-width: 2px;
+  padding-top:50px;
+  margin-right:30px;
+  margin-top:-460px;
+}
+
+.singletask{
+  width: 95%;
+  float:left;
+  border-style: solid;
+  border-width: 1px;
+  margin-top:30px;
+	margin-left:20px;
+}
+
+.TaskName{
+  width: 45%;
+  float: left;
+}
+
+.TotalTime{
+  width: 30%;
+  float: left;
+}
