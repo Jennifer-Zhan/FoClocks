@@ -2,8 +2,8 @@
 .wholepage{
   position:absolute;
   left:5%;
-  width:100%;
-  height:100%;
+  width:1400px;
+  height:800px;
   border-style: ridge;
   border-width: 5px;
   border-color: #000000;
@@ -15,19 +15,8 @@
   padding-left: 50px;
 }
 
-#tag0 {
-  width: 15%;
-  float: left;
-  border-bottom-style: solid;
-  border-left-style: solid;
-  border-right-style: solid;
-  border-width: 3px;
-  text-align: center;
-  margin-right:50px;
-}
-
 #tag1{
-  width: 15%;
+  width: 20%;
   float: left;
   border-bottom-style: solid;
   border-left-style: solid;
@@ -39,7 +28,7 @@
 }
 
 #tag2{
-  width: 15%;
+  width: 20%;
   float: left;
   border-bottom-style: solid;
   border-left-style: solid;
@@ -50,7 +39,7 @@
 }
 
 #tag3{
-  width: 15%;
+  width: 20%;
   float: left;
   border-bottom-style: solid;
   border-left-style: solid;
@@ -61,7 +50,7 @@
 }
 
 #tag4{
-  width: 15%;
+  width: 20%;
   float: left;
   border-bottom-style: solid;
   border-left-style: solid;
@@ -70,10 +59,14 @@
   text-align: center;
 }
 
+#tag5{
+  float: left;
+}
+
 .bottom{
   padding-left: 50px;
 	padding-top: 50px;
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .parent{
@@ -114,12 +107,7 @@
   border-width: 2px;
   padding-top:50px;
   margin-right:30px;
-  margin-top:10px;
-}
-
-#oneTime {
-  margin-bottom: 0px;
-  margin-left: 5px;
+  margin-top:-460px;
 }
 
 .singletask{
@@ -131,67 +119,20 @@
 	margin-left:20px;
 }
 
-.singletask h3, button {
-  display: inline-block;
+.TaskName{
+  width: 45%;
+  float: left;
 }
 
-.TaskName{
+.TotalTime{
   width: 30%;
   float: left;
-  margin-left: 5px;
 }
 
-.WorkDate{
-  width: 20%;
-  float: left;
-}
-
-.TimerType {
-  width: 10%;
-  float: right;
-  margin-top: 18px;
-  margin-right: 8px;
-}
-
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
 /* Modal Content */
-.modal-body {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
+.modal-body{
+  background-color: blue;
 }
 
 /* The Close Button */
@@ -208,25 +149,3 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-/* center the countdown hour number */
-.countdown_hour {
-  text-align: center;
-}
-
-#Countdown_Outside {
-  padding:100px;
-  width: 50px;
-}
-
-#Accumulate_Outside {
-  padding-left:2000px;
-  width: 50px;
-}
-
-form {
-  width:400px;
-
-}
-
-
