@@ -105,7 +105,7 @@
                     echo '<button onclick="Countdown_timer('.$record['countdown'].')" type="button" class="TimerType">'.$record['timer'].'</button>';
                   }
                   else if($record['timer']=="Accumulate"){
-                    echo '<button onclick="Accumulate_timer('.$record['countdown'].')" type="button" class="TimerType">'.$record['timer'].'</button>';
+                    echo '<button id="Accumulate_timer" type="button" class="TimerType">'.$record['timer'].'</button>';
                   }
 
                   echo '</section>';
@@ -130,7 +130,7 @@
                 $result = $db->query($query);
                 $numRecords = $result->num_rows;
                 // get current date
-                $date = date('Y/m/d');
+                $date = date('Y-m-d');
                 echo $date;
                 for ($i=0; $i < $numRecords; $i++) {
                   $record = $result->fetch_assoc();
@@ -180,15 +180,19 @@
     </div>
 
     <div id="Accumulate_Outside">
-      <form> 
-        <input type="button" value="Start!" onClick="timedCount()"> 
-        <input type="text" id="txt"> 
-        <input type="button" value="Stop!" onClick="stopCount()"> 
-        <input type="button" value="Clear!" onClick="clearCount()"> 
-      </form> 
+      <div id="AccumulateTimer">
+        <span class="close_accumulate">&times;</span>
+        <form> 
+          <input type="button" value="Start!" onClick="timedCount()"> 
+          <input type="text" id="txt"> 
+          <input type="button" value="Stop!" onClick="stopCount()"> 
+          <input type="button" value="Clear!" onClick="clearCount()"> 
+        </form> 
+      </div>
     </div>  
 
     <script>
+     
       // Get the modal
     var CountdownTimer = document.getElementById("Countdown_Outside");
 
@@ -199,21 +203,33 @@
     var CountdownSpan = document.getElementsByClassName("close_countdown")[0];
 
 // When the user clicks the button, open the modal 
-    CountdownTimer_bnt.onclick = function() {
+    /*CountdownTimer_bnt.onclick = function() {
       CountdownTimer.style.display = "block";
-    }
+    }*/
 
 // When the user clicks on <span> (x), close the modal
     CountdownSpan.onclick = function() {
       CountdownTimer.style.display = "none";
     }
-
+/*
 // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == CountdownTimer) {
         CountdownTimer.style.display = "none";
       }
+    }*/
+    var AccumulteTimer = document.getElementById("Accumulate_Outside");
+    var AccumulateTimer_bnt = document.getElementById("Accumulate_timer");
+    var AccumulateSpan = document.getElementsByClassName("close_accumulate")[0];
+
+    AccumulateTimer_bnt.onclick = function() {
+      AccumulteTimer.style.display = "block";
     }
+
+    AccumulateSpan.onclick = function() {
+      AccumulteTimer.style.display = "none";
+    }
+
 
     // Get the modal
     var modal = document.getElementById("myModal");
@@ -239,6 +255,9 @@
       if (event.target == modal) {
         modal.style.display = "none";
       }
+      else if (event.target == CountdownTimer) {
+        CountdownTimer.style.display = "none";
+      }
     }
 
   
@@ -248,6 +267,9 @@
     setInterval(function(){
       calculate(time,click_time);
     }, 1000);
+    var CountdownTimer = document.getElementById("Countdown_Outside");
+    CountdownTimer.style.display = "block";
+
   }
 
   function calculate(time,click_time){
@@ -259,14 +281,13 @@
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
     // Output the result in an element with id="demo"
-    document.getElementById("CountdownTimer_time").innerHTML = hours + "h "
-    + minutes + "m " + seconds + "s ";
-      
+    show_time= hours + "h "+ minutes + "m " + seconds + "s ";
     // If the count down is over, write some text 
     if (distance < 0) {
       clearInterval(distance);
-      document.getElementById("CountdownTimer_time").innerHTML = "EXPIRED";
+      show_time = "EXPIRED";
     }
+    document.getElementById("CountdownTimer_time").innerHTML=show_time;  
   }
     //accumulate timer functions
       var s=0
