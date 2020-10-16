@@ -84,6 +84,7 @@ if ($havePost) {
 	<section id="tag3"><a href="overview.html">Overview</a></section>
 	<section id="tag4"><a href="">Sign In</a></section>
 	<section id="history"><a href="">History</a></section>
+  <img src="1.png" alt="this is a image" width="60" id="myBtn"/></button>
 </div>
 <div class="bottom">
 	<div class="parent">
