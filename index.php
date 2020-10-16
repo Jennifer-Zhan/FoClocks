@@ -79,7 +79,7 @@ if ($havePost) {
 </head>
 <body>
 <div class="toptags">
-	<section id="tag1"><a href="ongoing%20task.html">Ongoing</a></section>
+	<section id="tag1"><a href="homepage/index.html">HOME</a></section>
 	<section id="tag2"><a href="completed%20task.html">Completed</a></section>
 	<section id="tag3"><a href="overview.html">Overview</a></section>
 	<section id="tag4"><a href="">Sign In</a></section>
@@ -139,7 +139,6 @@ if ($havePost) {
                 $numRecords = $result->num_rows;
                 // get current date
                 $date = date('Y-m-d');
-                echo $date;
                 for ($i=0; $i < $numRecords; $i++) {
                     $record = $result->fetch_assoc();
                     if($record['date']==$date){
