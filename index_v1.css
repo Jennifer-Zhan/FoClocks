@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+  font-family: "Open Sans";
+  margin: 30px;
+  /*background: url("https://i.pinimg.com/474x/9c/9f/f7/9c9ff7f1c28f878a0b011c3dd41a1fdc.jpg");*/
+  /*background-size: cover;*/
+}
+
+.toptags{
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: #374785;
+  border-radius: 10px;
+  margin-right: 35px;
+  margin-left: 32px;
+}
+
+.toptags section{
+  text-align: center;
+  float: left;
+  width: 20%;
+  margin-top: 23.5px;
+}
+
+/*.toptags section:hover{*/
+/*  color: #374785;*/
+/*  background-color: white;*/
+/*}*/
+
+.toptags a{
+  color: white;
+  font-size: 2.2em;
+  text-decoration: none;
+}
+
+.toptags a:hover {
+  color: #374785;
+  background-color: white;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.data_block{
+  float: left;
+  margin-top: 25px;
+  width: 75%;
+}
+
+.data_block section{
+  width: 240px;
+  height: 140px;
+  display: inline-block;
+  background-color: #A8D0E6;
+  border: 1px solid darkgray;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.bottom{
+  padding: 30px;
+  height: auto;
+  width: auto;
+}
+
+.parent{
+  width:100%;
+  /*float:left;*/
+}
+
+.left{
+  width:60%;
+  float:left;
+  border: 8px solid #F76C6C;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  border-radius: 20px;
+  height: auto;
+  /*background-color: #F76C6C;*/
+}
+.left2{
+  margin-top: 20px;
+  border: 8px solid #374785;
+  width:60%;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  float:left;
+  border-radius: 16px;
+  height: auto;
+  margin-bottom: 30px;
+  /*background-color: #F76C6C;*/
+}
+
+.singletask{
+  width: 90%;
+  float:left;
+  /*border: 1px solid white;*/
+  /*border-bottom-color: grey;*/
+  /*margin-top:10px;*/
+  margin-left:40px;
+  padding-left: 20px;
+  /*background-color: white;*/
+}
+
+.singletask:hover {
+  border-bottom-color: white;
+  background-color: #F76C6C;
+  border-radius: 8px;
+  color: white;
+}
+
+
+
+/*.onetimetask{*/
+/*  border-style: solid;*/
+/*  border-width: 2px;*/
+/*}*/
+
+/*.everydaytask{*/
+/*  border-style: solid;*/
+/*  border-width: 2px;*/
+/*}*/
+
+.todaylist{
+  width:30%;
+  float:right;
+  float: top;
+  border: 1px solid darkgray;
+  border-radius: 16px;
+  margin-top: -440px;
+  /*background-color: #A8D0E6;*/
+}
+
+#oneTime {
+  margin-bottom: 16px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+#everyday {
+  margin-bottom: 16px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.singletask h3, button {
+  display: inline-block;
+}
+
+.TaskName{
+  width: 36%;
+  float: left;
+  margin-left: 5px;
+  /*background-color: #F76C6C;*/
+  text-align: center;
+  padding: 3px;
+  border-radius: 6px;
+}
+
+.WorkDate{
+  width: 20%;
+  float: left;
+  margin-left: 10%;
+  padding: 3px;
+  background-color: #374785;  text-align: center;
+  border-radius: 6px;
+  color: white;
+}
+
+.TimerType {
+  width: 12%;
+  float: right;
+  margin-top: 22px;
+  margin-right: 15px;
+  padding: 3px;
+  border: 1px solid white;
+  border-radius: 6px;
+  background-color: slategray;
+  color: white;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 140px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-body {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 2px solid #000000;
+  border-radius: 16px;
+  width: 42%;
+  background-color: #374785;
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/*!* The Close Button *!*/
+/*.close {*/
+/*  color: #aaaaaa;*/
+/*  float: right;*/
+/*  font-size: 28px;*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*.close:hover,*/
+/*.close:focus {*/
+/*  color: #000;*/
+/*  text-decoration: none;*/
+/*  cursor: pointer;*/
+/*}*/
+
+div.formData {
+  /*margin-left: 17%;*/
+  /*margin-top: 20px;*/
+  /*margin-bottom: 20px;*/
+  width: 100%;
+  padding-left: 38%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border: 1px solid #374785;
+  border-radius: 16px;
+  background-color: #374785;
+  color: white;
+}
+
+#addForm {
+  width: 100%
+}
+
+input.input_1 {
+  border-radius: 4px;
+  border: 1px solid #374785;
+}
+
+input.input_2 {
+  border-radius: 3px;
+  border: 1px solid #374785;
+}
+
+/* center the countdown hour number */
+.countdown_hour {
+  text-align: center;
+  width: 30px;
+}
+
+
+
+#Countdown_Outside {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 220px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#CountdownTimer_time {
+  text-align: center;
+  font-size: 40px;
+}
+#CountdownTimer {
+  position: relative;
+  background-color: #fefefe;
+  height: 200px;
+  margin: auto;
+  padding: 16px;
+  border: 1px solid #888;
+  border-radius: 16px;
+  width: 50%;
+  background-color: #374785;
+  color: white;
+  /*text-align: center;*/
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+#Accumulate_Outside {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#AccumulateTimer {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  height: 300px;
+  border-radius: 16px;
+  background-color: #374785;
+  padding: 16px;
+  width: 50%;
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+form.input_3 {
+  /*padding: 30px;*/
+  text-align: center;
+  padding-top: 100px;
+  /*font-size: 30px;*/
+}
+
+span.close_accumulate{
+  color: white;
+}
+
+/*form {*/
+/*  width:400px;*/
+/*}*/
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(even) {
+  background: white;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #F76C6C;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  /*padding: 12px 16px 12px 16px;*/
+  color: white;
+  /*border-radius: 16px;*/
+  height: 10%;
+  width: 5%;
+  margin-top: 4px;
+  margin-right: 4px;
+  padding-left: 15px;
+  padding-top: 6px;
+  border-radius: 10px;
+
+}
+
+.close:hover {
+  background-color: #F76C6C;
+}
+
+/* Style the header */
+.header {
+  background-color: #F76C6C;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+  border-radius: 15px;
+  /*border: 10px, solid, ;*/
+}
+
+input.input_4 {
+  border-radius: 16px;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+#myInput {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 24%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+#myList {
+  border-radius: 14px;
+}
+
+#bottonf {
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 8px;
+  background-color: white;
+}
+
+div.finished {
+  text-align: center;
+  margin: 8px;
+}
+
+
+
