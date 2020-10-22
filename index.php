@@ -152,7 +152,12 @@ if ($havePost) {
 				</div>
 				</section>
 			</div>
-		</div>
+        </div>
+
+        <div id="help_box">
+            <button type="button" id="help">HELP</button>
+        </div>    
+
         <div id="console">
             <div id="text_box">
                 <p id="console_content"></p>
@@ -164,7 +169,6 @@ if ($havePost) {
         </div>
 	</div>
 
-    <p id="try">sdsss</p>
 	<!--add task popup window-->
 	<div id="myModal" class="modal">
 		<div class="modal-body">
