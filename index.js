@@ -319,7 +319,7 @@ $(document).ready(function(){
         var text="Command Line Help\n";
         text+="Add task: add <task name> <working date> <timer type> <countdown time>\n";
         text+="ex: add DS_HW 2020-10-23 Countdown 2\n";
-        text+="Edit task: update <task name> <task properity you want to update>\n";
+        text+="Edit task: update <task name> <task property you want to update>\n";
         text+="ex: update DS_HW 2020-10-24\n";
         text+="Delete task: delete <task name>\n";
         text+="ex: delete DS_HW\n";
