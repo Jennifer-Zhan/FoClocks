@@ -344,9 +344,9 @@ input.input_2 {
 }
 
 form.input_3 {
-  /*padding: 30px;*/
+  padding: 20px;
   text-align: center;
-  padding-top: 100px;
+  /*padding-top: 100px;*/
   /*font-size: 30px;*/
 }
 
@@ -505,5 +505,23 @@ div.finished {
   margin: 8px;
 }
 
+#txt {
+  outline-style: none ;
+  border: 1px solid #374785; 
+  border-radius: 3px;
+  width: 300px;
+  height: 100px;
+  font-size: 3em;
+  font-weight: 700;
+  color: white;
+  font-family: "Microsoft soft";
+  background-color: #374785;
+  text-align:center;
+}
 
+
+.input_bnt {
+  background-color: #374785;
+  color: white;
+}
 

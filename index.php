@@ -195,10 +195,10 @@ if ($havePost) {
 		<div id="AccumulateTimer">
 			<span class="close_accumulate">&times;</span>
 			<form class="input_3">
-				<input type="button" value="Start!" onClick="timedCount()">
+				<input type="button" class="input_bnt" value="Start!" onClick="timedCount()">
 				<input type="text" id="txt">
-				<input type="button" value="Stop!" onClick="stopCount()">
-				<input type="button" value="Clear!" onClick="clearCount()">
+				<input type="button" class="input_bnt" value="Stop!" onClick="stopCount()">
+				<input type="button" class="input_bnt" value="Clear!" onClick="clearCount()">
 			</form>
 		</div>
 	</div>
