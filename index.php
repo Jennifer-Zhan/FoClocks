@@ -11,7 +11,6 @@ $havePost = isset($_POST["save"]);
 
 $errors = '';
 if ($havePost) {
-
     $name = htmlspecialchars(trim($_POST["name"]));
     $timer = htmlspecialchars(trim($_POST["timer"]));
     $date = htmlspecialchars(trim($_POST["date"]));
@@ -71,8 +70,9 @@ if ($havePost) {
 	<title>Function page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link href="index_v1.css" rel="stylesheet" type="text/css">
+    <link href="console.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script scr="index.js"></script>
+	<script src="index.js"></script>
 	<style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 	</style>
@@ -122,7 +122,7 @@ if ($havePost) {
 		</div>
 
 		<div class="todaylist">
-			<div >
+			<div>
 				<div id="myDIV" class="header">
 					<h2 style="margin:5px">My To Do List</h2>
 					<br />
@@ -131,32 +131,40 @@ if ($havePost) {
 				</div>
 				<br />
 				<ul id="myList">
-            <?php
-            if ($dbOk) {
-
-                $query = "select * from onetime_task where deletion = 0";
-                $result = $db->query($query);
-                $numRecords = $result->num_rows;
-                // get current date
-                $date = date('Y-m-d');
-                for ($i=0; $i < $numRecords; $i++) {
-                    $record = $result->fetch_assoc();
-                    if($record['date']==$date){
-                        echo '<li>'.$record['name'].'</li>';
+                <?php
+                if ($dbOk) {
+                    $query = "select * from onetime_task where deletion = 0";
+                    $result = $db->query($query);
+                    $numRecords = $result->num_rows;
+                    // get current date
+                    $date = date('Y-m-d');
+                    for ($i=0; $i < $numRecords; $i++) {
+                        $record = $result->fetch_assoc();
+                        if($record['date']==$date){
+                            echo '<li>'.$record['name'].'</li>';
+                        }
                     }
                 }
-            }
-            ?>
-				</ul>
+                ?>
+			    </ul>
 				<div class="finished">
 					<button id="bottonf" type="submit" onclick="some js function">I already finish these!</button>
 				</div>
 				</section>
 			</div>
 		</div>
+        <div id="console">
+            <div id="text_box">
+                <p id="console_content"></p>
+            </div>
+            <div id="command_input">
+                <input id="commandline" type="text" name="command_line" placeholder="Command line">
+                <button type="button" id="commandButton">run</button>
+            </div>
+        </div>
 	</div>
 
-
+    <p id="try">sdsss</p>
 	<!--add task popup window-->
 	<div id="myModal" class="modal">
 		<div class="modal-body">
@@ -202,196 +210,6 @@ if ($havePost) {
 			</form>
 		</div>
 	</div>
-
-	<script>
-
-    // Get the modal
-    var CountdownTimer = document.getElementById("Countdown_Outside");
-
-    // Get the button that opens the modal
-    var CountdownTimer_bnt = document.getElementById("Countdown_timer");
-
-    // Get the <span> element that closes the modal
-    var CountdownSpan = document.getElementsByClassName("close_countdown")[0];
-
-    // When the user clicks the button, open the modal
-    /*CountdownTimer_bnt.onclick = function() {
-      CountdownTimer.style.display = "block";
-    }*/
-
-    // When the user clicks on <span> (x), close the modal
-    CountdownSpan.onclick = function() {
-      CountdownTimer.style.display = "none";
-    }
-    /*
-    // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == CountdownTimer) {
-            CountdownTimer.style.display = "none";
-          }
-        }*/
-    var AccumulteTimer = document.getElementById("Accumulate_Outside");
-    var AccumulateTimer_bnt = document.getElementById("Accumulate_timer");
-    var AccumulateSpan = document.getElementsByClassName("close_accumulate")[0];
-
-    AccumulateTimer_bnt.onclick = function() {
-      AccumulteTimer.style.display = "block";
-    }
-
-    AccumulateSpan.onclick = function() {
-      AccumulteTimer.style.display = "none";
-    }
-
-
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-      else if (event.target == CountdownTimer) {
-        CountdownTimer.style.display = "none";
-      }
-    }
-
-
-    // Update the count down every 1 second
-    function Countdown_timer(time){
-      var click_time = new Date().getTime();
-      setInterval(function(){
-        calculate(time,click_time);
-      }, 1000);
-      var CountdownTimer = document.getElementById("Countdown_Outside");
-      CountdownTimer.style.display = "block";
-
-    }
-
-    function calculate(time,click_time){
-      var now = new Date().getTime();
-      var distance = Math.floor(time*3600000-(now-click_time));
-      // Time calculations for days, hours, minutes and seconds
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Output the result in an element with id="demo"
-      show_time= hours + "h "+ minutes + "m " + seconds + "s ";
-      // If the count down is over, write some text
-      if (distance < 0) {
-        clearInterval(distance);
-        show_time = "EXPIRED";
-      }
-      document.getElementById("CountdownTimer_time").innerHTML=show_time;
-    }
-    //accumulate timer functions
-    var s=0
-    var m=0
-    var h=0
-    var t
-    function timedCount()
-    {
-      var time=h+":"+m+":"+s
-      document.getElementById('txt').value=time
-      s=s+1
-      if(s==60){
-        m+=1
-        s=0
-      }
-      if(m==60){
-        h+=1
-        m=0
-      }
-      t=setTimeout("timedCount()",1000)
-    }
-    function stopCount()
-    {
-      clearTimeout(t)
-    }
-
-    function clearCount()
-    {
-      s=0
-      m=0
-      h=0
-      time=h+":"+m+":"+s
-      document.getElementById('txt').value=time
-      clearTimeout(t)
-    }
-
-    // Create a "close" button and append it to each list item
-    var myNodelist = document.getElementsByTagName("LI");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
-      var span = document.createElement("SPAN");
-      var txt = document.createTextNode("\u00D7");
-      span.className = "close";
-      span.appendChild(txt);
-      myNodelist[i].appendChild(span);
-    }
-
-    // Click on a close button to hide the current list item
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function() {
-        var div = this.parentElement;
-        div.style.display = "none";
-      }
-    }
-
-    // Add a "checked" symbol when clicking on a list item
-    var list = document.querySelector('ul');
-    list.addEventListener('click', function(ev) {
-      if (ev.target.tagName === 'LI') {
-        ev.target.classList.toggle('checked');
-      }
-    }, false);
-
-    // Create a new list item when clicking on the "Add" button
-    function newElement() {
-      var li = document.createElement("li");
-      var inputValue = document.getElementById("myInput").value;
-      var t = document.createTextNode(inputValue);
-      li.appendChild(t);
-      if (inputValue === '') {
-        alert("You must write something!");
-      } else {
-        document.getElementById("myList").appendChild(li);
-      }
-      document.getElementById("myInput").value = "";
-
-      var span = document.createElement("SPAN");
-      var txt = document.createTextNode("\u00D7");
-      span.className = "close";
-      span.appendChild(txt);
-      li.appendChild(span);
-
-      for (i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-          var div = this.parentElement;
-          div.style.display = "none";
-        }
-      }
-    }
-	</script>
 
 </body>
 </html>
