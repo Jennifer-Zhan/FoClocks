@@ -202,7 +202,16 @@ $(document).ready(function(){
         var sep=inputCommand.split(" ");
         /*implement add instruction*/
         if(sep[0]=="add"){
-            var name=sep[1];
+            var name_type=sep[1];
+            //format the name of task if it has multiple words.
+            name_type=name_type.split("_");
+            var name="";
+            for (var i=0; i<name_type.length-1; i++){
+                name+=name_type[i].toUpperCase();
+                name+=" ";
+            }
+            name+=name_type[name_type.length-1].toUpperCase();
+
             var timer=sep[3];
             var date=sep[2];
             var countdown=sep[4];
@@ -271,7 +280,16 @@ $(document).ready(function(){
 
         /*implement delete instruction*/
         else if(sep[0]=="delete"){
-            var name=sep[1];
+            var name_type=sep[1];
+            // deal with multiple-words task name.
+            name_type=name_type.split("_");
+            var name="";
+            for (var i=0; i<name_type.length-1; i++){
+                name+=name_type[i].toUpperCase();
+                name+=" ";
+            }
+            name+=name_type[name_type.length-1].toUpperCase();
+
             $.ajax({
                 url:'delete.php',
                 method:'POST',
