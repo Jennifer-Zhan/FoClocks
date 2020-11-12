@@ -8,6 +8,13 @@ CREATE TABLE `onetime_task` (
  PRIMARY KEY (`taskid`)
 );
 
+CREATE TABLE `command_line` (
+ `lineid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `command_line` varchar(100) DEFAULT NULL,
+ PRIMARY KEY (`lineid`)
+);
+
+
 INSERT INTO onetime_task VALUES
   (1, "WEBSYS PROJECT", "Countdown", '2020-10-17', 2, 0),
   (2, "COMPUTER ORGANIZATION HW", "Countdown", '2020-10-17', 2, 0),

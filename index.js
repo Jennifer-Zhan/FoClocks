@@ -190,16 +190,27 @@ $(document).ready(function(){
     //function for console command line execution and instructions implement.
     $("#commandButton").click(function(){
         var p = document.createElement("p");
-        var inputCommand = document.getElementById("commandline").value;
-        var t = document.createTextNode(inputCommand);
+        var command_line = document.getElementById("commandline").value;
+        $.ajax({
+          url:'CommandLine/command.php',
+          method:'POST',
+          data:{
+            command_line: command_line
+          },
+          success:function(data){
+            alert(data);
+          }
+
+        })
+        var t = document.createTextNode(command_line);
         p.appendChild(t);
-        if (inputCommand === '') {
+        if (command_line === '') {
             alert("You must write something!");
         } else {
             document.getElementById("text_box").appendChild(p);
         }
         document.getElementById("commandline").value = "";
-        var sep=inputCommand.split(" ");
+        var sep=command_line.split(" ");
         /*implement add instruction*/
         if(sep[0]=="add"){
             var name_type=sep[1];
@@ -216,7 +227,7 @@ $(document).ready(function(){
             var date=sep[2];
             var countdown=sep[4];
             $.ajax({
-                url:'insert.php',
+                url:'CommandLine/insert.php',
                 method:'POST',
                 data:{
                     name:name,
@@ -236,7 +247,7 @@ $(document).ready(function(){
             if(update_var.includes("-")){
                 var date=update_var;
                 $.ajax({
-                    url:'update.php',
+                    url:'CommandLine/update.php',
                     method:'POST',
                     data:{
                         name:name,
@@ -251,7 +262,7 @@ $(document).ready(function(){
             else if(!isNaN(update_var)){
                 var countdown=update_var;
                 $.ajax({
-                    url:'update.php',
+                    url:'CommandLine/update.php',
                     method:'POST',
                     data:{
                         name:name,
@@ -265,7 +276,7 @@ $(document).ready(function(){
             else{
                 var timer=update_var;
                 $.ajax({
-                    url:'update.php',
+                    url:'CommandLine/update.php',
                     method:'POST',
                     data:{
                         name:name,
@@ -291,7 +302,7 @@ $(document).ready(function(){
             name+=name_type[name_type.length-1].toUpperCase();
 
             $.ajax({
-                url:'delete.php',
+                url:'CommandLine/delete.php',
                 method:'POST',
                 data:{
                     name:name,

@@ -161,6 +161,18 @@ if ($havePost) {
         <div id="console">
             <div id="text_box">
                 <p id="console_content"></p>
+                <?php
+                if ($dbOk) {
+                    $query = "select * from command_line where lineid < 10";
+                    $result = $db->query($query);
+                    $numRecords = $result->num_rows;
+                    for ($i=0; $i < $numRecords; $i++) {
+                        $record = $result->fetch_assoc();
+                        echo '<p>'.$record['command_line'].'</p>';
+                    }
+                    $result->free();
+                }
+                ?>
             </div>
             <div id="command_input">
                 <input id="commandline" type="text" name="command_line" placeholder="Command line">
