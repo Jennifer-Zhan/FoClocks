@@ -70,4 +70,12 @@ function drawClock() {
       ctx.stroke();
       ctx.rotate(-pos);
   }
+
+  function register(){
+    document.getElementByID("register").addEventListener("click", click_register);
+  }
+
+  function click_register(){
+    
+  }
   

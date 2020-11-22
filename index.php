@@ -79,7 +79,7 @@ if ($havePost) {
 </head>
 <body>
 <div class="toptags">
-	<section id="tag1"><a href="homepage/index.html">HOME</a></section>
+	<section id="tag1"><a href="homepage/index.php">HOME</a></section>
 	<section id="tag2"><a href="completed%20task.html">Completed</a></section>
 	<section id="tag3"><a href="overview.html">Overview</a></section>
 	<section id="tag4"><a href="">Sign In</a></section>
