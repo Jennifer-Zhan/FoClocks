@@ -10,10 +10,32 @@ CREATE TABLE `onetime_task` (
 
 CREATE TABLE `command_line` (
  `lineid` int(10) unsigned NOT NULL AUTO_INCREMENT,
- `command_line` varchar(100) DEFAULT NULL,
+ `command_line` varchar(255) DEFAULT NULL,
  PRIMARY KEY (`lineid`)
 );
 
+CREATE TABLE `users` (
+ `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `username` varchar(255) DEFAULT NULL,
+ `hash` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`uid`)
+);
+
+CREATE TABLE `permissions` (
+ `pid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `permname` varchar(255) DEFAULT NULL,
+ `description` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`pid`)
+);
+
+CREATE TABLE `User_perms` (
+ id int(10) AUTO_INCREMENT, 
+ uid int,
+ pid int,
+ PRIMARY KEY(id),
+ FOREIGN KEY(uid) REFERENCES users(uid), 
+ FOREIGN KEY(pid) REFERENCES permissions(pid)
+);
 
 INSERT INTO onetime_task VALUES
   (1, "WEBSYS PROJECT", "Countdown", '2020-10-17', 2, 0),
@@ -21,3 +43,4 @@ INSERT INTO onetime_task VALUES
   (3, "PREPARE fOR INTERVIEW", "Accumulate", '2020-10-17',0, 0),
   (4, "PREPARE fOR WEBSYS QUIZ", "Accumulate", '2020-10-18',0,0),
   (5, "FOCS HW", "Accumulate", '2020-10-18',0,0)
+
