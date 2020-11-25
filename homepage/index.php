@@ -34,7 +34,22 @@ if (isset($_POST['login_form'])) {
             $record = $hash_execute->fetch_assoc();
             $stored_hash=$record['hash'];
             if(password_verify($password , $stored_hash)){
-                header("Location: ../index.php");
+                $Query_uid="SELECT uid FROM users WHERE username='".$username."'";
+                $uid_execute=$conn->query($Query_uid);
+                $uid_record = $uid_execute->fetch_assoc();
+                $uid=$uid_record['uid'];
+                $Query_finduid="SELECT uid FROM profile_info WHERE uid='".$uid."'";
+                $uid_find = $conn->query($Query_finduid);
+                if($uid_find==TRUE){
+                  $_SESSION['uid'] = $$uid;
+                  header("Location: ../index.php");
+
+                }
+                else{
+                  $Query_profile="INSERT INTO `profile_info` (`uid`) VALUES ('".$uid."')";
+                  $conn->query($Query_profile);
+                  header("Location: ../index.php");
+                }
             }
             else{
                 echo "UserName or Password Incorrect!";
