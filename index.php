@@ -82,7 +82,7 @@ if ($havePost) {
 	<section id="tag1"><a href="homepage/index.php">HOME</a></section>
 	<section id="tag2"><a href="completed%20task.html">Completed</a></section>
 	<section id="tag3"><a href="overview.html">Overview</a></section>
-	<section id="tag4"><a href="">Sign In</a></section>
+	<section id="tag4"><a href="tabs/profile.php">Profile</a></section>
 	<section id="history"><a href="">History</a></section>
   <img src="1.png" alt="this is a image" width="60" id="myBtn"/></button>
 </div>
