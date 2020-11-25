@@ -1,3 +1,10 @@
+window.onload = function () {
+  document.getElementById("register").addEventListener("click", click_register);
+  document.getElementById("close_register").addEventListener("click", close_register);
+  document.getElementById("user_login").addEventListener("click", click_login);
+  document.getElementById("close_login").addEventListener("click", close_login);
+}
+
 function drawClock() {
     drawFace(ctx, radius);
     drawNumbers(ctx, radius);
@@ -71,11 +78,23 @@ function drawClock() {
       ctx.rotate(-pos);
   }
 
-  function register(){
-    document.getElementByID("register").addEventListener("click", click_register);
-  }
 
   function click_register(){
-    
+    var register_form=document.getElementById("register_block");
+    register_form.style.display = "block";
   }
-  
+
+  function close_register(){
+    var register_form=document.getElementById("register_block");
+    register_form.style.display = "none";
+  }
+
+  function click_login(){
+    var register_form=document.getElementById("foclocks_login");
+    register_form.style.display = "block";
+  }
+
+  function close_login(){
+    var register_form=document.getElementById("foclocks_login");
+    register_form.style.display = "none";
+  }

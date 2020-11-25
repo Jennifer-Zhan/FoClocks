@@ -37,7 +37,7 @@ if (isset($_POST['login_form'])) {
                 header("Location: ../index.php");
             }
             else{
-                echo "UserName or Password Incorrect!"
+                echo "UserName or Password Incorrect!";
             }
         }  
     }
@@ -68,30 +68,11 @@ if (isset($_POST['login_form'])) {
 	</div>
 	<p class="title">FoClocks <br /><br />feeling good today?</p>
 	<div class="bottonb">
-		<p class="button_enter"><a href="../index.php">enter without login</a></p>
+		<p class="button_enter"><a href="../index.php">Enter Without Login</a></p>
 		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <button type="button" id="user_login">Sign In</button>
-    <form class="login_form" action="index.php" method="post">
-      <h4>Log In using FoClocks account</h4>
-      <div class="input_block">
-        <span class="input_type"><br />Username: <br /></span><input type="text" name="username" value="">
-        <p></p>
-        <span class="input_type"><br />Password: <br /></span><input type="text" name="password" value=""><br /><br />
-        <input type="submit" name="login_form" value="Add">
-      </div>
-    </form>
-    <button type="button" id="register">New User - Sign up</button>
-    <form class="register_form" action="index.php" method="post">
-      <h4>Sign up for a new account</h4>
-      <div class="input_block">
-        <span class="input_type"><br />Username: <br /></span><input type="text" name="username" value="">
-        <p></p>
-        <span class="input_type"><br />Password: <br /></span><input type="text" name="password" value="">
-        <span class="input_type"><br />Recomfirm Password: <br /></span><input type="text" name="recomfirm" value=""><br /><br />
-        <input type="submit" name="register_form" value="submit">
-      </div>
-    </form>
-    
+    <button type="button" id="user_login">Sign In with FoClocks Account</button>
+    <br/>
+    <button type="button" id="register">New User - Sign up a FoClocks Account</button>
 	</div>
 
 <!--	<div id="clock">-->
@@ -99,6 +80,33 @@ if (isset($_POST['login_form'])) {
 <!--						style="background-color:#c8d5f6">-->
 <!--		</canvas>-->
 <!--	</div>-->
+</div>
+<div id="foclocks_login">
+  <div id="login_inner">
+  <span id="close_login">&times;</span>
+  <form class="login_form" action="index.php" method="post">
+    <h4>Log In using FoClocks account</h4>
+      <div class="input_block">
+        <span class="input_type"><br />Username: <br /></span><input type="text" name="username" value="">
+        <span class="input_type"><br />Password: <br /></span><input type="text" name="password" value=""><br /><br />
+        <input type="submit" name="login_form" value="submit">
+      </div>
+  </form>
+  </div>
+</div>
+<div id="register_block">
+  <div id="register_inner">
+    <span id="close_register">&times;</span>
+    <form id="register_form" action="index.php" method="post">
+    <h4>Sign up for a new account</h4>
+    <div class="input_block">
+      <span class="input_type"><br />Username: <br /></span><input type="text" name="username" value="">
+      <span class="input_type"><br />Password: <br /></span><input type="text" name="password" value="">
+      <span class="input_type"><br />Recomfirm Password: <br /></span><input type="text" name="recomfirm" value=""><br /><br />
+      <input type="submit" name="register_form" value="submit">
+    </div>
+    </form>
+  </div>
 </div>
 
 
