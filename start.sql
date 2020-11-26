@@ -38,14 +38,6 @@ CREATE TABLE `profile_info` (
  FOREIGN KEY(uid) REFERENCES users(uid) 
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `User_perms` (
- id int(10) AUTO_INCREMENT, 
- uid int,
- pid int,
- PRIMARY KEY(id),
- FOREIGN KEY(uid) REFERENCES users(uid), 
- FOREIGN KEY(pid) REFERENCES permissions(pid)
-);
 
 INSERT INTO onetime_task VALUES
   (1, "WEBSYS PROJECT", "Countdown", '2020-10-17', 2, 0),
