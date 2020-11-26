@@ -3,3 +3,6 @@ FoClocks is a time management app that perfectly combines keep-focus timer, well
 
 # Update
 We are currently turning our direction of FoClocks to a more programmer-focus time management app. We created our own instruction set for this app that could easily add, edit, delete tasks, and naviagte our website through typing command line in the console on our webpage. There will be a help alert appear when you click on the help button which could give you some tutorials on how to use our command line.
+
+# referrence
+https://www.codexworld.com/upload-store-image-file-in-database-using-php-mysql/
