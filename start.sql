@@ -30,13 +30,13 @@ CREATE TABLE `permissions` (
 
 CREATE TABLE `profile_info` (
  `infoid` int(10) unsigned NOT NULL AUTO_INCREMENT,
- `image` varbinary(6000) DEFAULT NULL,
+ `image` longtext DEFAULT NULL,
  `first_name` varchar(255) DEFAULT NULL,
  `last_name` varchar(255) DEFAULT NULL,
  `uid` int(10) unsigned NOT NULL,
  PRIMARY KEY (`infoid`),
  FOREIGN KEY(uid) REFERENCES users(uid) 
-);
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `User_perms` (
  id int(10) AUTO_INCREMENT, 

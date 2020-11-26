@@ -38,17 +38,23 @@ if (isset($_POST['login_form'])) {
                 $uid_execute=$conn->query($Query_uid);
                 $uid_record = $uid_execute->fetch_assoc();
                 $uid=$uid_record['uid'];
+                echo $uid;
                 $Query_finduid="SELECT uid FROM profile_info WHERE uid='".$uid."'";
                 $uid_find = $conn->query($Query_finduid);
-                if($uid_find==TRUE){
-                  $_SESSION['uid'] = $$uid;
-                  header("Location: ../index.php");
+                session_start();
+                if($uid_find->num_rows>0){
+                  $_SESSION['uid'] = $uid;
+                  echo $_SESSION['uid'];
+                  //header("Location: ../index.php");
 
                 }
                 else{
                   $Query_profile="INSERT INTO `profile_info` (`uid`) VALUES ('".$uid."')";
-                  $conn->query($Query_profile);
-                  header("Location: ../index.php");
+                  $success_add=$conn->query($Query_profile);
+                  echo $success_add;
+                  $_SESSION['uid'] = $uid;
+                  echo "New account log in";
+                  //header("Location: ../index.php");
                 }
             }
             else{
