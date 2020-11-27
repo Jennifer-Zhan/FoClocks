@@ -7,59 +7,47 @@ if ($db->connect_error) {
 } else {
     $dbOk = true;
 }
-$havePost = isset($_POST["save"]);
 
 $errors = '';
-if ($havePost) {
-    $name = htmlspecialchars(trim($_POST["name"]));
-    $timer = htmlspecialchars(trim($_POST["timer"]));
-    $date = htmlspecialchars(trim($_POST["date"]));
-    $countdown = htmlspecialchars(trim($_POST["countdown"]));
-    $focusId = '';
 
-    if ($name == '') {
-        $errors .= '<li> Assignment name may not be blank</li>';
-        if ($focusId == '') $focusId = '#name';
+//get inputs from the Add infos form and insert to the database.
+if (isset($_POST['changeButton_c'])) {
+    if ($_POST['changeButton_c']){ {
+	    $name = htmlspecialchars(trim($_POST["addTasksName"]));
+	    $time = htmlspecialchars(trim($_POST["time_c"]));
+	    $timeZone = htmlspecialchars(trim($_POST["timeZone_c"]));
+	    $tag = htmlspecialchars(trim($_POST["tag_c"]));
+	    $details = htmlspecialchars(trim($_POST["details_c"]));
+		$insQuery = "insert into onetime_task (name, time, timeZone, tag, details, deletion)
+	          VALUES ('".$name."', '".$time."', '".$timeZone."','".$tag ."', '".$details."', 0)";
+	    $db->query($insQuery);
     }
-    if ($timer == '') {
-        if ($focusId == '') $focusId = '#timer';
-    }
+}
 
-    if ($date == '') {
-        $errors .= '<li> Task working date may not be blank</li>';
-        if ($focusId == '') $focusId = '#date';
-    }
-
-    if ($countdown == '') {
-        if ($focusId == '') $focusId = '#countdown';
-    }
-
-    if ($_POST) {
-        if ($errors != '') {
-            echo '<div class="messages"><h4>Please correct the following errors:</h4><ul>';
-            echo $errors;
-            echo '</ul></div>';
-            echo '<script type="text/javascript">';
-            echo '  $(document).ready(function() {';
-            echo '    $("' . $focusId . '").focus();';
-            echo '  });';
-            echo '</script>';
-        } else {
-            if ($dbOk) {
-
-                $nameForDb = trim($_POST["name"]);
-                $timerForDb = trim($_POST["timer"]);
-                $dateForDb = trim($_POST["date"]);
-                $countdownForDb = trim($_POST["countdown"]);
-
-                $insQuery = "insert into onetime_task (name, timer, date, countdown, deletion)
-          VALUES ('".$nameForDb."', '".$timerForDb."', '".$dateForDb."','".$countdownForDb."', 0)";
-                $db->query($insQuery);
-
-            }
-        }
-        header("Location: " . $_SERVER['REQUEST_URI']);
-        exit();
+//get inputs from change infos and update the database if the task name matches.
+if (isset($_POST['changeButton'])) {
+    if ($_POST['changeButton']){ {
+	    $name = htmlspecialchars(trim($_POST["changeTasksName"]));
+	    $time = htmlspecialchars(trim($_POST["time"]));
+	    $timeZone = htmlspecialchars(trim($_POST["timeZone"]));
+	    $tag = htmlspecialchars(trim($_POST["tag"]));
+	    $details = htmlspecialchars(trim($_POST["details"]));
+	    if($time!=""){
+	    	$insQuery = "UPDATE onetime_task SET `time` = '".$time."' WHERE `name` = '".$name."';";
+	    	$db->query($insQuery);
+	    }
+	    if($timeZone!=""){
+	    	$insQuery = "UPDATE onetime_task SET `timeZone` = '".$timeZone."' WHERE `name` = '".$name."';";
+	    	$db->query($insQuery);
+	    }
+	    if($tag!=""){
+	    	$insQuery = "UPDATE onetime_task SET `tag` = '".$tag."' WHERE `name` = '".$name."';";
+	    	$db->query($insQuery);
+	    }
+	    if($details!=""){
+	    	$insQuery = "UPDATE onetime_task SET `details` = '".$details."' WHERE `name` = '".$name."';";
+	    	$db->query($insQuery);
+	    }
     }
 }
 ?>
@@ -96,20 +84,22 @@ if ($havePost) {
           $query = "select * from onetime_task where deletion = 0";
           $result = $db->query($query);
           $numRecords = $result->num_rows;
+          echo '<table>';
           for ($i=0; $i < $numRecords; $i++) {
               $record = $result->fetch_assoc();
-              echo '<section class="singletask">';
-              echo '<h3 class="TaskName">'.$record['name'].'</h3>';
-              echo '<h3 class="WorkDate">'.$record['date'].'</h3>';
+              echo '<tr>';
+              echo '<th class="TaskName">'.$record['name'].'</th>';
+              echo '<th class="WorkDate">'.$record['date'].'</th>';
+              /*
               if($record['timer']=="Countdown"){
-                  echo '<button onclick="Countdown_timer('.$record['countdown'].')" type="button" class="TimerType">'.$record['timer'].'</button>';
+                  echo '<th><button onclick="Countdown_timer('.$record['countdown'].')" type="button" class="TimerType">'.$record['timer'].'</button></th>';
               }
               else if($record['timer']=="Accumulate"){
-                  echo '<button id="Accumulate_timer" type="button" class="TimerType">'.$record['timer'].'</button>';
-              }
-
-              echo '</section>';
+                  echo '<th><button id="Accumulate_timer" type="button" class="TimerType">'.$record['timer'].'</button></th>';
+              }*/
+              echo '</tr>';
           }
+          echo '</table>';
           $result->free();
       }
       ?>
