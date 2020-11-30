@@ -1,231 +1,144 @@
 <?php
+// connect the database
 $dbOk = false;
-@ $db = new mysqli('localhost', 'root', '', 'websys_project');
-if ($db->connect_error) {
+@ $conn = new mysqli('localhost', 'root', '', 'websys_project');
+if ($conn->connect_error) {
     echo '<div class="messages">Could not connect to the database. Error: ';
-    echo $db->connect_errno . ' - ' . $db->connect_error . '</div>';
+    echo $conn->connect_errno . ' - ' . $conn->connect_error . '</div>';
 } else {
     $dbOk = true;
 }
-$havePost = isset($_POST["save"]);
 
-$errors = '';
-if ($havePost) {
-    $name = htmlspecialchars(trim($_POST["name"]));
-    $timer = htmlspecialchars(trim($_POST["timer"]));
-    $date = htmlspecialchars(trim($_POST["date"]));
-    $countdown = htmlspecialchars(trim($_POST["countdown"]));
-    $focusId = '';
-
-    if ($name == '') {
-        $errors .= '<li> Assignment name may not be blank</li>';
-        if ($focusId == '') $focusId = '#name';
-    }
-    if ($timer == '') {
-        if ($focusId == '') $focusId = '#timer';
-    }
-
-    if ($date == '') {
-        $errors .= '<li> Task working date may not be blank</li>';
-        if ($focusId == '') $focusId = '#date';
-    }
-
-    if ($countdown == '') {
-        if ($focusId == '') $focusId = '#countdown';
-    }
-
-    if ($_POST) {
-        if ($errors != '') {
-            echo '<div class="messages"><h4>Please correct the following errors:</h4><ul>';
-            echo $errors;
-            echo '</ul></div>';
-            echo '<script type="text/javascript">';
-            echo '  $(document).ready(function() {';
-            echo '    $("' . $focusId . '").focus();';
-            echo '  });';
-            echo '</script>';
-        } else {
-            if ($dbOk) {
-
-                $nameForDb = trim($_POST["name"]);
-                $timerForDb = trim($_POST["timer"]);
-                $dateForDb = trim($_POST["date"]);
-                $countdownForDb = trim($_POST["countdown"]);
-
-                $insQuery = "insert into onetime_task (name, timer, date, countdown, deletion)
-          VALUES ('".$nameForDb."', '".$timerForDb."', '".$dateForDb."','".$countdownForDb."', 0)";
-                $db->query($insQuery);
-
-            }
-        }
-        header("Location: " . $_SERVER['REQUEST_URI']);
-        exit();
+// adding Users
+if (isset($_POST['register_form'])) {
+    if ($_POST['register_form']) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $recomfirm = $_POST['recomfirm'];
+        if($password==$recomfirm){
+            $hash=password_hash($password, PASSWORD_DEFAULT);
+            $Query_AddUsers = "INSERT INTO `users` (`username`, `hash`) VALUES ('".$username."', '".$hash."')";
+            $conn->query($Query_AddUsers);
+        }  
     }
 }
+
+// sign in
+if (isset($_POST['login_form'])) {
+    if ($_POST['login_form']) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $Query_hash="SELECT hash FROM users WHERE username='".$username."'";
+        $hash_execute=$conn->query($Query_hash);
+        if($hash_execute){
+            $record = $hash_execute->fetch_assoc();
+            $stored_hash=$record['hash'];
+            if(password_verify($password , $stored_hash)){
+                $Query_uid="SELECT uid FROM users WHERE username='".$username."'";
+                $uid_execute=$conn->query($Query_uid);
+                $uid_record = $uid_execute->fetch_assoc();
+                $uid=$uid_record['uid'];
+                echo $uid;
+                $Query_finduid="SELECT uid FROM profile_info WHERE uid='".$uid."'";
+                $uid_find = $conn->query($Query_finduid);
+                session_start();
+                if($uid_find->num_rows>0){
+                  $_SESSION['uid'] = $uid;
+                  echo $_SESSION['uid'];
+                  header("Location: main_page/index.php");
+
+                }
+                else{
+                  $Query_profile="INSERT INTO `profile_info` (`uid`) VALUES ('".$uid."')";
+                  $success_add=$conn->query($Query_profile);
+                  echo $success_add;
+                  $_SESSION['uid'] = $uid;
+                  echo "New account log in";
+                  header("Location: main_page/index.php");
+                }
+            }
+            else{
+                echo "UserName or Password Incorrect!";
+            }
+        }  
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Function page</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<link href="index_v1.css" rel="stylesheet" type="text/css">
-    <link href="console.css" rel="stylesheet" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="index.js"></script>
-	<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-	</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="855327976022-mgtq0odsogclg64js7t7e4agkfk5v0k2.apps.googleusercontent.com">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=3.0.1"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <link rel="stylesheet" href="homepage_resouces/index.css">
+  <script src="homepage_resouces/index.js"></script>
 </head>
 <body>
-<div class="toptags">
-	<section id="tag1"><a href="homepage/index.php">HOME</a></section>
-	<section id="tag2"><a href="completed%20task.html">Completed</a></section>
-	<section id="tag3"><a href="overview.html">Overview</a></section>
-	<section id="tag4"><a href="tabs/profile.php">Profile</a></section>
-	<section id="history"><a href="">History</a></section>
-  <img src="1.png" alt="this is a image" width="60" id="myBtn"/></button>
+<!--<header>-->
+<!--  <h1>Welcome To FoClocks!</h1>-->
+<!--</header>-->
+
+<div class="login_block">
+	<div class="png2">
+		<img src="homepage_resouces/2.png" alt="this is a image" width="210" class="png2"/></button>
+	</div>
+	<p class="title">FoClocks <br /><br />feeling good today?</p>
+	<div class="bottonb">
+		<p class="button_enter"><a href="../index_v4.php">Enter Without Login</a></p>
+		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <button type="button" id="user_login">Sign In with FoClocks Account</button>
+    <br/>
+    <button type="button" id="register">New User - Sign up a FoClocks Account</button>
+	</div>
+
+<!--	<div id="clock">-->
+<!--		<canvas id="canvas" width="400" height="400"-->
+<!--						style="background-color:#c8d5f6">-->
+<!--		</canvas>-->
+<!--	</div>-->
 </div>
-<div class="bottom">
-	<div class="parent">
-		<div class="left">
-			<h2 id="oneTime">One-Time Tasks</h2>
-        <?php
-        if ($dbOk) {
-            $query = "select * from onetime_task where deletion = 0";
-            $result = $db->query($query);
-            $numRecords = $result->num_rows;
-            for ($i=0; $i < $numRecords; $i++) {
-                $record = $result->fetch_assoc();
-                echo '<section class="singletask">';
-                echo '<h3 class="TaskName">'.$record['name'].'</h3>';
-                echo '<h3 class="WorkDate">'.$record['date'].'</h3>';
-                if($record['timer']=="Countdown"){
-                    echo '<button onclick="Countdown_timer('.$record['countdown'].')" type="button" class="TimerType">'.$record['timer'].'</button>';
-                }
-                else if($record['timer']=="Accumulate"){
-                    echo '<button id="Accumulate_timer" type="button" class="TimerType">'.$record['timer'].'</button>';
-                }
+<div id="foclocks_login">
+  <div id="login_inner">
+  <span id="close_login">&times;</span>
+  <form class="login_form" action="index.php" method="post">
+    <h4>Log In using FoClocks account</h4>
+      <div class="input_block">
+        <span class="input_type"><br />Username: <br /></span><input type="text" name="username" value="">
+        <span class="input_type"><br />Password: <br /></span><input type="text" name="password" value=""><br /><br />
+        <input type="submit" name="login_form" value="submit">
+      </div>
+  </form>
+  </div>
+</div>
+<div id="register_block">
+  <div id="register_inner">
+    <span id="close_register">&times;</span>
+    <form id="register_form" action="index.php" method="post">
+    <h4>Sign up for a new account</h4>
+    <div class="input_block">
+      <span class="input_type"><br />Username: <br /></span><input type="text" name="username" value="">
+      <span class="input_type"><br />Password: <br /></span><input type="text" name="password" value="">
+      <span class="input_type"><br />Recomfirm Password: <br /></span><input type="text" name="recomfirm" value=""><br /><br />
+      <input type="submit" name="register_form" value="submit">
+    </div>
+    </form>
+  </div>
+</div>
 
-                echo '</section>';
-            }
-            $result->free();
-        }
-        ?>
-		</div>
 
-		<div class="left2">
-			<section >
-				<h2 id="everyday">Everyday Tasks</h2>
-				<section class="singletask"><h3>Task Name: Total Time|Completed days</h3></section>
-			</section>
-		</div>
 
-		<div class="todaylist">
-			<div>
-				<div id="myDIV" class="header">
-					<h2 style="margin:5px">My To Do List</h2>
-					<br />
-					<input type="text" class="input_4" id="myInput" placeholder="Title...">
-					<span onclick="newElement()" class="addBtn">Add</span>
-				</div>
-				<br />
-				<ul id="myList">
-                <?php
-                if ($dbOk) {
-                    $query = "select * from onetime_task where deletion = 0";
-                    $result = $db->query($query);
-                    $numRecords = $result->num_rows;
-                    // get current date
-                    $date = date('Y-m-d');
-                    for ($i=0; $i < $numRecords; $i++) {
-                        $record = $result->fetch_assoc();
-                        if($record['date']==$date){
-                            echo '<li>'.$record['name'].'</li>';
-                        }
-                    }
-                }
-                ?>
-			    </ul>
-				<div class="finished">
-					<button id="bottonf" type="submit" onclick="some js function">I already finish these!</button>
-				</div>
-				</section>
-			</div>
-        </div>
-
-        <div id="help_box">
-            <button type="button" id="help">HELP</button>
-        </div>    
-
-        <div id="console">
-            <div id="text_box">
-                <p id="console_content"></p>
-                <?php
-                if ($dbOk) {
-                    $query = "select * from command_line where lineid < 10";
-                    $result = $db->query($query);
-                    $numRecords = $result->num_rows;
-                    for ($i=0; $i < $numRecords; $i++) {
-                        $record = $result->fetch_assoc();
-                        echo '<p>'.$record['command_line'].'</p>';
-                    }
-                    $result->free();
-                }
-                ?>
-            </div>
-            <div id="command_input">
-                <input id="commandline" type="text" name="command_line" placeholder="Command line">
-                <button type="button" id="commandButton">run</button>
-            </div>
-        </div>
-	</div>
-
-	<!--add task popup window-->
-	<div id="myModal" class="modal">
-		<div class="modal-body">
-			<span class="close">&times;</span>
-			<form id="addForm" name="addForm" action="index.php" method="post" onsubmit="return validate(this);">
-				<!--          <fieldset>-->
-				<div class="formData">
-					<label class="field" for="name">Task Name: </label>
-					<div class="value"><input class="input_1" type="text" size="30" placeholder="Task Name..." maxlength="33" value="<?php if($havePost && $errors != '') { echo $name; } ?>" name="name" id="name"/></div>
-					<br/>
-					<label class="field" for="timer">Timer Type:</label>
-					<div class="value"><input class="input_1" type="text" size="30" placeholder="Accumulate Timer..." maxlength="50" value="<?php if($havePost && $errors != '') { echo $timer; } ?>" name="timer" id="timer"/></div>
-					<br/>
-					<label class="field" for="date">Task Working Date:</label>
-					<div class="value"><input class="input_1" type="date" size="20" maxlength="19" value="<?php if($havePost && $errors != '') { echo $date; } ?>" name="date" id="date" /></div>
-					<br/>
-					<label class="field" for="countdown">Set Countdown Time:</label>
-					<div class="value"><input class="input_1" type="number" size="20" maxlength="20s" value="<?php if($havePost && $errors != '') { echo $countdown; } ?>" name="countdown" id="countdown" min="1" max="5"/></div>
-					<br />
-					<input type="submit" value="Add Task" class="input_2" id="save" name="save"/>
-
-				</div>
-				<!--          </fieldset>-->
-			</form>
-		</div>
-	</div>
-
-	<div id="Countdown_Outside">
-		<div id="CountdownTimer">
-			<span class="close_countdown">&times;</span>
-			<p id="CountdownTimer_time"></p>
-		</div>
-	</div>
-
-	<div id="Accumulate_Outside">
-		<div id="AccumulateTimer">
-			<span class="close_accumulate">&times;</span>
-			<form class="input_3">
-				<input type="button" class="input_bnt" value="Start!" onClick="timedCount()">
-				<input type="text" id="txt">
-				<input type="button" class="input_bnt" value="Stop!" onClick="stopCount()">
-				<input type="button" class="input_bnt" value="Clear!" onClick="clearCount()">
-			</form>
-		</div>
-	</div>
+<!--<script>-->
+<!--  var canvas = document.getElementById("canvas");-->
+<!--  var ctx = canvas.getContext("2d");-->
+<!--  var radius = canvas.height / 2;-->
+<!--  ctx.translate(radius, radius);-->
+<!--  radius = radius * 0.90-->
+<!--  setInterval(drawClock, 1000);-->
+<!--</script>-->
 
 </body>
 </html>

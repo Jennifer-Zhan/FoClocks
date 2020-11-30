@@ -209,7 +209,7 @@ div.map {
   padding: 12px;
 }
 
-#console_button {
+#commandButton {
   background-color: #FCFAFA;
   border: 2px solid #E5DBDF;
   border-radius: 6px;
@@ -219,6 +219,7 @@ div.map {
   font-weight: bold;
   margin-top: 12px;
   margin-left: 2%;
+  display: none;
 }
 
 #changeTasksName, #addTasksName{
@@ -234,6 +235,18 @@ input:focus {
 }
 
 #time, #timeZone, #tag, #changeButton {
+  margin-top: 4%;
+  font-family: "Roboto Condensed", serif;
+  border: 2px solid #FCFAFA;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 2px;
+  /*margin-left: 30px;*/
+  /*margin-right: auto;*/
+}
+
+#time_c, #timeZone_c, #tag_c, #changeButton_c {
   margin-top: 4%;
   font-family: "Roboto Condensed", serif;
   border: 2px solid #FCFAFA;
@@ -283,6 +296,17 @@ input:focus {
   font-weight: bold;
 }
 
+#details_c {
+  margin-top: 8%;
+  font-family: "Roboto Condensed", serif;
+  border: 2px solid #FCFAFA;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px;
+  font-weight: bold;
+}
+
 #searchRequirements {
   font-family: "Roboto Condensed", serif;
   border: 2px solid #E5DBDF;
@@ -294,7 +318,7 @@ input:focus {
   border-radius: 4px;
 }
 
-#searchTime, #searchTag, #searchName {
+#search, #show_all {
   font-family: "Roboto Condensed", serif;
   border: 2px solid #E5DBDF;
   font-size: 22px;
@@ -332,4 +356,34 @@ p.hover_tag:hover {
 
 p.hover_tag {
   margin: 0;
+}
+
+#console_content {
+  color: black;
+  text-align: left;
+  font-size: 20px;
+}
+  
+  
+#text_box {
+  border: 5px solid #374785;
+  border-radius: 10px;
+  background-color: white;
+  height: 300px;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  width: inherit;
+}
+
+/*the commmand line input div*/
+
+#commandline {
+  width: inherit;
+  border: 5px solid #374785;
+  border-radius: 10px;
+  height: 30px;
+  width: 300px;
+  padding-left: 5px;
+  font-size: 18px;
 }
