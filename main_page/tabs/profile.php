@@ -82,9 +82,7 @@ if (isset($_POST['edit_profile'])) {
 	<title>Function page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link href="stylesheets/profile.css" rel="stylesheet" type="text/css">
-    <link href="console.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="index.js"></script>
 	<style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 	</style>
