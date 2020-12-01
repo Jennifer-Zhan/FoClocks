@@ -79,6 +79,7 @@ div.todolists {
   display: inline-block;
   border-radius: 16px;
   border: 6px solid #FCFAFA;
+  overflow: auto;
 }
 
 div.lists {
@@ -86,7 +87,6 @@ div.lists {
   margin-top: 2%;
   margin-right: auto;
   margin-left: auto;
-  height: 73%;
   width: 95%;
   background-color: #FCFAFA;
   border: 4px solid #E5DBDF;
@@ -374,6 +374,7 @@ p.hover_tag {
   margin-bottom: 5px;
   position: relative;
   width: inherit;
+  overflow: auto;
 }
 
 /*the commmand line input div*/
@@ -387,3 +388,96 @@ p.hover_tag {
   padding-left: 5px;
   font-size: 18px;
 }
+
+/* center the countdown hour number */
+.countdown_hour {
+  text-align: center;
+  width: 30px;
+}
+
+
+
+#Countdown_Outside {
+  display: none;
+  /*position: fixed; *//* Stay in place */
+  /*z-index: 1;*/ /* Sit on top */
+  /*padding-top: 220px; *//* Location of the box */
+  /*left: 0;*/
+  /*top: 0;*/
+  /*width: 100%; *//* Full width */
+  /*height: 100%; *//* Full height */
+  /*overflow: auto; *//* Enable scroll if needed */
+  /*background-color: rgb(0,0,0); *//* Fallback color */
+  /*background-color: rgba(0,0,0,0.4); *//* Black w/ opacity */
+}
+
+#CountdownTimer_time {
+  text-align: center;
+  font-size: 10px;
+}
+
+#CountdownTimer {
+  /*
+  position: relative;
+  background-color: #fefefe;
+  height: 200px;
+  margin: auto;
+  padding: 16px;
+  border: 1px solid #888;
+  border-radius: 16px;
+  width: 50%;
+  background-color: #374785;
+  color: white;*/
+  /*text-align: center;*/
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+ /* -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s*/
+}
+
+#Accumulate_Outside {
+  
+  display: none;
+  /*position: fixed;*/ /* Stay in place */
+  /*z-index: 1;*//* Sit on top */
+  /*padding-top: 200px;*/ /* Location of the box */
+  /*left: 0;
+  top: 0;
+  width: 100%; *//* Full width */
+  /*height: 100%; *//* Full height */
+  /*overflow: auto; *//* Enable scroll if needed */
+  /*background-color: rgb(0,0,0); *//* Fallback color */
+  /*background-color: rgba(0,0,0,0.4); *//* Black w/ opacity */
+}
+
+#AccumulateTimer {
+  /*
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  height: 300px;
+  border-radius: 16px;
+  background-color: #374785;
+  padding: 16px;
+  width: 50%;*/
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+  /*-webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s*/
+}
+
+form.input_3 {
+  padding: 20px;
+  text-align: center;
+  /*padding-top: 100px;*/
+  /*font-size: 30px;*/
+}
+
+span.close_accumulate{
+  color: white;
+}
+

@@ -1,32 +1,89 @@
 $(document).ready(function(){
-  /*
     // Get the modal
     var CountdownTimer = document.getElementById("Countdown_Outside");
 
     // Get the button that opens the modal
-    var CountdownTimer_bnt = document.getElementById("Countdown_timer");
+    var CountdownTimer_bnt = document.getElementById("countdown_button");
 
     // Get the <span> element that closes the modal
-    var CountdownSpan = document.getElementsByClassName("close_countdown")[0];*/
+    var CountdownSpan = document.getElementsByClassName("close_countdown")[0];
+
+    var AccumulateTimer = document.getElementById("Accumulate_Outside");
+    var AccumulateTimer_bnt = document.getElementById("accumulate_button");
+    var AccumulateSpan = document.getElementsByClassName("close_accumulate")[0];
 
     // When the user clicks the button, open the modal
-    /*CountdownTimer_bnt.onclick = function() {
+    CountdownTimer_bnt.onclick = function() {
       CountdownTimer.style.display = "block";
-    }*/
+      AccumulateTimer.style.display = "none";
+      Countdown_timer(2);
+    }
 
     // When the user clicks on <span> (x), close the modal
-    /*
+    var hours;
+    var minutes;
+    var seconds;
+    var show_time;
+
+
+    AccumulateSpan.onclick = function() {
+      AccumulateTimer.style.display = "none";
+    }
+
+    var timer_interval;
+    function Countdown_timer(time){
+      var click_time = new Date().getTime();
+      timer_interval=setInterval(function(){
+        calculate(time,click_time);
+      }, 1000);
+      var CountdownTimer = document.getElementById("Countdown_Outside");
+      CountdownTimer.style.display = "block";
+
+    }
+
+    function calculate(time,click_time){
+      var now = new Date().getTime();
+      distance = Math.floor(time*3600000-(now-click_time));
+      // Time calculations for days, hours, minutes and seconds
+      hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="demo"
+      show_time= hours + "h "+ minutes + "m " + seconds + "s ";
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(distance);
+        show_time = "EXPIRED";
+      }
+      document.getElementById("CountdownTimer_time").innerHTML=show_time;
+      console.log(show_time);
+    }
+
     CountdownSpan.onclick = function() {
       CountdownTimer.style.display = "none";
-    }*/
-    /*
-    // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == CountdownTimer) {
-            CountdownTimer.style.display = "none";
-          }
-        }*/
+      hours = 2;
+      minutes = 0;
+      seconds = 0;
+      show_time=hours + "h "+ minutes + "m " + seconds + "s ";
+      clearInterval(timer_interval);
+    }
 
+    // when click on countup timer, close and stop the countdown timer.
+    AccumulateTimer_bnt.onclick = function() {
+      AccumulateTimer.style.display = "block";
+      CountdownTimer.style.display = "none";
+      hours = 2;
+      minutes = 0;
+      seconds = 0;
+      show_time=hours + "h "+ minutes + "m " + seconds + "s ";
+      clearInterval(timer_interval);
+    }
+    //accumulate timer functions
+    /*
+    document.getElementById("start").addEventListener("click", timedCount);
+    document.getElementById("stop").addEventListener("click", stopCount);
+    document.getElementById("stop").addEventListener("click", clearCount);*/
     //Add help alert.
     document.getElementById("help").addEventListener("click", helpText);
     function helpText(){
@@ -435,10 +492,41 @@ $(document).ready(function(){
             window.location.replace("http://localhost/project/overview.html");
         }
     } 
-
-    
-
   
 });
+var s=0
+var m=0
+var h=0
+var t
+function timedCount()
+{
+  var time=h+":"+m+":"+s
+  document.getElementById('txt').value=time
+  s=s+1
+  if(s==60){
+    m+=1
+    s=0
+  }
+  if(m==60){
+    h+=1
+    m=0
+  }
+  t=setTimeout("timedCount()",1000)
+}
+function stopCount()
+{
+  clearTimeout(t)
+}
+
+function clearCount()
+{
+  s=0
+  m=0
+  h=0
+  time=h+":"+m+":"+s
+  document.getElementById('txt').value=time
+  clearTimeout(t)
+}
+
 
 

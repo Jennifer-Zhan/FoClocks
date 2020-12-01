@@ -76,10 +76,10 @@ if(isset($_POST['sortedByTime'])){
 	<meta charset="UTF-8">
 	<title>Foclocks</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<link href="index_v2.css" rel="stylesheet" type="text/css">
+	<link href="index.css" rel="stylesheet" type="text/css">
 	<!--	<link href="console.css" rel="stylesheet" type="text/css">-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="index.js"></script>
+	<script type="text/javascript" src="index.js"></script>
 </head>
 <body>
 <button id="help">help</button>
@@ -160,7 +160,7 @@ if(isset($_POST['sortedByTime'])){
 	<div id="text_box">
         <?php
 	    if ($dbOk) {
-	        $query = "select * from command_line where lineid < 10";
+	        $query = "select * from command_line";
 	        $result = $db->query($query);
 	        $numRecords = $result->num_rows;
 	        for ($i=0; $i < $numRecords; $i++) {
@@ -180,7 +180,25 @@ if(isset($_POST['sortedByTime'])){
 	<!--			</div>-->
 </div>
 <div class="timer">
-	
+<div id="Countdown_Outside">
+	<div id="CountdownTimer">
+		<span class="close_countdown">&times;</span>
+		<p id="CountdownTimer_time"></p>
+	</div>
+</div>
+<div id="Accumulate_Outside">
+	<div id="AccumulateTimer">
+		<span class="close_accumulate">&times;</span>
+		<form class="input_3">
+			<input id="start" type="button" class="input_bnt" value="Start!" onclick="timedCount()">
+			<input type="text" id="txt">
+			<input id="stop" type="button" class="input_bnt" value="Stop!" onClick="stopCount()">
+			<input id="clear" type="button" class="input_bnt" value="Clear!" onClick="clearCount()">
+		</form>
+	</div>
+</div>
+<button id="countdown_button">CountDown Timer</button>
+<button id="accumulate_button">CountUp Timer</button>	
 </div>
 
 <div class="map">
