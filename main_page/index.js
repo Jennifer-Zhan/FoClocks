@@ -48,7 +48,6 @@ $(document).ready(function(){
         if (event.keyCode === 13) {
             event.preventDefault();
             document.getElementById("commandButton").click();
-            window.location.reload();
         }
     });
 
@@ -93,12 +92,13 @@ $(document).ready(function(){
             var tag=sep[4];
             // format the details of the task if it has multiple words.
             var details_type=sep[5];
-            details_type=details.split("_");
+            details_type=details_type.split("_");
             var details="";
             for (var i=0; i<details_type.length-1; i++){
                 details+=details_type[i].toUpperCase();
                 details+=" ";
             }
+            details+=details_type[details_type.length-1].toUpperCase();
             $.ajax({
                 url:'CommandLine/insert.php',
                 method:'POST',
@@ -111,12 +111,20 @@ $(document).ready(function(){
                 },
                 success:function(data){
                     alert(data);
+                    window.location.reload();
                 }
             });  
         }
         /*implement update instruction*/
         else if(sep[0]=="update"){
-            var name=sep[1];
+            var name_type=sep[1];
+            name_type=name_type.split("_");
+            var name="";
+            for (var i=0; i<name_type.length-1; i++){
+                name+=name_type[i].toUpperCase();
+                name+=" ";
+            }
+            name+=name_type[name_type.length-1].toUpperCase();
             var type=sep[2];
             var update_var=sep[3];
             if(type=="time"){
@@ -130,6 +138,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
+                        window.location.reload();
                     }
                 });  
             }
@@ -145,6 +154,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
+                        window.location.reload();
                     }
                 });  
             }
@@ -159,11 +169,19 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
+                        window.location.reload();s
                     }
                 });  
             }
             else{
-               var details=update_var;
+                var details_type=update_var;
+                details_type=details_type.split("_");
+                var details="";
+                for (var i=0; i<details_type.length-1; i++){
+                  details+=details_type[i].toUpperCase();
+                  details+=" ";
+                }
+                details+=details_type[details_type.length-1].toUpperCase();
                 $.ajax({
                     url:'CommandLine/update.php',
                     method:'POST',
@@ -173,6 +191,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
+                        window.location.reload();
                     }
                 });  
             }
