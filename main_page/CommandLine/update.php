@@ -1,27 +1,27 @@
 <?php
 $conn = new mysqli('localhost', 'root', '', 'websys_project');
 $name=$_POST['name'];
-$time=$_POST['time'];
-$timeZone=$_POST['timeZone'];
-$tag=$_POST['tag'];
-$details=$_POST['details'];
 
-if (!($_POST['timeZone'])&&!($_POST['tag'])&&!($_POST['details'])) {
+if (isset($_POST['time'])){
+    $time=$_POST['time'];
     $sql ="UPDATE `onetime_task`
     SET `time` = '$time'
     WHERE `name` = '$name'";
 }
-else if (!($_POST['time'])&&!($_POST['tag'])&&!($_POST['details'])){
+else if (isset($_POST['timeZone'])){
+    $timeZone=$_POST['timeZone'];
     $sql ="UPDATE `onetime_task`
     SET timeZone = '$timeZone'
     WHERE `name` = '$name'";
 }
-else if (!($_POST['time'])&&!($_POST['timeZone'])&&!($_POST['details'])){
+else if (isset($_POST['tag'])){
+    $tag=$_POST['tag'];
     $sql ="UPDATE `onetime_task`
     SET tag = '$tag'
     WHERE `name` = '$name'";
 }
 else {
+    $details=$_POST['details'];
     $sql ="UPDATE `onetime_task`
     SET details= '$details'
     WHERE `name` = '$name'";
