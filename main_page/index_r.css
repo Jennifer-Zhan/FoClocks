@@ -378,7 +378,7 @@ div.change_current_infos {
 }
 
 div.pomodoro_clocks {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 95%;
   height: 160px;
   background-color: white;
@@ -395,7 +395,7 @@ div.famous_quotes {
   background-color: white;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 35px;
+  margin-top: 25px;
   border: 2px solid white;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
