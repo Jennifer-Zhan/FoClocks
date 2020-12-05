@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+@import url('https://fonts.googleapis.com/css?family=Jet+Brains');
+
+body {
+  margin: 0;
+  font-family: "Roboto Condensed", serif;
+}
+
+div.left_block {
+  float: left;
+  height: 100vh;
+  background-color: #E6434D;
+  color: white;
+  width: 18%;
+  /*padding: 16px;*/
+}
+
+div.title_block {
+  width: auto;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+}
+
+p.title {
+  margin-top: 0;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 0;
+  color: #E6434D;
+  font-family: "JetBrains Mono", serif;
+}
+
+#slogan {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+  color: #E6434D;
+  margin-bottom: 0;
+}
+
+input.left_block_input {
+  width: 100%;
+  /*background-color: white;*/
+  border-radius: 6px;
+  padding: 6px 12px;
+  text-align: left;
+  background-color: #E6434D;
+  color: white;
+  margin: 0 auto;
+  border: solid 1px #E6434D;
+  font-size: 18px;
+  font-family: "Roboto Condensed", serif;
+}
+
+input.left_block_input_2 {
+  background-image: url("today-outline.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-origin: content-box;
+}
+
+input.left_block_input_3 {
+  background-image: url("calendar-outline.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-origin: content-box;
+}
+
+input.left_block_input_1 {
+  background-image: url("paper-plane-outline.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-origin: content-box;
+}
+
+input.left_block_input_4 {
+  background-image: url("trash-bin-outline.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-origin: content-box;
+}
+
+div.tasks_block {
+  float: left;
+  width: 55%;
+  /*background-color: #333333;*/
+  height: 100vh;
+  display: inline-block;
+}
+
+input.left_block_search {
+  width: 98%;
+  background-color: white;
+  border-radius: 6px;
+  padding-top: 6px;
+  text-align: left;
+  padding-bottom: 6px;
+  /*background-color: #E6434D;*/
+  color: white;
+  margin: 0 auto;
+  border: solid 1px #E6434D;
+  font-size: 20px;
+  font-family: "Roboto Condensed", serif;
+  color: black;
+  /*background-image: url("search-outline.svg");*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: right center;*/
+  /*background-origin: content-box;*/
+}
+
+input.left_block_submit {
+  width: 100%;
+  /*background-color: white;*/
+  border-radius: 6px;
+  padding: 6px 12px;
+  text-align: left;
+  /*background-color: #E6434D;*/
+  color: white;
+  margin: 2px auto 20px auto;
+  border: solid 1px #E6434D;
+  font-size: 20px;
+  font-family: "Roboto Condensed", serif;
+  text-align: center;
+  background-color: #E6434D;
+}
+
+input[class="left_block_submit"]:hover {
+  background-color: white;
+  color: #E6434D;
+}
+
+input[class="left_block_search"]:focus {
+  background-color: #fafafa;
+}
+
+input[name="all_tasks"]:hover {
+  background-color: white;
+  color: #E6434D;
+}
+
+input[name="today_tasks"]:hover {
+  background-color: white;
+  color: #E6434D;
+}
+
+input[name="this_week_tasks"]:hover {
+  background-color: white;
+  color: #E6434D;
+}
+
+input[name="history_tasks"]:hover {
+  background-color: white;
+  color: #E6434D;
+}
+
+div.add_block {
+  width: 90%;
+  height: 30vh;
+  padding: 16px 16px 0 16px;
+  text-align: center;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  /*border: 2px solid #E6434D;*/
+  /*border-radius: 8px;*/
+}
+
+div.normal_add_block {
+  border: 2px solid darkgrey;
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 10px;
+}
+
+div.left_upper_block {
+  padding: 16px;
+}
+
+input.add_name {
+  width: 97%;
+  border-radius: 6px;
+  padding-top: 6px;
+  text-align: left;
+  padding-bottom: 6px;
+  background-color: #FAFAFA;
+  margin-top: 20px;
+  border: solid 2px #bbbbbb;
+  font-size: 20px;
+  font-family: "Roboto Condensed", serif;
+  color: black;
+}
+
+input.add_tag {
+  width: 28%;
+  border-radius: 6px;
+  padding-top: 8px;
+  text-align: left;
+  padding-bottom: 8px;
+  background-color: #FAFAFA;
+  margin: 20px 30px 20px 0;
+  border: solid 2px #bbbbbb;
+  font-size: 8px;
+  font-family: "Roboto Condensed", serif;
+  color: black;
+  /*background-image: url("bookmark-outline.svg");*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: right center;*/
+  /*background-origin: content-box;*/
+}
+
+input.add_time {
+  width: 18%;
+  border-radius: 6px;
+  padding-top: 6px;
+  text-align: left;
+  padding-bottom: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #FAFAFA;
+  margin: 0;
+  border: solid 2px #bbbbbb;
+  font-size: 8px;
+  font-family: "Roboto Condensed", serif;
+  color: black;
+}
+
+input.normal_add_submit {
+  width: 60px;
+  border-radius: 8px;
+  float: right;
+  padding-top: 8px;
+  text-align: left;
+  padding-bottom: 8px;
+  background-color: #E6434D;
+  text-align: center;
+  margin: 20px 10px 20px 0;
+  border: solid 2px #E6434D;
+  font-size: 8px;
+  font-family: "Roboto Condensed", serif;
+  color: white;
+  font-weight: bold;
+}
+
+input[class="normal_add_submit"]:hover {
+  background-color: white;
+  color: #E6434D;
+}
+
+p.command_line_hits {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: grey;
+}
+
+#commandline {
+  width: 98%;
+  border-radius: 6px;
+  padding-top: 6px;
+  text-align: left;
+  padding-bottom: 6px;
+  background-color: #FAFAFA;
+  margin: 10px auto;
+  border: solid 2px darkgrey;
+  font-size: 20px;
+  font-family: "Roboto Condensed", serif;
+  color: black;
+}
+
+div.display_tasks {
+  width: 90%;
+  height: 62vh;
+  padding: 16px;
+  text-align: center;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.display_lists {
+  padding: 10px;
+}
+
+p.your_tasks {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+img.pic_profile {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 20px;
+}
+
+div.polaroid {
+  margin-left: auto;
+  margin-right: auto;
+  width: 72%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px 12px 20px;
+}
+
+a.profile_name {
+  color: #bbbbbb;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+div.profile_block {
+  margin-top: 10%;
+}
+
+a:hover {
+  color: #E6434D;
+  font-weight: bold;
+}
+
+ion-icon {
+  color: #E6434D;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+div.time_zone {
+  width: 78%;
+  height: 200px;
+  border: 2px solid #FAFAFA;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.more_infos {
+  float: right;
+  height: 100vh;
+  /*background-color: #E6434D;*/
+  /*color: white;*/
+  width: 24%;
+  display: inline;
+  /*padding: 16px;*/
+  margin-right: 14px;
+}
+
+div.inner_more_infos {
+  padding: 16px;
+}
+
+div.change_current_infos {
+  width: 95%;
+  height: 360px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  /*margin-top: 4px;*/
+  border: 2px solid white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.pomodoro_clocks {
+  margin-top: 30px;
+  width: 95%;
+  height: 160px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.famous_quotes {
+  width: 95%;
+  height: 200px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+  border: 2px solid white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
