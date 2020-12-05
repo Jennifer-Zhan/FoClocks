@@ -83,23 +83,30 @@ if (isset($_POST['login_form'])) {
 <!--</header>-->
 
 <div class="login_block">
-	<div class="png2">
-		<img src="homepage_resouces/2.png" alt="this is a image" width="210" class="png2"/></button>
-	</div>
-	<p class="title">FoClocks <br /><br />feeling good today?</p>
-	<div class="bottonb">
-		<p class="button_enter"><a href="../index_v4.php">Enter Without Login</a></p>
-		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <button type="button" id="user_login">Sign In with FoClocks Account</button>
-    <br/>
-    <button type="button" id="register">New User - Sign up a FoClocks Account</button>
-	</div>
-
-<!--	<div id="clock">-->
-<!--		<canvas id="canvas" width="400" height="400"-->
-<!--						style="background-color:#c8d5f6">-->
-<!--		</canvas>-->
+<!--	<div class="png2">-->
+<!--		<img src="homepage_resouces/2.png" alt="this is a image" width="210" class="png2"/></button>-->
 <!--	</div>-->
+	<p class="title">FoClocks<br />
+	<div class="login_infos">
+		<p class="login">Login</p>
+		<div class="botton_bar">
+			<p class="enter_not_login"><a href="../index_v4.php">Enter Without Login</a></p>
+			<div id="my-signin2"></div>
+			<p class="or">OR</p>
+			<form class="login_form" action="index.php" method="post">
+				<p class="user_name">Username:</p><br />
+				<input class="input_type" type="text" name="username" value="">
+				<p class="user_pw">Password:</p>
+				<input class="input_type" type="text" name="password" value="">
+				<input class="login_submit" type="submit" name="login_form" value="Submit">
+			</form>
+			<p class="not_have_account">Do Not Have An Account Yet?</p>
+			<a class="sign_in_button" href="index_sign.php">Create An Account</a>
+<!--			<button type="button" id="user_login">Sign In with FoClocks Account</button>-->
+<!--			<br/>-->
+<!--			<button type="button" id="register">New User - Sign up a FoClocks Account</button>-->
+		</div>
+	</div>
 </div>
 <div id="foclocks_login">
   <div id="login_inner">
@@ -131,6 +138,8 @@ if (isset($_POST['login_form'])) {
 
 
 
+
+
 <!--<script>-->
 <!--  var canvas = document.getElementById("canvas");-->
 <!--  var ctx = canvas.getContext("2d");-->
@@ -139,6 +148,28 @@ if (isset($_POST['login_form'])) {
 <!--  radius = radius * 0.90-->
 <!--  setInterval(drawClock, 1000);-->
 <!--</script>-->
+
+<script>
+  function onSuccess(googleUser) {
+    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  }
+  function onFailure(error) {
+    console.log(error);
+  }
+  function renderButton() {
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 432,
+      'height': 48,
+      'longtitle': true,
+      // 'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+    });
+  }
+</script>
+
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 </body>
 </html>

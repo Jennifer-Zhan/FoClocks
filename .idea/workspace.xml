@@ -19,7 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9a5def0-9a48-4e1d-b37e-500a32ff40b8" name="Default Changelist" comment="update the css in index_v4.php." />
+    <list default="true" id="a9a5def0-9a48-4e1d-b37e-500a32ff40b8" name="Default Changelist" comment="update the css in index_v4.php.">
+      <change afterPath="$PROJECT_DIR$/homepage_resouces/index_sign.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index_sign.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_page/index_r.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_page/index_r.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_26_2020_5_29_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_26_2020_5_29_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_26_2020_9_08_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_26_2020_9_08_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homepage_resouces/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/homepage_resouces/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +44,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -47,7 +60,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\project_2" />
+      <recent name="C:\xampp\htdocs\project_2\main_page\tabs" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -74,6 +95,35 @@
       <workItem from="1606405328763" duration="1028000" />
       <workItem from="1606408268019" duration="762000" />
       <workItem from="1606410087844" duration="1452000" />
+      <workItem from="1606498143879" duration="256000" />
+      <workItem from="1607074641582" duration="1122000" />
+      <workItem from="1607076256388" duration="815000" />
+      <workItem from="1607078466420" duration="968000" />
+      <workItem from="1607083514456" duration="1796000" />
+      <workItem from="1607085319923" duration="1811000" />
+      <workItem from="1607087141055" duration="1796000" />
+      <workItem from="1607088947977" duration="1804000" />
+      <workItem from="1607090760995" duration="1797000" />
+      <workItem from="1607092567825" duration="1510000" />
+      <workItem from="1607094457701" duration="498000" />
+      <workItem from="1607097564656" duration="106000" />
+      <workItem from="1607097693014" duration="1746000" />
+      <workItem from="1607099499660" duration="1812000" />
+      <workItem from="1607101322457" duration="1816000" />
+      <workItem from="1607103149768" duration="318000" />
+      <workItem from="1607103508255" duration="1796000" />
+      <workItem from="1607105314244" duration="1796000" />
+      <workItem from="1607107120255" duration="1804000" />
+      <workItem from="1607109183523" duration="212000" />
+      <workItem from="1607109406184" duration="1236000" />
+      <workItem from="1607137999849" duration="1675000" />
+      <workItem from="1607139817837" duration="1796000" />
+      <workItem from="1607141623829" duration="1797000" />
+      <workItem from="1607143430650" duration="1127000" />
+      <workItem from="1607147085624" duration="1797000" />
+      <workItem from="1607148894233" duration="1590000" />
+      <workItem from="1607155891965" duration="1795000" />
+      <workItem from="1607157697775" duration="916000" />
     </task>
     <task id="LOCAL-00001" summary="update the css in index_v4.php.">
       <created>1606411495282</created>
@@ -82,7 +132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606411495282</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update the css in index_v4.php.">
+      <created>1606498183106</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606498183106</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update the css in index_v4.php.">
+      <created>1606498242623</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606498242623</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,17 +169,25 @@
     <option name="LAST_COMMIT_MESSAGE" value="update the css in index_v4.php." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="384" key="NewPhpFileDialog" timestamp="1606383875077">
+    <state x="635" y="216" key="FileChooserDialogImpl" timestamp="1607109348428">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="690" y="384" key="NewPhpFileDialog/0.0.1707.920@0.0.1707.920" timestamp="1606383875077" />
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1606411515017">
+    <state x="635" y="216" key="FileChooserDialogImpl/0.0.1707.920@0.0.1707.920" timestamp="1607109348428" />
+    <state x="690" y="384" key="NewPhpFileDialog" timestamp="1607098429072">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1606411515017" />
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606411498855">
+    <state x="690" y="384" key="NewPhpFileDialog/0.0.1707.920@0.0.1707.920" timestamp="1607098429072" />
+    <state x="692" y="163" key="RollbackChangesDialog" timestamp="1607139912077">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1606411498855" />
+    <state x="692" y="163" key="RollbackChangesDialog/0.0.1707.920@0.0.1707.920" timestamp="1607139912077" />
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1606498244930">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1606498244930" />
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606498199157">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1606498199157" />
   </component>
 </project>
