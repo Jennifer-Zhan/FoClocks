@@ -214,7 +214,7 @@ input.add_tag {
 }
 
 input.add_time {
-  width: 18%;
+  width: 12%;
   border-radius: 6px;
   padding-top: 6px;
   text-align: left;
@@ -251,12 +251,15 @@ input[class="normal_add_submit"]:hover {
   color: #E6434D;
 }
 
-p.command_line_hits {
+#command_line_hits {
   font-size: 18px;
   margin-top: 0;
   margin-bottom: 0;
-  color: grey;
 }
+
+/*#command_line_hits:hover {*/
+/*  color: #E6434D;*/
+/*}*/
 
 #commandline {
   width: 98%;

@@ -103,8 +103,7 @@ if(isset($_POST['sortedByTime'])){
 				<div class="polaroid">
 					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Cj7uNNkqbx3AIsEqEmYYELsqZpBScS04tg&usqp=CAU"center alt="5 Terre" style="width:100%; height: 140px; object-fit: cover; border-radius: 4px">
 					<div class="container">
-						<ion-icon name="person-circle-outline"></ion-icon>
-						<a href="tabs/profile.php" class="profile_name">Joker</a>
+						<a href="tabs/profile.php" class="profile_name"><ion-icon name="person-circle-outline"></ion-icon>Joker</a>
 					</div>
 				</div>
 			</div>
@@ -114,10 +113,11 @@ if(isset($_POST['sortedByTime'])){
 				<div class="normal_add_block">
 					<input class="add_name" name="name" type="text" value="" placeholder="  Task Infos">
 					<input class="add_tag" name="tag" type="text" value="" placeholder="  Task Tag">
-					<input class="add_time" name="time" type="date" value="">
+					<input class="add_time" name="date" type="date" value="">
+					<input class="add_time" name="time" type="time" value="">
 					<input class="normal_add_submit" name="normal_add_submit" type="submit" value="Submit">
 				</div>
-				<p class="command_line_hits">Or, using command line</p>
+				<a href="tabs/command_line_helper.html" id="command_line_hits" style="text-decoration: none; color: grey">Or, using command line (command line inst.)</a>
 				<div class="command_block">
 					<input id="commandline" type="text" name="command_line" placeholder="  Command Line... Ver.0.1 (beta 1)">
 				</div>
