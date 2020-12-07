@@ -88,29 +88,53 @@ if (isset($_POST['edit_profile'])) {
 	</style>
 </head>
 <body>
-<?php
-if (session_status() == PHP_SESSION_NONE) {
-	session_start();
-}
-$uid = $_SESSION['uid'];
-$query = $conn->query("SELECT * FROM profile_info WHERE uid='".$uid."'");
 
-if($query->num_rows > 0){
-    while($row = $query->fetch_assoc()){
-        $imageURL = 'uploads/'.$row["image"];
-?>
-    <img id="profile_picture" src="<?php echo $imageURL; ?>" alt="" />
-<?php }
-}else{ ?>
-    <p>No image(s) found...</p>
-<?php } ?>
 
 <!--<img src="getImage.php?id=1" width="175" height="200" />-->
-<form class="edit_profile" action="profile.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="file" id="ImageToUpload">
-    <span class="input_type"><br />First Name: <br /></span><input type="text" name="fname" value="">
-	<span class="input_type"><br />Last Name: <br /></span><input type="text" name="lname" value="">
-    <input type="submit" value="Submit Changes" name="edit_profile">
-</form>
+<div class="profile_change_block">
+
+		<div class="profile_change_block_inner">
+						<a href="../index_r.php" class="title"><ion-icon name="arrow-back-outline"></ion-icon>Back To Overview Tab</a>
+						<p class="change_profile">Change Profile</p>
+				<div class="profile_change_block_upper">
+            <?php
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            $uid = $_SESSION['uid'];
+            $query = $conn->query("SELECT * FROM profile_info WHERE uid='".$uid."'");
+
+            if($query->num_rows > 0){
+                while($row = $query->fetch_assoc()){
+                    $imageURL = 'uploads/'.$row["image"];
+                    ?>
+									<img id="profile_picture" src="<?php echo $imageURL; ?>" alt="" />
+                <?php }
+            }else{ ?>
+							<p>No image(s) found...</p>
+            <?php } ?>
+					<form class="edit_profile" action="profile.php" method="post" enctype="multipart/form-data">
+						<p class="change_pics_hits">Change Picture?</p>
+						<input type="file" name="file" id="ImageToUpload">
+						<p class="change_pics_hits">First Name:</p><input type="text" name="fname" class="fNameinput" value="">
+						<p class="change_pics_hits">Last Name:</p><input type="text" name="lname" class="lNameinput" value="">
+						<p class="change_pics_hits">Time Zones:</p>
+						<select id="time_zones" name="time_zones">
+							<option value="UTC-5">UTC-5: New York</option>
+							<option value="UTC-8">UTC-8: State of California</option>
+							<option value="UTC+8">UTC+8: Shanghai</option>
+							<option value="UTC+9">UTC+9: Tokyo</option>
+						</select>
+						<p class="change_pics_hits">Theme Colors</p>
+						<div class="color_selector">
+							<input type="button" name="red" class="red_color">
+							<input type="button" name="green" class="green_color">
+							<input type="button" name="blue" class="blue_color">
+						</div>
+						<input type="submit" value="Submit Changes" name="edit_profile" class="submit_input">
+					</form>
+				</div>
+		</div>
+</div>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>
