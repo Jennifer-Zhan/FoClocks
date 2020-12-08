@@ -107,7 +107,9 @@ if(isset($_POST['sortedByTime'])){
 					<input class="normal_add_submit" name="normal_add_submit" type="submit" value="Submit">
 				</div>
 				</form>
+				
 				<a href="tabs/command_line_helper.html" id="command_line_hits" style="text-decoration: none; color: grey">Or, using command line (command line inst.)</a>
+
 				<div class="command_block">
 					<button type="button" id="commandButton">Submit</button>
 					<input id="commandline" type="text" name="command_line" placeholder="  Command Line... Ver.0.1 (beta 1)">

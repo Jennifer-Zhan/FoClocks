@@ -152,7 +152,7 @@ input.red_color {
 }
 
 input.green_color {
-  background-color: #0F9D58;
+  background-color: #9dffb0;
   border: 1px solid #bbbbbb;
   width: 60px;
   border-radius: 4px;
@@ -161,7 +161,7 @@ input.green_color {
 }
 
 input.blue_color {
-  background-color: #A8D0E6;
+  background-color: #81f1f7;
   border: 1px solid #bbbbbb;
   width: 60px;
   border-radius: 4px;
