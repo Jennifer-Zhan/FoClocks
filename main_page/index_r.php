@@ -74,8 +74,10 @@ if(isset($_POST['sortedByTime'])){
     <link href="index_r.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
+	<script src="index_r.js"></script>
 </head>
 <body>
+	
     <div class="left_block">
 			<div class="left_upper_block">
 				<div class="title_block">
@@ -84,6 +86,7 @@ if(isset($_POST['sortedByTime'])){
 				</div>
 				<input class="left_block_search" name="search_block" type="text" value="" placeholder="  Search">
 				<button class="left_block_submit" name="search_submit"><p class="hover_tag">Submit</p></button>
+				
 					<!--<input class="left_block_submit" name="search_submit" type="submit" value="Submit">-->
 				<button id="show_all" class="left_block_input left_block_input_1" name="all_tasks">All Tasks</button>
 				<button id="show_today" class="left_block_input left_block_input_2" name="today_tasks">Today</button>
@@ -110,6 +113,11 @@ if(isset($_POST['sortedByTime'])){
 				</div>
 			</div>
     </div>
+	
+	<button onclick="color_change()">background_to_green</button>
+				<button onclick="color_change2()">background_to_red</button>
+				<button onclick="color_change3()">background_to_blue</button>
+	
 		<div class="tasks_block">
 			<div class="add_block">
 				<form class="normal_add_submit" action="index_r.php" method="post">
