@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9a5def0-9a48-4e1d-b37e-500a32ff40b8" name="Default Changelist" comment="update the css in index_v4.php.">
-      <change afterPath="$PROJECT_DIR$/main_page/tabs/command_line_helper.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_page/tabs/stylesheets/command_line.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_page/index_r.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_r.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_page/index_r.php" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_r.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_page/tabs/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/tabs/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_page/tabs/stylesheets/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/tabs/stylesheets/profile.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +123,8 @@
       <workItem from="1607351156968" duration="1563000" />
       <workItem from="1607353060485" duration="1798000" />
       <workItem from="1607354869690" duration="1797000" />
+      <workItem from="1607356676751" duration="105000" />
+      <workItem from="1607401186395" duration="385000" />
     </task>
     <task id="LOCAL-00001" summary="update the css in index_v4.php.">
       <created>1606411495282</created>
@@ -171,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607158854959</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update the page">
+      <created>1607356700823</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607356700823</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +196,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update the css in index_v4.php." />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update the page" />
+    <option name="LAST_COMMIT_MESSAGE" value="update the page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="635" y="216" key="FileChooserDialogImpl" timestamp="1607109348428">
@@ -211,13 +216,13 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="692" y="163" key="RollbackChangesDialog/0.0.1707.920@0.0.1707.920" timestamp="1607348114700" />
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1607356659580">
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1607356703889">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1607356659580" />
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607347580926">
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1607356703889" />
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607356720829">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1607347580926" />
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1607356720829" />
   </component>
 </project>
