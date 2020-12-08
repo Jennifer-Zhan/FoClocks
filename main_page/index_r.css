@@ -440,3 +440,17 @@ span.close_accumulate{
   margin-left: 2%;
   display: none;
 }
+.clock {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 23px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+    margin: 100px;
+
+}
+
+#timezone_text{
+  color: black;
+}

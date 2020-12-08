@@ -13,11 +13,21 @@ $statusMsg = '';
 
 // File upload path
 if(isset($_POST["edit_profile"]) && !empty($_FILES["file"]["name"])){
+	//update the time zone; store in session
+	if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    echo $_POST['time_zones'];
+    $_SESSION['timeZone']=$_POST['time_zones'];
+
+	// upload the picture
 	$targetDir = "uploads/";
 	$fileName = basename($_FILES["file"]["name"]);
 	$targetFilePath = $targetDir . $fileName;
 	$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-	session_start();
+	if (session_status() == PHP_SESSION_NONE) {
+    	session_start();
+	}
     // Allow certain file formats
     $allowTypes = array('jpg','png','jpeg','gif','pdf');
     if(in_array($fileType, $allowTypes)){
@@ -45,6 +55,105 @@ if(isset($_POST["edit_profile"]) && !empty($_FILES["file"]["name"])){
 
 // Display status message
 echo $statusMsg;
+
+// refresh the task table with the new time zone 
+/*
+$sqlTask = "select * from onetime_task where deletion = 0 AND uid=$uid";
+$result = $db->query($sqlTask);
+$numRecords = $result->num_rows;
+echo '<table>';
+for ($i=0; $i < $numRecords; $i++) {
+	$record = $result->fetch_assoc();
+	$date_time=$record['day']." ".$record['time'];
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
+	//manage time zone display
+	if($_SESSION['timeZone']=="UTC-5"){
+		if($record['timeZone']=="UTC-5"){
+			$date = date_create($date_time, timezone_open('America/New_York'));
+			date_timezone_set( $date, timezone_open('America/New_York'));
+		}
+		else if($record['timeZone']=="UTC-8"){
+			$date = date_create($date_time, timezone_open('America/Los_Angeles'));
+			date_timezone_set( $date, timezone_open('America/New_York'));
+		}
+		else if($record['timeZone']=="UTC+9"){
+			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
+			date_timezone_set( $date, timezone_open('America/New_York'));
+		}
+		else{
+			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
+			date_timezone_set( $date, timezone_open('America/New_York'));
+		}
+	}
+	else if($_SESSION['timeZone']=="UTC-8"){
+		if($record['timeZone']=="UTC-5"){
+			$date = date_create($date_time, timezone_open('America/New_York'));
+			date_timezone_set( $date, timezone_open('America/Los_Angeles'));
+		}
+		else if($record['timeZone']=="UTC-8"){
+			$date = date_create($date_time, timezone_open('America/Los_Angeles'));
+			date_timezone_set( $date, timezone_open('America/Los_Angeles'));
+		}
+		else if($record['timeZone']=="UTC+9"){
+			$date = date_create($date_time, timezone_open('Asia/Tokyo'));
+			date_timezone_set( $date, timezone_open('America/Los_Angeles'));
+		}
+		else {
+			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
+			date_timezone_set( $date, timezone_open('America/Los_Angeles'));
+		}
+	}
+	else if($_SESSION['timeZone']=="UTC+8"){
+		if($record['timeZone']=="UTC-5"){
+			$date = date_create($date_time, timezone_open('America/New_York'));
+			date_timezone_set( $date, timezone_open('Asia/Shanghai'));
+		}
+		else if($record['timeZone']=="UTC-8"){
+			$date = date_create($date_time, timezone_open('America/Los_Angeles'));
+			date_timezone_set( $date, timezone_open('Asia/Shanghai'));
+		}
+		else if($record['timeZone']=="UTC+9"){
+			$date = date_create($date_time, timezone_open('Asia/Tokyo'));
+			date_timezone_set( $date, timezone_open('Asia/Shanghai'));
+		}
+		else {
+			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
+			date_timezone_set( $date, timezone_open('Asia/Shanghai'));
+		}
+	}
+	else {
+		if($record['timeZone']=="UTC-5"){
+			$date = date_create($date_time, timezone_open('America/New_York'));
+			date_timezone_set( $date, timezone_open('Asia/Tokyo'));
+		}
+		else if($record['timeZone']=="UTC-8"){
+			$date = date_create($date_time, timezone_open('America/Los_Angeles'));
+			date_timezone_set( $date, timezone_open('Asia/Tokyo'));
+		}
+		else if($record['timeZone']=="UTC+9"){
+			$date = date_create($date_time, timezone_open('Asia/Tokyo'));
+			date_timezone_set( $date, timezone_open('Asia/Tokyo'));
+		}
+		else {
+			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
+			date_timezone_set( $date, timezone_open('Asia/Tokyo'));
+		}
+	}
+
+	$id=$record['taskid'];
+	echo '<tr id="row_'."$id".'" class="row">';
+	echo '<th class="TaskName">'.$record['name'].'</th>';
+	echo '<th class="WorkDate">'.date_format($date, 'Y-m-d H:i:s').'</th>';
+	echo '<th class="timeZone">'.$record['timeZone'].'</th>';
+	echo '<th class="tag">'.$record['tag'].'</th>';
+	echo '<th class="details">'.$record['details'].'</th>';
+	echo '</tr>';
+}
+echo '</table>';
+$result->free();
+*/
 
 //adding info to user's profile
 /*
@@ -83,6 +192,7 @@ if (isset($_POST['edit_profile'])) {
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link href="stylesheets/profile.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="profile.js"></script>
 	<style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 	</style>

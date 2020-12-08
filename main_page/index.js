@@ -1,5 +1,43 @@
 
 $(document).ready(function(){
+    function showTime(){
+      var timeZone=document.getElementById("timezone_text").textContent;
+      var date = new Date();
+      if(timeZone=="UTC-5"){
+        console.log("1111");
+        date.toLocaleString("en-US", {timeZone: "America/New_York"})
+        console.log(date);
+      }
+      else if(timeZone=="UTC+8"){
+        date.toLocaleString("en-US", {timeZone: "Asia/Shanghai"})
+      }
+      var h = date.getHours(); // 0 - 23
+      var m = date.getMinutes(); // 0 - 59
+      var s = date.getSeconds(); // 0 - 59
+      var session = "AM";
+      
+      if(h == 0){
+          h = 12;
+      }
+      
+      if(h > 12){
+          h = h - 12;
+          session = "PM";
+      }
+      
+      h = (h < 10) ? "0" + h : h;
+      m = (m < 10) ? "0" + m : m;
+      s = (s < 10) ? "0" + s : s;
+      
+      var time = h + ":" + m + ":" + s + " " + session;
+      document.getElementById("MyClockDisplay").innerText = time;
+      document.getElementById("MyClockDisplay").textContent = time;
+      
+      setTimeout(showTime, 1000);
+      
+    }
+
+    showTime();
 
     // change task interactive; when clicking on each row of table, users could change the info of the task clicking on.
     var row = document.getElementsByClassName("row");
@@ -311,9 +349,7 @@ $(document).ready(function(){
 
     // search bar;
     $(".left_block_submit").click(function(){
-      console.log(11111);
       var searchRequirements = document.getElementsByClassName("left_block_search")[0].value;
-      console.log(searchRequirements);
       $(".display_lists").empty();
       $.ajax({
         url:'CommandLine/filter.php',
