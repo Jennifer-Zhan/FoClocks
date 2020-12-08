@@ -332,12 +332,31 @@ $(document).ready(function(){
       })
     });
 
-    // implement the show all button;
+    // implement the all tasks button;
     
     $("#show_all").click(function(){
       $(".display_lists").empty();
       $.ajax({
         url:'CommandLine/show_all.php',
+        method:'POST',
+        data:{
+        },
+        success:function(data){
+          $('.display_lists').html(data);
+          var row = document.getElementsByClassName("row");
+          for (var i=0; i<row.length; i++){
+            console.log(row[i].id);
+            row[i].addEventListener("click", interact_fuction);
+          }
+        }
+      })
+    });
+
+    // implement the today button;
+    $("#show_today").click(function(){
+      $(".display_lists").empty();
+      $.ajax({
+        url:'CommandLine/today.php',
         method:'POST',
         data:{
         },

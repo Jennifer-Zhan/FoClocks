@@ -78,11 +78,9 @@ if(isset($_POST['sortedByTime'])){
 				<button class="left_block_submit" name="search_submit"><p class="hover_tag">Submit</p></button>
 					<!--<input class="left_block_submit" name="search_submit" type="submit" value="Submit">-->
 				<button id="show_all" class="left_block_input left_block_input_1" name="all_tasks">All Tasks</button>
-				<form action="index_r.php" method="post">
-					<input class="left_block_input left_block_input_2" name="today_tasks" type="button" value="Today">
-					<input class="left_block_input left_block_input_3" name="this_week_tasks" type="button" value="Week">
-					<input class="left_block_input left_block_input_4" name="history_tasks" type="button" value="History">
-				</form>
+				<button id="show_today" class="left_block_input left_block_input_2" name="today_tasks">Today</button>
+				<button id="show_week" class="left_block_input left_block_input_3" name="this_week_tasks">Week</button>
+				<button id="show_history" class="left_block_input left_block_input_4" name="history_tasks">History</button>
 			</div>
 			<div class="time_zone">
 
