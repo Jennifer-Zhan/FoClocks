@@ -8,7 +8,8 @@ if ($conn->query($insQuery) == TRUE) {
     echo '<table>';
     for ($i=0; $i < $numRecords; $i++) {
         $record = $result->fetch_assoc();
-        echo '<tr>';
+        $id=$record['taskid'];
+        echo '<tr id="row_'."$id".'" class="row">';
         echo '<th class="TaskName">'.$record['name'].'</th>';
         echo '<th class="WorkDate">'.$record['day'].'</th>';
         echo '<th class="time">'.$record['time'].'</th>';
