@@ -8,7 +8,8 @@ CREATE TABLE `users` (
 CREATE TABLE `onetime_task` (
  `taskid` int(10) unsigned NOT NULL AUTO_INCREMENT,
  `name` varchar(100) DEFAULT NULL,
- `time` date DEFAULT NULL,
+ `day` date DEFAULT NULL,
+ `time` varchar(100) DEFAULT NULL,
  `timeZone` varchar(50) DEFAULT NULL,
  `tag` varchar(100) DEFAULT NULL,
  `details` varchar(255) DEFAULT NULL,
@@ -41,9 +42,4 @@ CREATE TABLE `profile_info` (
  FOREIGN KEY(uid) REFERENCES users(uid) 
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-INSERT INTO onetime_task VALUES
-  (1, "WEBSYS PROJECT", '2020-12-2', 'EST', 'academic', 'some details...',1, 0),
-  (2, "COMPUTER ORGANIZATION HW",'2020-12-9', 'EST', 'academic', 'some details...',1, 0),
-  (3, "PREPARE fOR INTERVIEW", '2020-12-1', 'EST', 'work', 'some details...',1, 0)
 

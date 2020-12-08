@@ -2,7 +2,13 @@
 $conn = new mysqli('localhost', 'root', '', 'websys_project');
 $name=$_POST['name'];
 
-if (isset($_POST['time'])){
+if (isset($_POST['day'])){
+    $day=$_POST['day'];
+    $sql ="UPDATE `onetime_task`
+    SET `day` = '$day'
+    WHERE `name` = '$name'";
+}
+else if (isset($_POST['time'])){
     $time=$_POST['time'];
     $sql ="UPDATE `onetime_task`
     SET `time` = '$time'
