@@ -323,24 +323,34 @@ $(document).ready(function(){
         },
         success:function(data){
           $('.display_lists').html(data);
+          var row = document.getElementsByClassName("row");
+          for (var i=0; i<row.length; i++){
+            console.log(row[i].id);
+            row[i].addEventListener("click", interact_fuction);
+          }
         }
       })
     });
 
     // implement the show all button;
-    /*
+    
     $("#show_all").click(function(){
-      $(".lists").empty();
+      $(".display_lists").empty();
       $.ajax({
         url:'CommandLine/show_all.php',
         method:'POST',
         data:{
         },
         success:function(data){
-          $('.lists').html(data);
+          $('.display_lists').html(data);
+          var row = document.getElementsByClassName("row");
+          for (var i=0; i<row.length; i++){
+            console.log(row[i].id);
+            row[i].addEventListener("click", interact_fuction);
+          }
         }
       })
-    });*/
+    });
     
     /*implement redirect page function*/
     function pageRedirect(page_str) {
