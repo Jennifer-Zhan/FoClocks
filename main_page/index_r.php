@@ -11,17 +11,16 @@ if ($db->connect_error) {
 $errors = '';
 
 //get inputs from the Add infos form and insert to the database.
-if (isset($_POST['addTask'])) {
-    if ($_POST['addTask']){
-        $name = htmlspecialchars(trim($_POST["addTasksName"]));
-        $time = htmlspecialchars(trim($_POST["time_c"]));
-        $timeZone = htmlspecialchars(trim($_POST["timeZone_c"]));
-        $tag = htmlspecialchars(trim($_POST["tag_c"]));
-        $details = htmlspecialchars(trim($_POST["details_c"]));
+if (isset($_POST['normal_add_submit'])) {
+    if ($_POST['normal_add_submit']){
+        $name = htmlspecialchars(trim($_POST["name"]));
+        $date = htmlspecialchars(trim($_POST["date"]));
+        $time = htmlspecialchars(trim($_POST["time"]));
+        $tag = htmlspecialchars(trim($_POST["tag"]));
         session_start();
         $uid=$_SESSION['uid'];
-        $insQuery = "insert into onetime_task (name, time, timeZone, tag, details, uid, deletion)
-	          VALUES ('".$name."', '".$time."', '".$timeZone."','".$tag ."', '".$details."','".$uid."', 0)";
+        $insQuery = "INSERT into onetime_task (`name`, `day`, `time`, `timeZone`, `tag`, `details`, `uid`, `deletion`)
+	          VALUES ('".$name."', '".$date."','".$time."','UTF-8','".$tag."',' ','".$uid."', 0)";
         $db->query($insQuery);
     }
 }
@@ -30,26 +29,14 @@ if (isset($_POST['addTask'])) {
 if (isset($_POST['changeTask'])) {
     if ($_POST['changeTask']){
         $name = htmlspecialchars(trim($_POST["changeTasksName"]));
+        $day = htmlspecialchars(trim($_POST["day"]));
         $time = htmlspecialchars(trim($_POST["time"]));
         $timeZone = htmlspecialchars(trim($_POST["timeZone"]));
         $tag = htmlspecialchars(trim($_POST["tag"]));
         $details = htmlspecialchars(trim($_POST["details"]));
-        if($time!=""){
-            $insQuery = "UPDATE onetime_task SET `time` = '".$time."' WHERE `name` = '".$name."'";
-            $db->query($insQuery);
-        }
-        if($timeZone!=""){
-            $insQuery = "UPDATE onetime_task SET `timeZone` = '".$timeZone."' WHERE `name` = '".$name."'";
-            $db->query($insQuery);
-        }
-        if($tag!=""){
-            $insQuery = "UPDATE onetime_task SET `tag` = '".$tag."' WHERE `name` = '".$name."'";
-            $db->query($insQuery);
-        }
-        if($details!=""){
-            $insQuery = "UPDATE onetime_task SET `details` = '".$details."' WHERE `name` = '".$name."'";
-            $db->query($insQuery);
-        }
+        $insQuery = "UPDATE onetime_task SET `day` = '".$day."',`time` = '".$time."',`timeZone` = '".$timeZone."',
+         `tag`= '".$tag."', `details`='".$details."' WHERE `name` = '".$name."'";
+        $db->query($insQuery);
     }
 }
 
@@ -87,9 +74,10 @@ if(isset($_POST['sortedByTime'])){
 					<p class="title">FoClocks</p>
 					<p id="slogan">Simplify Your Life</p>
 				</div>
+				<input class="left_block_search" name="search_block" type="text" value="" placeholder="  Search">
+				<button class="left_block_submit" name="search_submit"><p class="hover_tag">Submit</p></button>
+					<!--<input class="left_block_submit" name="search_submit" type="submit" value="Submit">-->
 				<form action="index_r.php" method="post">
-					<input class="left_block_search" name="search_block" type="text" value="" placeholder="  Search">
-					<input class="left_block_submit" name="search_submit" type="submit" value="Submit">
 					<input class="left_block_input left_block_input_1" name="all_tasks" type="button" value="All Tasks">
 					<input class="left_block_input left_block_input_2" name="today_tasks" type="button" value="Today">
 					<input class="left_block_input left_block_input_3" name="this_week_tasks" type="button" value="Week">
@@ -110,15 +98,18 @@ if(isset($_POST['sortedByTime'])){
     </div>
 		<div class="tasks_block">
 			<div class="add_block">
+				<form class="normal_add_submit" action="index_r.php" method="post">
 				<div class="normal_add_block">
 					<input class="add_name" name="name" type="text" value="" placeholder="  Task Infos">
 					<input class="add_tag" name="tag" type="text" value="" placeholder="  Task Tag">
 					<input class="add_time" name="date" type="date" value="">
-					<input class="add_time" name="time" type="time" value="">
+					<input class="add_time" name="time" type="text" value="">
 					<input class="normal_add_submit" name="normal_add_submit" type="submit" value="Submit">
 				</div>
+				</form>
 				<a href="tabs/command_line_helper.html" id="command_line_hits" style="text-decoration: none; color: grey">Or, using command line (command line inst.)</a>
 				<div class="command_block">
+					<button type="button" id="commandButton">Submit</button>
 					<input id="commandline" type="text" name="command_line" placeholder="  Command Line... Ver.0.1 (beta 1)">
 				</div>
 			</div>
@@ -127,25 +118,19 @@ if(isset($_POST['sortedByTime'])){
 					<div class="display_lists">
 						<?php
 						if ($dbOk) {
-
 								$result = $db->query($sqlTask);
 								$numRecords = $result->num_rows;
 								echo '<table>';
 								for ($i=0; $i < $numRecords; $i++) {
 										$record = $result->fetch_assoc();
-										echo '<tr>';
+										$id=$record['taskid'];
+										echo '<tr id="row_'."$id".'" class="row">';
 										echo '<th class="TaskName">'.$record['name'].'</th>';
-										echo '<th class="WorkDate">'.$record['time'].'</th>';
+										echo '<th class="WorkDate">'.$record['day'].'</th>';
+										echo '<th class="time">'.$record['time'].'</th>';
 										echo '<th class="timeZone">'.$record['timeZone'].'</th>';
 										echo '<th class="tag">'.$record['tag'].'</th>';
 										echo '<th class="details">'.$record['details'].'</th>';
-										/*
-										if($record['timer']=="Countdown"){
-												echo '<th><button onclick="Countdown_timer('.$record['countdown'].')" type="button" class="TimerType">'.$record['timer'].'</button></th>';
-										}
-										else if($record['timer']=="Accumulate"){
-												echo '<th><button id="Accumulate_timer" type="button" class="TimerType">'.$record['timer'].'</button></th>';
-										}*/
 										echo '</tr>';
 								}
 								echo '</table>';
@@ -158,8 +143,39 @@ if(isset($_POST['sortedByTime'])){
 		<div class="more_infos">
 			<div class="inner_more_infos">
 				<div class="change_current_infos">
+					<form class="changeTask" action="index_r.php" method="post">
+					<input id="changeTasksName" name="changeTasksName" placeholder="Task">
+					<input id="day_c" name="day" placeholder="Date"><br />
+					<input id="time_c" name="time" placeholder="time"><br />
+					<input id="timeZone_c" name="timeZone" placeholder="time zone"><br />
+					<input id="tag_c" name="tag" placeholder="tag"><br />
+					<textarea id="details_c" name="details" placeholder="details..." rows="3"></textarea><br />
+					<input type="submit" id="changeButton" name="changeTask" value="Change Infos">
+					</div>
+					</form>
 				</div>
 				<div class="pomodoro_clocks">
+					<div id="Countdown_Outside">
+						<div id="CountdownTimer">
+							<span class="close_countdown">&times;</span>
+							<p id="CountdownTimer_time"></p>
+						</div>
+					</div>
+					<div id="Accumulate_Outside">
+						<div id="AccumulateTimer">
+							<span class="close_accumulate">&times;</span>
+							<form class="input_3">
+								<input id="start" type="button" class="input_bnt" value="Start!" onclick="timedCount()">
+								<input type="text" id="txt">
+								<input id="stop" type="button" class="input_bnt" value="Stop!" onClick="stopCount()">
+								<input id="clear" type="button" class="input_bnt" value="Clear!" onClick="clearCount()">
+							</form>
+						</div>
+					</div>
+					<div>
+					<button id="countdown_button">CountDown Timer</button>
+					<button id="accumulate_button">CountUp Timer</button>	
+					</div>
 				</div>
 				<div class="famous_quotes">
 				</div>
