@@ -9,7 +9,7 @@ session_start();
 
 $uid=$_SESSION['uid'];
 $sql = "INSERT into onetime_task (`name`, `day`, `time`, `timeZone`, `tag`, `details`, `uid`, `deletion`)
-	          VALUES ('".$name."', '".$date."','".$time."','UTF-8','".$tag ."',' ','".$uid."', 0)";
+	          VALUES ('".$name."', '".$date."','".$time."','UTC-5','".$tag ."',' ','".$uid."', 0)";
 if ($conn->query($sql) === TRUE) {
     echo "data inserted";
 }
