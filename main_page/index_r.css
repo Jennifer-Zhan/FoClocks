@@ -335,11 +335,25 @@ a:hover {
   font-weight: bold;
 }
 
-ion-icon {
+ion-icon.profile_icon {
   color: #E6434D;
   font-size: 16px;
   margin: 0;
   padding: 0;
+}
+
+ion-icon.delete_icon {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  color: #E6434D;
+}
+
+button.delete_button {
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid white;
 }
 
 div.time_zone {
