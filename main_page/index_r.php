@@ -108,7 +108,7 @@ if(isset($_POST['sortedByTime'])){
 				<div class="polaroid">
 					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Cj7uNNkqbx3AIsEqEmYYELsqZpBScS04tg&usqp=CAU"center alt="5 Terre" style="width:100%; height: 140px; object-fit: cover; border-radius: 4px">
 					<div class="container">
-						<a href="tabs/profile.php" class="profile_name"><ion-icon name="person-circle-outline"></ion-icon>Joker</a>
+						<a href="tabs/profile.php" class="profile_name"><ion-icon name="person-circle-outline" class="profile_icon"></ion-icon>Joker</a>
 					</div>
 				</div>
 			</div>
@@ -237,6 +237,7 @@ if(isset($_POST['sortedByTime'])){
 							$result->free();
 						}
 						?>
+						<button class="delete_button"><ion-icon name="close-circle-outline" class="delete_icon"></ion-icon></button>
 					</div>
 			</div>
 		</div>
