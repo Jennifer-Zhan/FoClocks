@@ -4,32 +4,26 @@ $(document).ready(function(){
       var timeZone=document.getElementById("timezone_text").textContent;
       var date = new Date();
       if(timeZone=="UTC-5"){
-        console.log("1111");
-        date.toLocaleString("en-US", {timeZone: "America/New_York"})
-        console.log(date);
+        date=new Date(date.toLocaleString("en-US", {timeZone: "America/New_York"}));
       }
       else if(timeZone=="UTC+8"){
-        date.toLocaleString("en-US", {timeZone: "Asia/Shanghai"})
+        date=new Date(date.toLocaleString("en-US", {timeZone: "Asia/Shanghai"}));
+      }
+      else if(timeZone=="UTC+9"){
+        date=new Date(date.toLocaleString("en-US", {timeZone: "Asia/Tokyo"}));
+      }
+      else {
+        date=new Date(date.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
       }
       var h = date.getHours(); // 0 - 23
       var m = date.getMinutes(); // 0 - 59
       var s = date.getSeconds(); // 0 - 59
-      var session = "AM";
-      
-      if(h == 0){
-          h = 12;
-      }
-      
-      if(h > 12){
-          h = h - 12;
-          session = "PM";
-      }
       
       h = (h < 10) ? "0" + h : h;
       m = (m < 10) ? "0" + m : m;
       s = (s < 10) ? "0" + s : s;
       
-      var time = h + ":" + m + ":" + s + " " + session;
+      var time = h + ":" + m + ":" + s;
       document.getElementById("MyClockDisplay").innerText = time;
       document.getElementById("MyClockDisplay").textContent = time;
       
