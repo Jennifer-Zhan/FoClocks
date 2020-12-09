@@ -113,11 +113,7 @@ if(isset($_POST['sortedByTime'])){
 				</div>
 			</div>
     </div>
-	
-	<button onclick="color_change()">background_to_green</button>
-				<button onclick="color_change2()">background_to_red</button>
-				<button onclick="color_change3()">background_to_blue</button>
-	
+
 		<div class="tasks_block">
 			<div class="add_block">
 				<form class="normal_add_submit" action="index_r.php" method="post">
