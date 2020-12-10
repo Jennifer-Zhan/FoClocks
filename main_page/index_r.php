@@ -31,6 +31,7 @@ if (isset($_POST['normal_add_submit'])) {
         $insQuery = "INSERT into onetime_task (`name`, `day`, `time`, `timeZone`, `tag`, `details`, `uid`, `deletion`)
 	          VALUES ('".$name."', '".$date."','".$time."','".$timeZone."','".$tag."',' ','".$uid."', 0)";
         $db->query($insQuery);
+        echo 'add';
     }
 }
 
@@ -75,7 +76,6 @@ if(isset($_POST['sortedByTime'])){
     <link href="index_r.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
-	<script src="index_r.js"></script>
 </head>
 <body>
 	
@@ -123,7 +123,7 @@ if(isset($_POST['sortedByTime'])){
 					<input class="add_tag" name="tag" type="text" value="" placeholder="  Task Tag">
 					<input class="add_time" name="date" type="date" value="">
 					<input class="add_time" name="time" type="text" value="">
-					<input class="normal_add_submit" name="normal_add_submit" type="submit" value="Submit">
+					<input id="normal_add_submit_button" class="normal_add_submit" name="normal_add_submit" type="submit" value="Submit">
 				</div>
 				</form>
 				
