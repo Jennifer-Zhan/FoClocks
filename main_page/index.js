@@ -15,15 +15,15 @@ $(document).ready(function(){
       else {
         date=new Date(date.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
       }
-      var h = date.getHours(); // 0 - 23
-      var m = date.getMinutes(); // 0 - 59
-      var s = date.getSeconds(); // 0 - 59
+      var h_timezone = date.getHours(); // 0 - 23
+      var m_timezone = date.getMinutes(); // 0 - 59
+      var s_timezone = date.getSeconds(); // 0 - 59
       
-      h = (h < 10) ? "0" + h : h;
-      m = (m < 10) ? "0" + m : m;
-      s = (s < 10) ? "0" + s : s;
+      h_timezone = (h_timezone < 10) ? "0" + h_timezone : h_timezone;
+      m_timezone = (m_timezone < 10) ? "0" + m_timezone : m_timezone;
+      s_timezone = (s_timezone < 10) ? "0" + s_timezone : s_timezone;
       
-      var time = h + ":" + m + ":" + s;
+      var time = h_timezone + ":" + m_timezone + ":" + s_timezone;
       document.getElementById("MyClockDisplay").innerText = time;
       document.getElementById("MyClockDisplay").textContent = time;
       
@@ -32,7 +32,6 @@ $(document).ready(function(){
     }
 
     showTime();
-
 
     // delete the task when click on the delete icon.
     var delete_icon=document.getElementsByClassName("delete_button");
@@ -53,10 +52,25 @@ $(document).ready(function(){
           },
           success:function(data){
             alert(data);
-            window.location.reload();
+            window.location.href='http://localhost/project/main_page/index_r.php';
           }
       })
     }
+/*
+    var add_submit=document.getElementById("normal_add_submit_button");
+    add_submit.addEventListener("click", refresh_function);
+    function refresh_function() {
+      window.location.reload();
+        // delete the task when click on the delete icon.
+      var delete_icon=document.getElementsByClassName("delete_button");
+      console.log(delete_icon.length);
+      for (var i=0; i<delete_icon.length; i++){
+        console.log(delete_icon[i].id);
+        delete_icon[i].addEventListener("click", delete_function);
+      }
+    }*/
+
+  
 
     // change task interactive; when clicking on each row of table, users could change the info of the task clicking on.
     var row = document.getElementsByClassName("row");
@@ -236,8 +250,8 @@ $(document).ready(function(){
                     tag:tag
                 },
                 success:function(data){
-                    alert(data);
-                    window.location.reload();
+                    alert(data);      
+                    window.location.href='http://localhost/project/main_page/index_r.php';
                 }
             });  
         }
@@ -310,7 +324,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
-                        window.location.reload();s
+                        window.location.reload();
                     }
                 });  
             }
@@ -358,6 +372,7 @@ $(document).ready(function(){
                 },
                 success:function(data){
                     alert(data);
+                    window.location.href='http://localhost/project/main_page/index_r.php';
                 }
             });  
         }
@@ -386,6 +401,13 @@ $(document).ready(function(){
             console.log(row[i].id);
             row[i].addEventListener("click", interact_fuction);
           }
+          // delete the task when click on the delete icon.
+          var delete_icon=document.getElementsByClassName("delete_button");
+          console.log(delete_icon.length);
+          for (var i=0; i<delete_icon.length; i++){
+            console.log(delete_icon[i].id);
+            delete_icon[i].addEventListener("click", delete_function);
+          }
         }
       })
     });
@@ -406,7 +428,7 @@ $(document).ready(function(){
             console.log(row[i].id);
             row[i].addEventListener("click", interact_function);
           }
-              // delete the task when click on the delete icon.
+          // delete the task when click on the delete icon.
           var delete_icon=document.getElementsByClassName("delete_button");
           console.log(delete_icon.length);
           for (var i=0; i<delete_icon.length; i++){
@@ -433,7 +455,8 @@ $(document).ready(function(){
             console.log(row[i].id);
             row[i].addEventListener("click", interact_function);
           }
-            // delete the task when click on the delete icon.
+          // delete the task when click on the delete icon.
+          
           
         }
       })
@@ -455,7 +478,7 @@ $(document).ready(function(){
             console.log(row[i].id);
             row[i].addEventListener("click", interact_function);
           }
-            // delete the task when click on the delete icon.
+            // delete from the database.
           
         }
       })
