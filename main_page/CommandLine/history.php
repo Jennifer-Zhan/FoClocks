@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $uid=$_SESSION['uid'];
-$insQuery = "select * from onetime_task where deletion = 0 AND uid=$uid";
+$insQuery = "select * from onetime_task where deletion = 1 AND uid=$uid";
 $result=$conn->query($insQuery);
 if ($conn->query($insQuery) == TRUE) {
     $numRecords = $result->num_rows;
