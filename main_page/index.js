@@ -33,15 +33,43 @@ $(document).ready(function(){
 
     showTime();
 
-    // change task interactive; when clicking on each row of table, users could change the info of the task clicking on.
-    var row = document.getElementsByClassName("row");
-    for (var i=0; i<row.length; i++){
-      console.log(row[i].id);
-      row[i].addEventListener("click", interact_fuction);
+
+    // delete the task when click on the delete icon.
+    var delete_icon=document.getElementsByClassName("delete_button");
+    console.log(delete_icon.length);
+    for (var i=0; i<delete_icon.length; i++){
+      console.log(delete_icon[i].id);
+      delete_icon[i].addEventListener("click", delete_function);
     }
 
-    function interact_fuction() {
-      var id = this.id[this.id.length-1];
+    function delete_function() {
+      var id= this.id.split("_");
+      var id = id[1];
+      $.ajax({
+          url:'CommandLine/delete_task.php',
+          method:'POST',
+          data:{
+            id: id
+          },
+          success:function(data){
+            alert(data);
+            window.location.reload();
+          }
+      })
+    }
+
+    // change task interactive; when clicking on each row of table, users could change the info of the task clicking on.
+    var row = document.getElementsByClassName("row");
+    console.log(row);
+    for (var i=0; i<row.length; i++){
+      console.log(row[i].id);
+      row[i].addEventListener("click", interact_function);
+    }
+
+    function interact_function() {
+      var id= this.id.split("_");
+      var id = id[1];
+      console.log(id);
       $.ajax({
           url:'CommandLine/change_task.php',
           method:'GET',
@@ -376,10 +404,18 @@ $(document).ready(function(){
           var row = document.getElementsByClassName("row");
           for (var i=0; i<row.length; i++){
             console.log(row[i].id);
-            row[i].addEventListener("click", interact_fuction);
+            row[i].addEventListener("click", interact_function);
+          }
+              // delete the task when click on the delete icon.
+          var delete_icon=document.getElementsByClassName("delete_button");
+          console.log(delete_icon.length);
+          for (var i=0; i<delete_icon.length; i++){
+            console.log(delete_icon[i].id);
+            delete_icon[i].addEventListener("click", delete_function);
           }
         }
       })
+
     });
 
     // implement the today button;
@@ -395,10 +431,35 @@ $(document).ready(function(){
           var row = document.getElementsByClassName("row");
           for (var i=0; i<row.length; i++){
             console.log(row[i].id);
-            row[i].addEventListener("click", interact_fuction);
+            row[i].addEventListener("click", interact_function);
           }
+            // delete the task when click on the delete icon.
+          
         }
       })
+
+    });
+  
+    // implement the history button;
+    $("#show_history").click(function(){
+      $(".display_lists").empty();
+      $.ajax({
+        url:'CommandLine/history.php',
+        method:'POST',
+        data:{
+        },
+        success:function(data){
+          $('.display_lists').html(data);
+          var row = document.getElementsByClassName("row");
+          for (var i=0; i<row.length; i++){
+            console.log(row[i].id);
+            row[i].addEventListener("click", interact_function);
+          }
+            // delete the task when click on the delete icon.
+          
+        }
+      })
+
     });
     
     /*implement redirect page function*/

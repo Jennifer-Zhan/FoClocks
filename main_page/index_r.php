@@ -27,8 +27,9 @@ if (isset($_POST['normal_add_submit'])) {
     		session_start();
 		}
         $uid=$_SESSION['uid'];
+        $timeZone=$_SESSION['timeZone'];
         $insQuery = "INSERT into onetime_task (`name`, `day`, `time`, `timeZone`, `tag`, `details`, `uid`, `deletion`)
-	          VALUES ('".$name."', '".$date."','".$time."','UTC-5','".$tag."',' ','".$uid."', 0)";
+	          VALUES ('".$name."', '".$date."','".$time."','".$timeZone."','".$tag."',' ','".$uid."', 0)";
         $db->query($insQuery);
     }
 }
@@ -227,13 +228,13 @@ if(isset($_POST['sortedByTime'])){
 								echo '<th class="WorkDate">'.date_format($date, 'Y-m-d H:i:s').'</th>';
 								echo '<th class="tag">'.$record['tag'].'</th>';
 								echo '<th class="details">'.$record['details'].'</th>';
+								echo '<th><button class="delete_button" id="delete_'."$id".'"><ion-icon name="close-circle-outline" class="delete_icon"></ion-icon></button></th>';
 								echo '</tr>';
 							}
 							echo '</table>';
 							$result->free();
 						}
 						?>
-						<button class="delete_button"><ion-icon name="close-circle-outline" class="delete_icon"></ion-icon></button>
 					</div>
 			</div>
 		</div>
