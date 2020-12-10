@@ -17,6 +17,7 @@ if(empty($_SESSION['timeZone'])){
 }
 
 //get inputs from the Add infos form and insert to the database.
+/*
 if (isset($_POST['normal_add_submit'])) {
     if ($_POST['normal_add_submit']){
         $name = htmlspecialchars(trim($_POST["name"]));
@@ -31,9 +32,11 @@ if (isset($_POST['normal_add_submit'])) {
         $insQuery = "INSERT into onetime_task (`name`, `day`, `time`, `timeZone`, `tag`, `details`, `uid`, `deletion`)
 	          VALUES ('".$name."', '".$date."','".$time."','".$timeZone."','".$tag."',' ','".$uid."', 0)";
         $db->query($insQuery);
-        echo 'add';
-    }
-}
+
+        session_destroy();
+        $_POST=[];
+    }*/
+
 
 //get inputs from change infos and update the database if the task name matches.
 if (isset($_POST['changeTask'])) {
@@ -116,10 +119,27 @@ if(isset($_POST['sortedByTime'])){
 			</div>
 			<div class="profile_block">
 				<div class="polaroid">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Cj7uNNkqbx3AIsEqEmYYELsqZpBScS04tg&usqp=CAU"center alt="5 Terre" style="width:100%; height: 140px; object-fit: cover; border-radius: 4px">
-					<div class="container">
+					<?php
+					$sql_profile = "SELECT * FROM profile_info";
+					$result = $db->query($sql_profile);
+					if ($result->num_rows == 0){
+						echo '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Cj7uNNkqbx3AIsEqEmYYELsqZpBScS04tg&usqp=CAU"center alt="5 Terre" style="width:100%; height: 140px; object-fit: cover; border-radius: 4px">';
+						echo '<div class="container">
 						<a href="tabs/profile.php" class="profile_name"><ion-icon name="person-circle-outline" class="profile_icon"></ion-icon>Joker</a>
-					</div>
+						</div>';
+					}
+					else{
+						$sql_info="SELECT * FROM profile_info where infoid=(SELECT max(infoid) FROM profile_info)";
+						$result = $db->query($sql_profile);
+						$row = $result->fetch_assoc();
+						echo '<img src="tabs/uploads/'.$row['image'].'"center alt="5 Terre" style="width:100%; height: 140px; object-fit: cover; border-radius: 4px">';
+						echo '<div class="container">
+						<a href="tabs/profile.php" class="profile_name"><ion-icon name="person-circle-outline" class="profile_icon"></ion-icon>'.$row['first_name'].' '.$row['last_name'].'</a>
+						</div>';
+					}
+					
+				
+					?>
 				</div>
 			</div>
     </div>
@@ -128,10 +148,10 @@ if(isset($_POST['sortedByTime'])){
 			<div class="add_block">
 				<form class="normal_add_submit" action="index_r.php" method="post">
 				<div class="normal_add_block">
-					<input class="add_name" name="name" type="text" value="" placeholder="  Task Infos">
-					<input class="add_tag" name="tag" type="text" value="" placeholder="  Task Tag">
-					<input class="add_time" name="date" type="date" value="">
-					<input class="add_time" name="time" type="text" value="">
+					<input id="add_name" class="add_name" name="name" type="text" value="" placeholder="  Task Infos">
+					<input id="add_tag" class="add_tag" name="tag" type="text" value="" placeholder="  Task Tag">
+					<input id="add_date" class="add_time" name="date" type="date" value="">
+					<input id="add_time" class="add_time" name="time" type="text" value="">
 					<input id="normal_add_submit_button" class="normal_add_submit" name="normal_add_submit" type="submit" value="Submit">
 				</div>
 				</form>
