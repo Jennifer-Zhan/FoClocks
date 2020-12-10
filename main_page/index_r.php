@@ -76,9 +76,17 @@ if(isset($_POST['sortedByTime'])){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
 	<script src="index_r.js"></script>
+	<script>
+		function changeTheme(value){
+		 var sheets = document.getElementsByTagName('link'); 
+     sheets[0].href = value;
+		}
+	</script>
 </head>
 <body>
-	
+		<button class="ccolor" onclick="changeTheme('index_r.css')">red scene</button>
+		<button class="ccolor" onclick="changeTheme('index_r_green.css')">green scene</button>
+		<button class="ccolor" onclick="changeTheme('index_r_blue.css')">blue scene</button>
     <div class="left_block">
 			<div class="left_upper_block">
 				<div class="title_block">

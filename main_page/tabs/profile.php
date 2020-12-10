@@ -190,9 +190,15 @@ if (isset($_POST['edit_profile'])) {
 <head>
 	<title>Function page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<link href="stylesheets/profile.css" rel="stylesheet" type="text/css">
+	<link id="red" rel="stylesheet" type="text/css" href="stylesheets/profile.css" >
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="profile.js"></script>
+	<script>
+		function changeTheme(value){
+		 var sheets = document.getElementsByTagName('link'); 
+     sheets[0].href = value;
+		}
+	</script>
 	<style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 	</style>
@@ -237,9 +243,9 @@ if (isset($_POST['edit_profile'])) {
 						</select>
 						<p class="change_pics_hits">Theme Colors</p>
 						<div class="color_selector">
-							<input type="button" name="red" class="red_color">
-							<input type="button" name="green" class="green_color">
-							<input type="button" name="blue" class="blue_color">
+							<input type="button" name="red" class="red_color" onclick="changeTheme('stylesheets/profile.css')">
+							<input type="button" name="green" class="green_color" onclick="changeTheme('stylesheets/profie_green.css')">
+							<input type="button" name="blue" class="blue_color" onclick="changeTheme('stylesheets/profie_blue.css')">
 						</div>
 						<input type="submit" value="Submit Changes" name="edit_profile" class="submit_input">
 					</form>
