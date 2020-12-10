@@ -80,9 +80,18 @@ if(isset($_POST['sortedByTime'])){
 	<!--	<link href="console.css" rel="stylesheet" type="text/css">-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
+	<script>
+		function changeTheme(value){
+		 var sheets = document.getElementsByTagName('link'); 
+     sheets[0].href = value;
+		}
+	</script>
 </head>
 <body>
 <button id="help">help</button>
+	<button name="red" class="c_color" onclick="changeTheme('index.css')">red scene</button>
+	<button name="green" class="c_color" onclick="changeTheme('index_green.css')">green scene</button>
+	<button name="blue" class="c_color" onclick="changeTheme('index_blue.css')">blue scene</button>
 <div class="info_bar">
 	<section id="tag1"><a href="../index.php">HOME</a></section>
 	<section id="tag2"><a href="../backup_files/completed%20task.html">Completed</a></section>
