@@ -200,10 +200,12 @@ $(document).ready(function(){
         }
     });
 
+
     //function for console command line execution and instructions implement.
     $("#commandButton").click(function(){
         //var p = document.createElement("p");
         var command_line = document.getElementById("commandline").value;
+        
         $.ajax({
           url:'CommandLine/command.php',
           method:'POST',
@@ -250,7 +252,8 @@ $(document).ready(function(){
                     tag:tag
                 },
                 success:function(data){
-                    alert(data);      
+                    alert(data); 
+                    //window.location.reload();     
                     window.location.href='http://localhost/project/main_page/index_r.php';
                 }
             });  
@@ -278,7 +281,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
-                        window.location.reload();
+                        window.location.href='http://localhost/project/main_page/index_r.php';
                     }
                 });  
             }
@@ -293,7 +296,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
-                        window.location.reload();
+                        window.location.href='http://localhost/project/main_page/index_r.php';
                     }
                 });  
             }
@@ -309,7 +312,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
-                        window.location.reload();
+                        window.location.href='http://localhost/project/main_page/index_r.php';
                     }
                 });  
             }
@@ -324,7 +327,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
-                        window.location.reload();
+                        window.location.href='http://localhost/project/main_page/index_r.php';
                     }
                 });  
             }
@@ -346,7 +349,7 @@ $(document).ready(function(){
                     },
                     success:function(data){
                         alert(data);
-                        window.location.reload();
+                        window.location.href='http://localhost/project/main_page/index_r.php';
                     }
                 });  
             }
@@ -484,6 +487,29 @@ $(document).ready(function(){
       })
 
     });
+
+    $("#normal_add_submit_button").click(function(){
+      var name=document.getElementById("add_name").value;
+      var day=document.getElementById("add_date").value;
+      var time=document.getElementById("add_time").value;
+      var tag=document.getElementById("add_tag").value;
+      
+      $.ajax({
+          url:'CommandLine/insert.php',
+          method:'POST',
+          data:{
+              name:name,
+              day:day,
+              time:time,
+              tag:tag
+          },
+          success:function(data){
+              alert(data); 
+              //window.location.reload();     
+              window.location.href='http://localhost/project/main_page/index_r.php';
+          }
+      });  
+    })
     
     /*implement redirect page function*/
     function pageRedirect(page_str) {

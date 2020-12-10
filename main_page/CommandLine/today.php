@@ -8,17 +8,20 @@ $uid=$_SESSION['uid'];
 $query = "select * from onetime_task where deletion = 0 AND uid=$uid";
 $result = $conn->query($query);
 // get current date
-$date = date('Y-m-d');
+/*
+if($_SESSION['timeZone']=="UTC-5"){
+    $date = date('Y-m-d');
+    $date = date_create($date);
+    date_timezone_set( $date, timezone_open('America/New_York'));
+}*/
 if ($conn->query($query) == TRUE) {
     $numRecords = $result->num_rows;
     echo '<table>';
     for ($i=0; $i < $numRecords; $i++) {
         $record = $result->fetch_assoc();
+        $date = date('Y-m-d');
         if($record['day']==$date){
             $date_time=$record['day']." ".$record['time'];
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
             //manage time zone display
             if($_SESSION['timeZone']=="UTC-5"){
                 if($record['timeZone']=="UTC-5"){
