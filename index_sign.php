@@ -97,9 +97,11 @@ if (isset($_POST['login_form'])) {
             <p class="user_name">Username:</p><br />
             <input class="input_type" type="text" name="username" value="">
             <p class="user_pw">Password:</p>
-            <input class="input_type" type="text" name="password" value="">
+            <input class="input_type" type="password" name="password" id="password1" value=""><br><br>
+            <input type="checkbox" onclick="hidePassword1()">Show Password
             <p class="re_user_pw">Reconfirm:</p>
-            <input class="input_type" type="text" name="recomfirm" value="">
+            <input class="input_type" type="password" name="recomfirm" id="password2" value=""><br><br>
+            <input type="checkbox" onclick="hidePassword2()">Show Password
             <input class="login_submit" type="submit" name="register_form" value="Submit">
         </form>
         <p class="not_have_account">Have An Account Already?</p>
@@ -152,6 +154,25 @@ if (isset($_POST['login_form'])) {
 <!--</script>-->
 
 <script>
+
+  function hidePassword1() {
+    var x = document.getElementById("password1");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
+  function hidePassword2() {
+    var x = document.getElementById("password2");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
   function onSuccess(googleUser) {
     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
   }
