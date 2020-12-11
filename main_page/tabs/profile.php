@@ -124,13 +124,13 @@ echo $statusMsg;
 							<option value="UTC+9">UTC+9: Tokyo</option>
 						</select>
 						<p class="change_pics_hits">Theme Colors</p>
-						<div class="color_selector">
-						<select id="theme" name="theme">
+<!--						<div class="color_selector">-->
+						<select id="time_zones" name="theme">
 							<option value="red">red</option>
 							<option value="green">green</option>
 							<option value="blue">blue</option>
 						</select>
-						</div>
+<!--						</div>-->
 						<!--
 						<div class="color_selector">
 							<input type="button" id="red" name="red" value="red" class="red_color" onclick="changeTheme('stylesheets/profile.css')">
