@@ -10,7 +10,7 @@ body {
 div.left_block {
   float: left;
   height: 100vh;
-  background-color: #E6434D;
+  background-color: #88B04B;
   color: white;
   width: 18%;
   /*padding: 16px;*/
@@ -31,7 +31,7 @@ p.title {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 0;
-  color: #E6434D;
+  color: #88B04B;
   font-family: "JetBrains Mono", serif;
 }
 
@@ -39,7 +39,7 @@ p.title {
   margin-top: 10px;
   font-size: 16px;
   font-style: italic;
-  color: #E6434D;
+  color: #88B04B;
   margin-bottom: 0;
 }
 
@@ -49,10 +49,10 @@ p.title {
   border-radius: 6px;
   padding: 6px 12px;
   text-align: left;
-  background-color: #E6434D;
+  background-color: #88B04B;
   color: white;
   margin: 0 auto;
-  border: solid 1px #E6434D;
+  border: solid 1px #88B04B;
   font-size: 18px;
   font-family: "Roboto Condensed", serif;
 }
@@ -100,10 +100,10 @@ input.left_block_search {
   padding-top: 6px;
   text-align: left;
   padding-bottom: 6px;
-  /*background-color: #E6434D;*/
+  /*background-color: #88B04B;*/
   color: white;
   margin: 0 auto;
-  border: solid 1px #E6434D;
+  border: solid 1px #88B04B;
   font-size: 20px;
   font-family: "Roboto Condensed", serif;
   color: black;
@@ -123,7 +123,7 @@ button.left_block_submit {
   font-size: 20px;
   font-family: "Roboto Condensed", serif;
   text-align: center;
-  background-color: #E6434D;
+  background-color: #88B04B;
 }
 
 p.left_submit{
@@ -134,7 +134,7 @@ p.left_submit{
 
 input[class="left_block_submit"]:hover {
   background-color: white;
-  color: #E6434D;
+  color: #88B04B;
 }
 
 input[class="left_block_search"]:focus {
@@ -143,22 +143,22 @@ input[class="left_block_search"]:focus {
 
 input[name="all_tasks"]:hover {
   background-color: white;
-  color: #E6434D;
+  color: #88B04B;
 }
 
 input[name="today_tasks"]:hover {
   background-color: white;
-  color: #E6434D;
+  color: #88B04B;
 }
 
 input[name="this_week_tasks"]:hover {
   background-color: white;
-  color: #E6434D;
+  color: #88B04B;
 }
 
 input[name="history_tasks"]:hover {
   background-color: white;
-  color: #E6434D;
+  color: #88B04B;
 }
 
 div.add_block {
@@ -169,7 +169,7 @@ div.add_block {
   background: white;
   margin-left: auto;
   margin-right: auto;
-  /*border: 2px solid #E6434D;*/
+  /*border: 2px solid #88B04B;*/
   /*border-radius: 8px;*/
 }
 
@@ -235,10 +235,10 @@ input.normal_add_submit {
   padding-top: 8px;
   text-align: left;
   padding-bottom: 8px;
-  background-color: #E6434D;
+  background-color: #88B04B;
   text-align: center;
   margin: 20px 10px 20px 0;
-  border: solid 2px #E6434D;
+  border: solid 2px #88B04B;
   font-size: 8px;
   font-family: "Roboto Condensed", serif;
   color: white;
@@ -247,7 +247,7 @@ input.normal_add_submit {
 
 input[class="normal_add_submit"]:hover {
   background-color: white;
-  color: #E6434D;
+  color: #88B04B;
 }
 
 #command_line_hits {
@@ -257,7 +257,7 @@ input[class="normal_add_submit"]:hover {
 }
 
 /*#command_line_hits:hover {*/
-/*  color: #E6434D;*/
+/*  color: #88B04B;*/
 /*}*/
 
 #commandline {
@@ -330,12 +330,12 @@ div.profile_block {
 }
 
 a:hover {
-  color: #E6434D;
+  color: #88B04B;
   font-weight: bold;
 }
 
 ion-icon.profile_icon {
-  color: #E6434D;
+  color: #88B04B;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -345,7 +345,7 @@ ion-icon.delete_icon {
   font-size: 20px;
   margin: 0;
   padding: 0;
-  color: #E6434D;
+  color: #88B04B;
 }
 
 button.delete_button {
@@ -370,7 +370,7 @@ div.time_zone {
 div.more_infos {
   float: right;
   height: 100vh;
-  /*background-color: #E6434D;*/
+  /*background-color: #88B04B;*/
   /*color: white;*/
   width: 24%;
   display: inline;
@@ -434,7 +434,7 @@ div.famous_quotes {
   border: 2px solid white;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #E6434D;
+  background-color: #88B04B;
 }
 
 div.famous_quotes_inner {
@@ -457,7 +457,7 @@ div.famous_quotes_inner {
   font-size: 26px;
   text-align: center;
   font-family: "JetBrains Mono", serif;
-  color: #E6434D;
+  color: #88B04B;
   font-weight: bold;
   /*font-size: 16px;*/
 }
@@ -482,7 +482,7 @@ span.close_accumulate{
   font-size: 26px;
   text-align: center;
   font-family: "JetBrains Mono", serif;
-  color: #E6434D;
+  color: #88B04B;
   font-weight: bold;
 }
 
@@ -491,7 +491,7 @@ span.close_accumulate{
   /*border: 12px;*/
   font-size: 14px;
   /*float: bottom;*/
-  background-color: #E6434D;
+  background-color: #88B04B;
   color: white;
   padding: 10px;
   border-radius: 6px;
@@ -504,9 +504,9 @@ span.close_accumulate{
   /*padding-top: 8px;*/
   /*float: bottom;*/
   /*padding-bottom: 8px;*/
-  /*background-color: #E6434D;*/
+  /*background-color: #88B04B;*/
   /*margin: 0 10px 20px 0;*/
-  /*border: solid 2px #E6434D;*/
+  /*border: solid 2px #88B04B;*/
   /*font-size: 8px;*/
   /*font-family: "Roboto Condensed", serif;*/
   /*color: white;*/
@@ -518,7 +518,7 @@ span.close_accumulate{
   width: 40%;
   /*border: 12px;*/
   font-size: 14px;
-  background-color: #E6434D;
+  background-color: #88B04B;
   color: white;
   padding: 10px;
   border-radius: 6px;
@@ -534,7 +534,7 @@ span.close_accumulate{
   border-radius: 6px;
   font-size: 20px;
   padding: 4px;
-  color: #E6434D;
+  color: #88B04B;
   font-weight: bold;
   margin-top: 12px;
   margin-left: 2%;
@@ -543,7 +543,7 @@ span.close_accumulate{
 .clock {
     /*position: absolute;*/
     /*transform: translateX(-50%) translateY(-50%);*/
-    color: #E6434D;
+    color: #88B04B;
     font-size: 26px;
     font-family: "Roboto Condensed", serif;
     letter-spacing: 7px;
@@ -675,7 +675,7 @@ div.change_current_infos_inner_inner {
   color: white;
   font-weight: bold;
   padding: 8px;
-  background-color: #E6434D;
+  background-color: #88B04B;
 }
 
 /*#TaskName {*/
@@ -721,7 +721,7 @@ table {
 }
 
 /*tr {*/
-/*  border-bottom-color: #E6434D;*/
+/*  border-bottom-color: #88B04B;*/
 /*  border: 1px solid ;*/
 /*}*/
 
@@ -732,7 +732,7 @@ table {
 /*}*/
 
 p.time_zone_p {
-  color: #E6434D;
+  color: #88B04B;
   /*color: black;*/
   font-weight: bold;
   font-size: 23px;
@@ -742,7 +742,7 @@ p.time_zone_p {
 #timezone_text {
   font-weight: bold;
   margin-top: 34px;
-  color: #E6434D;
+  color: #88B04B;
   margin-bottom: 14px;
   font-size: 23px;
 }
