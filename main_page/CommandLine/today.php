@@ -17,7 +17,7 @@ if($_SESSION['timeZone']=="UTC-5"){
 }*/
 if ($conn->query($query) == TRUE) {
     $numRecords = $result->num_rows;
-    echo '<table>';
+    echo '<table id="task_list_table">';
     for ($i=0; $i < $numRecords; $i++) {
         $record = $result->fetch_assoc();
         $date_time=$record['day']." ".$record['time'];

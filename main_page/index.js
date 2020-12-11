@@ -532,7 +532,15 @@ $(document).ready(function(){
             console.log(row[i].id);
             row[i].addEventListener("click", interact_function);
           }
+          
           // delete the task when click on the delete icon.
+          var delete_icon=document.getElementsByClassName("delete_button");
+          console.log(delete_icon.length);
+          for (var i=0; i<delete_icon.length; i++){
+            console.log(delete_icon[i].id);
+            delete_icon[i].addEventListener("click", delete_function);
+          }
+          
           
           
         }
@@ -604,10 +612,18 @@ $(document).ready(function(){
             console.log(row[i].id);
             row[i].addEventListener("click", interact_function);
           }
-          
+          // delete the task when click on the delete icon.
+          var delete_icon=document.getElementsByClassName("delete_button");
+          console.log(delete_icon.length);
+          for (var i=0; i<delete_icon.length; i++){
+            console.log(delete_icon[i].id);
+            delete_icon[i].addEventListener("click", delete_function);
+          }
         }
       });
     })
+
+
     
     /*implement redirect page function*/
     function pageRedirect(page_str) {
