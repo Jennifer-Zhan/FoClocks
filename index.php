@@ -97,7 +97,8 @@ if (isset($_POST['login_form'])) {
 				<p class="user_name">Username:</p><br />
 				<input class="input_type" type="text" name="username" value="">
 				<p class="user_pw">Password:</p>
-				<input class="input_type" type="text" name="password" value="">
+				<input class="input_type" type="password" name="password" value="" id="myInput"><br><br>
+      <input type="checkbox" onclick="myFunction()">Show Password
 				<input class="login_submit" type="submit" name="login_form" value="Submit">
 			</form>
 			<p class="not_have_account">Do Not Have An Account Yet?</p>
@@ -150,6 +151,15 @@ if (isset($_POST['login_form'])) {
 <!--</script>-->
 
 <script>
+  function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
   function onSuccess(googleUser) {
     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
   }
