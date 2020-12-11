@@ -320,7 +320,7 @@ div.container {
 a.profile_name {
   color: #bbbbbb;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 26px;
   margin: 0;
   padding: 0;
 }
@@ -545,7 +545,7 @@ span.close_accumulate{
     /*transform: translateX(-50%) translateY(-50%);*/
     color: #E6434D;
     font-size: 26px;
-    font-family: Orbitron;
+    font-family: "Roboto Condensed", serif;
     letter-spacing: 7px;
     /*margin: 100px;*/
 }

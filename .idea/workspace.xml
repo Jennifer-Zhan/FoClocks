@@ -19,13 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9a5def0-9a48-4e1d-b37e-500a32ff40b8" name="Default Changelist" comment="update the css">
+    <list default="true" id="a9a5def0-9a48-4e1d-b37e-500a32ff40b8" name="Default Changelist" comment="update the color">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_page/index_blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_blue.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_page/index_green.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_green.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_page/index_r.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_r.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_page/tabs/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/tabs/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_page/tabs/stylesheets/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/tabs/stylesheets/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_page/index_r_blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_r_blue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_page/index_r_green.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_r_green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_page/tabs/command_line_helper.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/tabs/command_line_helper.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +140,8 @@
       <workItem from="1607686151594" duration="1797000" />
       <workItem from="1607687958510" duration="1800000" />
       <workItem from="1607690260217" duration="1886000" />
-      <workItem from="1607692286437" duration="1715000" />
+      <workItem from="1607692286437" duration="1797000" />
+      <workItem from="1607694093991" duration="1572000" />
     </task>
     <task id="LOCAL-00001" summary="update the css in index_v4.php.">
       <created>1606411495282</created>
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607692500049</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update the color">
+      <created>1607694053580</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607694053580</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,7 +251,8 @@
     <MESSAGE value="update the page" />
     <MESSAGE value="update the color use" />
     <MESSAGE value="update the css" />
-    <option name="LAST_COMMIT_MESSAGE" value="update the css" />
+    <MESSAGE value="update the color" />
+    <option name="LAST_COMMIT_MESSAGE" value="update the color" />
   </component>
   <component name="WindowStateProjectService">
     <state x="635" y="216" key="FileChooserDialogImpl" timestamp="1607109348428">
@@ -266,14 +275,14 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="692" y="163" key="RollbackChangesDialog/0.0.1707.920@0.0.1707.920" timestamp="1607348114700" />
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1607692502565">
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1607694055652">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1607692502565" />
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607693967699">
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1607694055652" />
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607694383459">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1607693967699" />
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1607694383459" />
     <state x="512" y="211" key="run.anything.popup" timestamp="1607676098468">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
