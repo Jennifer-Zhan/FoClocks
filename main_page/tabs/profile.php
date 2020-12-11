@@ -53,8 +53,7 @@ if(isset($_POST["edit_profile"]) ){
     $statusMsg = 'Please select a file to upload.';
 }
 
-// Display status message
-echo $statusMsg;
+
 ?>
 
 <!DOCTYPE html>
