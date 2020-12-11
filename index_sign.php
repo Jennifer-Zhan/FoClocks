@@ -97,11 +97,9 @@ if (isset($_POST['login_form'])) {
             <p class="user_name">Username:</p><br />
             <input class="input_type" type="text" name="username" value="">
             <p class="user_pw">Password:</p>
-            <input class="input_type" type="password" name="password" id="password1" value=""><br><br>
-            <input type="checkbox" onclick="hidePassword1()">Show Password
+            <input class="input_type" type="password" name="password" id="password1" value="">
             <p class="re_user_pw">Reconfirm:</p>
-            <input class="input_type" type="password" name="recomfirm" id="password2" value=""><br><br>
-            <input type="checkbox" onclick="hidePassword2()">Show Password
+            <input class="input_type" type="password" name="recomfirm" id="password2" value="">
             <input class="login_submit" type="submit" name="register_form" value="Submit">
         </form>
         <p class="not_have_account">Have An Account Already?</p>

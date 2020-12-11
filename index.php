@@ -45,7 +45,7 @@ if (isset($_POST['login_form'])) {
                 if($uid_find->num_rows>0){
                   $_SESSION['uid'] = $uid;
                   echo $_SESSION['uid'];
-                  header("Location: main_page/index.php");
+                  header("Location: main_page/index_r.php");
 
                 }
                 else{
@@ -54,11 +54,11 @@ if (isset($_POST['login_form'])) {
                   echo $success_add;
                   $_SESSION['uid'] = $uid;
                   echo "New account log in";
-                  header("Location: main_page/index.php");
+                  header("Location: main_page/index_r.php");
                 }
             }
             else{
-                echo "UserName or Password Incorrect!";
+                echo '<script>alert("UserName or Password Incorrect!")</script>'; 
             }
         }  
     }
@@ -97,8 +97,7 @@ if (isset($_POST['login_form'])) {
 				<p class="user_name">Username:</p><br />
 				<input class="input_type" type="text" name="username" value="">
 				<p class="user_pw">Password:</p>
-				<input class="input_type" type="password" name="password" value="" id="myInput"><br><br>
-      <input type="checkbox" onclick="myFunction()">Show Password
+				<input class="input_type" type="password" name="password" value="" id="myInput">
 				<input class="login_submit" type="submit" name="login_form" value="Submit">
 			</form>
 			<p class="not_have_account">Do Not Have An Account Yet?</p>
