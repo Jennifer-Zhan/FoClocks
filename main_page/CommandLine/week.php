@@ -6,6 +6,19 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $uid=$_SESSION['uid'];
 $day = date('w');
+$setting_timeZone=$_SESSION['timeZone'];
+if($setting_timeZone=="UTC-5"){
+    date_default_timezone_set('America/New_York');
+}
+else if($setting_timeZone=="UTC-8"){
+    date_default_timezone_set('America/Los_Angeles');
+}
+else if($setting_timeZone=="UTC+9"){
+    date_default_timezone_set('Asia/Tokyo');
+}
+else{
+    date_default_timezone_set('Asia/Shanghai');
+}
 $week_start = date('Y-m-d', strtotime('-'.$day.' days'));
 $week_end = date('Y-m-d', strtotime('+'.(6-$day).' days'));
 $insQuery = "select * from onetime_task where deletion = 0 AND uid=$uid";
