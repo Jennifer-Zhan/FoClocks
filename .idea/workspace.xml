@@ -23,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_page/index_r.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_r.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_page/index_r.php" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/index_r.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_page/tabs/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/tabs/profile.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +131,13 @@
       <workItem from="1607501208416" duration="616000" />
       <workItem from="1607608458285" duration="606000" />
       <workItem from="1607675213336" duration="1794000" />
-      <workItem from="1607677020931" duration="672000" />
+      <workItem from="1607677020931" duration="1851000" />
+      <workItem from="1607678881323" duration="1796000" />
+      <workItem from="1607680687447" duration="1797000" />
+      <workItem from="1607682494155" duration="1586000" />
+      <workItem from="1607686151594" duration="1797000" />
+      <workItem from="1607687958510" duration="1800000" />
+      <workItem from="1607690260217" duration="1886000" />
     </task>
     <task id="LOCAL-00001" summary="update the css in index_v4.php.">
       <created>1606411495282</created>
@@ -195,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607487841696</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update the color use">
+      <created>1607677843527</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607677843527</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,10 +259,10 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1607487844993" />
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607677768157">
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607686152417">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1607677768157" />
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1607686152417" />
     <state x="512" y="211" key="run.anything.popup" timestamp="1607676098468">
       <screen x="0" y="0" width="1707" height="920" />
     </state>

@@ -103,7 +103,7 @@ if(isset($_POST['sortedByTime'])){
 					<p id="slogan">Simplify Your Life</p>
 				</div>
 				<input class="left_block_search" name="search_block" type="text" value="" placeholder="  Search">
-				<button class="left_block_submit" name="search_submit"><p class="hover_tag">Submit</p></button>
+				<button class="left_block_submit" name="search_submit"><p class="left_submit">Submit</p></button>
 				
 					<!--<input class="left_block_submit" name="search_submit" type="submit" value="Submit">-->
 				<button id="show_all" class="left_block_input left_block_input_1" name="all_tasks">All Tasks</button>
@@ -112,6 +112,7 @@ if(isset($_POST['sortedByTime'])){
 				<button id="show_history" class="left_block_input left_block_input_4" name="history_tasks">History</button>
 			</div>
 			<div class="time_zone">
+				<p class="time_zone_p">Time Zone</p>
 				<?php 
 				if (session_status() == PHP_SESSION_NONE) {
     				session_start();
@@ -154,7 +155,7 @@ if(isset($_POST['sortedByTime'])){
 				<form class="normal_add_submit" action="index_r.php" method="post">
 				<div class="normal_add_block">
 					<input id="add_name" class="add_name" name="name" type="text" value="" placeholder="  Task Infos">
-					<input id="add_tag" class="add_tag" name="tag" type="text" value="" placeholder="  Task Tag">
+					<input id="add_tag" class="add_tag" name="tag" type="text" value="" placeholder="  Task Tag (Five Words Limited)">
 					<input id="add_date" class="add_time" name="date" type="date" value="">
 					<input id="add_time" class="add_time" name="time" type="text" value="">
 					<input id="normal_add_submit_button" class="normal_add_submit" name="normal_add_submit" type="submit" value="Submit">
@@ -257,13 +258,15 @@ if(isset($_POST['sortedByTime'])){
 								}
 	
 								$id=$record['taskid'];
+								echo '<table id="table_task">';
 								echo '<tr id="row_'."$id".'" class="row">';
-								echo '<th class="TaskName">'.$record['name'].'</th>';
-								echo '<th class="WorkDate">'.date_format($date, 'Y-m-d H:i:s').'</th>';
-								echo '<th class="tag">'.$record['tag'].'</th>';
-								echo '<th class="details">'.$record['details'].'</th>';
-								echo '<th><button class="delete_button" id="delete_'."$id".'"><ion-icon name="close-circle-outline" class="delete_icon"></ion-icon></button></th>';
+								echo '<td id="TaskName" style="text-align:left">'.$record['name'].'</td>';
+								echo '<td id="WorkDate" style="text-align:left">'.date_format($date, 'Y-m-d H:i:s').'</td>';
+								echo '<td id="displayTag" style="text-align:left">'.$record['tag'].'</td>';
+//								echo '<th id="details">'.$record['details'].'</th>';
+								echo '<td style="text-align:left"><button class="delete_button" id="delete_'."$id".'"><ion-icon name="close-circle-outline" class="delete_icon"></ion-icon></button></td>';
 								echo '</tr>';
+								echo '</table>';
 							}
 							echo '</table>';
 							$result->free();
@@ -275,18 +278,23 @@ if(isset($_POST['sortedByTime'])){
 		<div class="more_infos">
 			<div class="inner_more_infos">
 				<div class="change_current_infos">
-					<form class="changeTask" action="index_r.php" method="post">
-					<input id="changeTasksName" name="changeTasksName" placeholder="Task">
-					<input id="day_c" name="day" placeholder="Date"><br />
-					<input id="time_c" name="time" placeholder="time"><br />
-					<input id="timeZone_c" name="timeZone" placeholder="time zone"><br />
-					<input id="tag_c" name="tag" placeholder="tag"><br />
-					<textarea id="details_c" name="details" placeholder="details..." rows="3"></textarea><br />
-					<input type="submit" id="changeButton" name="changeTask" value="Change Infos">
+					<div class="change_current_infos_inner">
+						<form class="changeTask" action="index_r.php" method="post">
+							<input id="changeTasksName" name="changeTasksName" placeholder="Task">
+							<div class="change_current_infos_inner_inner">
+								<input id="day_c" name="day" placeholder="Date"><br />
+								<input id="time_c" name="time" placeholder="Time"><br />
+								<input id="timeZone_c" name="timeZone" placeholder="Time Zone"><br />
+								<input id="tag_c" name="tag" placeholder="Tag"><br />
+								<textarea id="details_c" name="details" placeholder="Details..." rows="3"></textarea><br />
+							</div>
+							<input type="submit" id="changeButton" name="changeTask" value="Change Infos">
+						</form>
 					</div>
-					</form>
 				</div>
-				<div class="pomodoro_clocks">
+			</div>
+			<div class="pomodoro_clocks">
+				<div class="pomodoro_clocks_inner">
 					<div id="Countdown_Outside">
 						<div id="CountdownTimer">
 							<span class="close_countdown">&times;</span>
@@ -299,18 +307,20 @@ if(isset($_POST['sortedByTime'])){
 							<p id="AccumulateTimer_time"></p>
 						</div>
 					</div>
-					<div>
 					<button id="countdown_button">Pomodoro</button>
-					<button id="accumulate_button">Relax</button>	
-					</div>
+					<button id="accumulate_button">Relax</button>
 				</div>
+			</div>
 				<div class="famous_quotes">
-					<?php
-					$sqlQuote = "SELECT quotes FROM quotes ORDER BY RAND() LIMIT 1";
-					$result = $db->query($sqlQuote);
-					$record = $result->fetch_assoc();
-					echo $record['quotes'];
-					?>
+					<p class="famous_quote">Famous Quote:</p>
+					<div class="famous_quotes_inner">
+              <?php
+              $sqlQuote = "SELECT quotes FROM quotes ORDER BY RAND() LIMIT 1";
+              $result = $db->query($sqlQuote);
+              $record = $result->fetch_assoc();
+              echo $record['quotes'];
+              ?>
+					</div>
 				</div>
 			</div>
 		</div>
