@@ -76,21 +76,24 @@ if(isset($_POST['sortedByTime'])){
     <meta charset="UTF-8">
     <title>Foclocks</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="index_r.css" rel="stylesheet" type="text/css">
+    <?php
+    
+	if($_SESSION['theme']=="red"){
+		echo '<link id="red" rel="stylesheet" type="text/css" href="index_r.css" >';
+	}
+	else if($_SESSION['theme']=="green"){
+		echo '<link id="green" rel="stylesheet" type="text/css" href="index_r_green.css" >';
+	}
+	else{
+		echo '<link id="blue" rel="stylesheet" type="text/css" href="index_r_blue.css" >';
+	}
+	
+	?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
-	<script src="index_r.js"></script>
-	<script>
-		function changeTheme(value){
-		 var sheets = document.getElementsByTagName('link'); 
-     sheets[0].href = value;
-		}
-	</script>
+	
 </head>
 <body>
-		<button class="ccolor" onclick="changeTheme('index_r.css')">red scene</button>
-		<button class="ccolor" onclick="changeTheme('index_r_green.css')">green scene</button>
-		<button class="ccolor" onclick="changeTheme('index_r_blue.css')">blue scene</button>
     <div class="left_block">
 			<div class="left_upper_block">
 				<div class="title_block">
@@ -300,6 +303,12 @@ if(isset($_POST['sortedByTime'])){
 					</div>
 				</div>
 				<div class="famous_quotes">
+					<?php
+					$sqlQuote = "SELECT quotes FROM quotes ORDER BY RAND() LIMIT 1";
+					$result = $db->query($sqlQuote);
+					$record = $result->fetch_assoc();
+					echo $record['quotes'];
+					?>
 				</div>
 			</div>
 		</div>

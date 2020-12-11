@@ -42,4 +42,21 @@ CREATE TABLE `profile_info` (
  FOREIGN KEY(uid) REFERENCES users(uid) 
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `quotes` (
+ `quotesid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `quotes` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`quotesid`)
+);
+
+INSERT INTO `quotes` (quotes) VALUES ("We must use time as a tool, not as a crutch.");
+INSERT INTO `quotes` (quotes) VALUES ("Never to old to learn.");
+INSERT INTO `quotes` (quotes) VALUES ("Time is money.");
+INSERT INTO `quotes` (quotes) VALUES ("Time waits for no one.");
+INSERT INTO `quotes` (quotes) VALUES ("Build your own dreams or someone else will hire you to build theirs.");
+INSERT INTO `quotes` (quotes) VALUES ("A year from now you may wish you had started today.");
+INSERT INTO `quotes` (quotes) VALUES ("Light tomorrow with today.");
+INSERT INTO `quotes` (quotes) VALUES ("Don’t count the days, make the days count.");
+
+
+
 

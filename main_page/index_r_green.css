@@ -113,7 +113,7 @@ input.left_block_search {
   /*background-origin: content-box;*/
 }
 
-input.left_block_submit {
+.left_block_submit {
   width: 100%;
   /*background-color: white;*/
   border-radius: 6px;
@@ -439,7 +439,7 @@ form.input_3 {
 }
 
 span.close_accumulate{
-  color: white;
+  color: black;
 }
 
 #commandButton {

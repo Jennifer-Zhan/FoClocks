@@ -10,24 +10,26 @@ if ($conn->connect_error) {
 }
 
 $statusMsg = '';
-
+//default theme
+$_SESSION['theme']="red";
 // File upload path
 if(isset($_POST["edit_profile"]) && !empty($_FILES["file"]["name"])){
 	//update the time zone; store in session
 	if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    echo $_POST['time_zones'];
     $_SESSION['timeZone']=$_POST['time_zones'];
-
+	$_SESSION['theme']=$_POST['theme'];
+/*
+	if($_SESSION['theme']=="green"){
+		echo '<link rel="stylesheet" type="text/css"
+ 		 href="stylesheets/profie_green.css">';
+	}*/
 	// upload the picture
 	$targetDir = "uploads/";
 	$fileName = basename($_FILES["file"]["name"]);
 	$targetFilePath = $targetDir . $fileName;
 	$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-	if (session_status() == PHP_SESSION_NONE) {
-    	session_start();
-	}
     // Allow certain file formats
     $allowTypes = array('jpg','png','jpeg','gif','pdf');
     if(in_array($fileType, $allowTypes)){
@@ -190,14 +192,21 @@ if (isset($_POST['edit_profile'])) {
 <head>
 	<title>Function page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<link id="red" rel="stylesheet" type="text/css" href="stylesheets/profile.css" >
+	<?php
+	if($_SESSION['theme']=="red"){
+		echo '<link id="red" rel="stylesheet" type="text/css" href="stylesheets/profile.css" >';
+	}
+	else if($_SESSION['theme']=="green"){
+		echo '<link id="green" rel="stylesheet" type="text/css" href="stylesheets/profie_green.css" >';
+	}
+	else{
+		echo '<link id="blue" rel="stylesheet" type="text/css" href="stylesheets/profie_blue.css" >';
+	}
+	
+	?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="profile.js"></script>
 	<script>
-		function changeTheme(value){
-		 var sheets = document.getElementsByTagName('link'); 
-     sheets[0].href = value;
-		}
 	</script>
 	<style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
@@ -243,11 +252,19 @@ if (isset($_POST['edit_profile'])) {
 						</select>
 						<p class="change_pics_hits">Theme Colors</p>
 						<div class="color_selector">
-							<input type="button" name="red" class="red_color" onclick="changeTheme('stylesheets/profile.css')">
-							<input type="button" name="green" class="green_color" onclick="changeTheme('stylesheets/profie_green.css')">
-							<input type="button" name="blue" class="blue_color" onclick="changeTheme('stylesheets/profie_blue.css')">
+						<select id="theme" name="theme">
+							<option value="red">red</option>
+							<option value="green">green</option>
+							<option value="blue">blue</option>
+						</select>
 						</div>
-						<input type="submit" value="Submit Changes" name="edit_profile" class="submit_input">
+						<!--
+						<div class="color_selector">
+							<input type="button" id="red" name="red" value="red" class="red_color" onclick="changeTheme('stylesheets/profile.css')">
+							<input type="button" id="green" name="green" value="green" class="green_color" onclick="changeTheme('stylesheets/profie_green.css')">
+							<input type="button" id="blue" name="blue" value="blue" class="blue_color" onclick="changeTheme('stylesheets/profie_blue.css')">
+						</div>-->
+						<input type="submit" value="Submit Changes" name="edit_profile" class="submit_input" id="submit_input">
 					</form>
 				</div>
 		</div>
