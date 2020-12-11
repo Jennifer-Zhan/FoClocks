@@ -16,27 +16,6 @@ if(empty($_SESSION['timeZone'])){
 	$_SESSION['timeZone']="UTC-5";
 }
 
-//get inputs from the Add infos form and insert to the database.
-/*
-if (isset($_POST['normal_add_submit'])) {
-    if ($_POST['normal_add_submit']){
-        $name = htmlspecialchars(trim($_POST["name"]));
-        $date = htmlspecialchars(trim($_POST["date"]));
-        $time = htmlspecialchars(trim($_POST["time"]));
-        $tag = htmlspecialchars(trim($_POST["tag"]));
-        if (session_status() == PHP_SESSION_NONE) {
-    		session_start();
-		}
-        $uid=$_SESSION['uid'];
-        $timeZone=$_SESSION['timeZone'];
-        $insQuery = "INSERT into onetime_task (`name`, `day`, `time`, `timeZone`, `tag`, `details`, `uid`, `deletion`)
-	          VALUES ('".$name."', '".$date."','".$time."','".$timeZone."','".$tag."',' ','".$uid."', 0)";
-        $db->query($insQuery);
-
-        session_destroy();
-        $_POST=[];
-    }*/
-
 
 //get inputs from change infos and update the database if the task name matches.
 if (isset($_POST['changeTask'])) {
@@ -162,7 +141,7 @@ if(isset($_POST['sortedByTime'])){
 				</div>
 				</form>
 				
-				<a href="tabs/command_line_helper.html" id="command_line_hits" style="text-decoration: none; color: grey">Or, using command line (command line inst.)</a>
+				<a href="tabs/command_line_helper.php" id="command_line_hits" style="text-decoration: none; color: grey">Or, using command line (command line inst.)</a>
 
 				<div class="command_block">
 					<button type="button" id="commandButton">Submit</button>
