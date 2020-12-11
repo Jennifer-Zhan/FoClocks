@@ -46,6 +46,7 @@ div.profile_change_block_upper {
   border-radius: 8px;
   padding: 3px;
   width: 150px;
+  object-fit: cover;
   /*margin-left: 36%;*/
   /*margin-right: auto;*/
   /*margin-bottom: 20px;*/
