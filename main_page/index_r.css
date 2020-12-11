@@ -113,7 +113,7 @@ input.left_block_search {
   /*background-origin: content-box;*/
 }
 
-input.left_block_submit {
+button.left_block_submit {
   width: 100%;
   /*background-color: white;*/
   border-radius: 6px;
@@ -127,7 +127,9 @@ input.left_block_submit {
   font-family: "Roboto Condensed", serif;
   text-align: center;
   background-color: #E6434D;
+  
 }
+
 
 input[class="left_block_submit"]:hover {
   background-color: white;
