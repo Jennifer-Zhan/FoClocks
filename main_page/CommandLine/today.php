@@ -95,20 +95,28 @@ if ($conn->query($query) == TRUE) {
             }
         }
         //today in setting time zone;
-        $date_now = date('Y-m-d');
+        
         if($setting_timeZone=="UTC-5"){
+            date_default_timezone_set('America/New_York');
+            $date_now = date('Y-m-d');
             $date_now = date_create($date_now);
             date_timezone_set( $date_now, timezone_open('America/New_York'));
         }
         else if($setting_timeZone=="UTC-8"){
+            date_default_timezone_set('America/Los_Angeles');
+            $date_now = date('Y-m-d');
             $date_now = date_create($date_now);
             date_timezone_set( $date_now, timezone_open('America/Los_Angeles'));
         }
         else if($setting_timeZone=="UTC+9"){
+            date_default_timezone_set('Asia/Tokyo');
+            $date_now = date('Y-m-d');
             $date_now = date_create($date_now);
             date_timezone_set( $date_now, timezone_open('Asia/Tokyo'));
         }
         else{
+            date_default_timezone_set('Asia/Shanghai');
+            $date_now = date('Y-m-d');
             $date_now = date_create($date_now);
             date_timezone_set( $date_now, timezone_open('Asia/Shanghai'));
         }

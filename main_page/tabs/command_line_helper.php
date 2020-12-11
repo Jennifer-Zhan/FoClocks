@@ -33,9 +33,9 @@
 			<p class="example_code">ex: update DS_HW tag review</p>
 			<p class="sub_t">Delete Task:</p>
 			<p class="content">delete task: delete {task name}</p>
-			<p class="example_code">ex: delete DS_HW_8</p>
+			<p class="example_code">ex: delete DS_HW</p>
 			<p class="sub_t">Navigate through Our Website:</p>
-			<p class="content">switch {tag name}</p>
+			<p class="content">switch {tab name}</p>
 			<p class="example_code">ex: switch profile</p>
 		</div>
 	</div>
