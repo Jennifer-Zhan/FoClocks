@@ -277,7 +277,7 @@ if(isset($_POST['sortedByTime'])){
 				<div class="change_current_infos">
 					<form class="changeTask" action="index_r.php" method="post">
 					<input id="changeTasksName" name="changeTasksName" placeholder="Task">
-					<input id="day_c" name="day" type="date" placeholder="Date"><br />
+					<input id="day_c" name="day" placeholder="Date"><br />
 					<input id="time_c" name="time" placeholder="time"><br />
 					<input id="timeZone_c" name="timeZone" placeholder="time zone"><br />
 					<input id="tag_c" name="tag" placeholder="tag"><br />

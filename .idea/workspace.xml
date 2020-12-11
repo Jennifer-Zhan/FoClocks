@@ -126,7 +126,11 @@
       <workItem from="1607354869690" duration="1797000" />
       <workItem from="1607356676751" duration="105000" />
       <workItem from="1607401186395" duration="534000" />
-      <workItem from="1607486814238" duration="991000" />
+      <workItem from="1607486814238" duration="1750000" />
+      <workItem from="1607501208416" duration="616000" />
+      <workItem from="1607608458285" duration="606000" />
+      <workItem from="1607675213336" duration="1794000" />
+      <workItem from="1607677020931" duration="672000" />
     </task>
     <task id="LOCAL-00001" summary="update the css in index_v4.php.">
       <created>1606411495282</created>
@@ -184,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607401708282</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update the color use">
+      <created>1607487841696</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607487841696</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +225,10 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="635" y="216" key="FileChooserDialogImpl/0.0.1707.920@0.0.1707.920" timestamp="1607109348428" />
+    <state x="165" y="75" key="MergeDialog" timestamp="1607677748146">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="165" y="75" key="MergeDialog/0.0.1707.920@0.0.1707.920" timestamp="1607677748146" />
     <state x="494" y="222" key="MultipleFileMergeDialog" timestamp="1607158684726">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
@@ -226,13 +241,17 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="692" y="163" key="RollbackChangesDialog/0.0.1707.920@0.0.1707.920" timestamp="1607348114700" />
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1607401711521">
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2" timestamp="1607487844993">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1607401711521" />
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607486817356">
+    <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920@0.0.1707.920" timestamp="1607487844993" />
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607677768157">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1607486817356" />
+    <state x="673" y="375" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1707.920@0.0.1707.920" timestamp="1607677768157" />
+    <state x="512" y="211" key="run.anything.popup" timestamp="1607676098468">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="512" y="211" key="run.anything.popup/0.0.1707.920@0.0.1707.920" timestamp="1607676098468" />
   </component>
 </project>
