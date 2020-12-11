@@ -3,7 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>command line helper</title>
-	<link href="stylesheets/command_line.css" rel="stylesheet" type="text/css">
+	<?php
+	if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+	if($_SESSION['theme']=="red"){
+		echo '<link id="red" rel="stylesheet" type="text/css" href="stylesheets/command_line.css" >';
+	}
+	else if($_SESSION['theme']=="green"){
+		echo '<link id="green" rel="stylesheet" type="text/css" href="stylesheets/command_line_green.css" >';
+	}
+	else{
+		echo '<link id="blue" rel="stylesheet" type="text/css" href="stylesheets/command_line_blue.css" >';
+	}
+	
+	?>
 </head>
 <body>
 <div class="CL_block">

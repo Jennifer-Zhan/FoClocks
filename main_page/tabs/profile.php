@@ -12,17 +12,14 @@ if ($conn->connect_error) {
 $statusMsg = '';
 // File upload path
 if(isset($_POST["edit_profile"]) ){
-	//update the time zone; store in session
 	if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    //update the time zone; store in session
     $_SESSION['timeZone']=$_POST['time_zones'];
+    //update the theme; store in session
 	$_SESSION['theme']=$_POST['theme'];
-/*
-	if($_SESSION['theme']=="green"){
-		echo '<link rel="stylesheet" type="text/css"
- 		 href="stylesheets/profie_green.css">';
-	}*/
+
 	// upload the picture
 	$targetDir = "uploads/";
 	$fileName = basename($_FILES["file"]["name"]);
@@ -59,12 +56,12 @@ if(isset($_POST["edit_profile"]) ){
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>Function page</title>
+	<title>Profile</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<?php
-	if(empty($_SESSION['theme'])){
-		$_SESSION['theme']="red";
-	}
+	if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 	if($_SESSION['theme']=="red"){
 		echo '<link id="red" rel="stylesheet" type="text/css" href="stylesheets/profile.css" >';
 	}

@@ -9,7 +9,7 @@ body {
 
 div.left_block {
   float: left;
-  height: 100vh;
+  height: 105vh;
   background-color: #88B04B;
   color: white;
   width: 18%;
@@ -289,7 +289,7 @@ div.display_lists {
 }
 
 p.your_tasks {
-  margin-top: -26px;
+  margin-top: -10px;
   margin-bottom: 10px;
   font-size: 20px;
   font-weight: bold;
