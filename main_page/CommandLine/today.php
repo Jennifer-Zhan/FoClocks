@@ -5,6 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $uid=$_SESSION['uid'];
+$setting_timeZone=$_SESSION['timeZone'];
 $query = "select * from onetime_task where deletion = 0 AND uid=$uid";
 $result = $conn->query($query);
 // get current date
@@ -19,83 +20,102 @@ if ($conn->query($query) == TRUE) {
     echo '<table>';
     for ($i=0; $i < $numRecords; $i++) {
         $record = $result->fetch_assoc();
-        $date = date('Y-m-d');
-        if($record['day']==$date){
-            $date_time=$record['day']." ".$record['time'];
-            //manage time zone display
-            if($_SESSION['timeZone']=="UTC-5"){
-                if($record['timeZone']=="UTC-5"){
-                    $date = date_create($date_time, timezone_open('America/New_York'));
-                    date_timezone_set( $date, timezone_open('America/New_York'));
-                }
-                else if($record['timeZone']=="UTC-8"){
-                    $date = date_create($date_time, timezone_open('America/Los_Angeles'));
-                    date_timezone_set( $date, timezone_open('America/New_York'));
-                }
-                else if($record['timeZone']=="UTC+9"){
-                    $date = date_create($date_time, timezone_open('Asia/Shanghai'));
-                    date_timezone_set( $date, timezone_open('America/New_York'));
-                }
-                else{
-                    $date = date_create($date_time, timezone_open('Asia/Shanghai'));
-                    date_timezone_set( $date, timezone_open('America/New_York'));
-                }
+        $date_time=$record['day']." ".$record['time'];
+        //manage time zone display
+        if($_SESSION['timeZone']=="UTC-5"){
+            if($record['timeZone']=="UTC-5"){
+                $date = date_create($date_time, timezone_open('America/New_York'));
+                date_timezone_set( $date, timezone_open('America/New_York'));
             }
-            else if($_SESSION['timeZone']=="UTC-8"){
-                if($record['timeZone']=="UTC-5"){
-                    $date = date_create($date_time, timezone_open('America/New_York'));
-                    date_timezone_set( $date, timezone_open('America/Los_Angeles'));
-                }
-                else if($record['timeZone']=="UTC-8"){
-                    $date = date_create($date_time, timezone_open('America/Los_Angeles'));
-                    date_timezone_set( $date, timezone_open('America/Los_Angeles'));
-                }
-                else if($record['timeZone']=="UTC+9"){
-                    $date = date_create($date_time, timezone_open('Asia/Tokyo'));
-                    date_timezone_set( $date, timezone_open('America/Los_Angeles'));
-                }
-                else {
-                    $date = date_create($date_time, timezone_open('Asia/Shanghai'));
-                    date_timezone_set( $date, timezone_open('America/Los_Angeles'));
-                }
+            else if($record['timeZone']=="UTC-8"){
+                $date = date_create($date_time, timezone_open('America/Los_Angeles'));
+                date_timezone_set( $date, timezone_open('America/New_York'));
             }
-            else if($_SESSION['timeZone']=="UTC+8"){
-                if($record['timeZone']=="UTC-5"){
-                    $date = date_create($date_time, timezone_open('America/New_York'));
-                    date_timezone_set( $date, timezone_open('Asia/Shanghai'));
-                }
-                else if($record['timeZone']=="UTC-8"){
-                    $date = date_create($date_time, timezone_open('America/Los_Angeles'));
-                    date_timezone_set( $date, timezone_open('Asia/Shanghai'));
-                }
-                else if($record['timeZone']=="UTC+9"){
-                    $date = date_create($date_time, timezone_open('Asia/Tokyo'));
-                    date_timezone_set( $date, timezone_open('Asia/Shanghai'));
-                }
-                else {
-                    $date = date_create($date_time, timezone_open('Asia/Shanghai'));
-                    date_timezone_set( $date, timezone_open('Asia/Shanghai'));
-                }
+            else if($record['timeZone']=="UTC+9"){
+                $date = date_create($date_time, timezone_open('Asia/Shanghai'));
+                date_timezone_set( $date, timezone_open('America/New_York'));
+            }
+            else{
+                $date = date_create($date_time, timezone_open('Asia/Shanghai'));
+                date_timezone_set( $date, timezone_open('America/New_York'));
+            }
+        }
+        else if($_SESSION['timeZone']=="UTC-8"){
+            if($record['timeZone']=="UTC-5"){
+                $date = date_create($date_time, timezone_open('America/New_York'));
+                date_timezone_set( $date, timezone_open('America/Los_Angeles'));
+            }
+            else if($record['timeZone']=="UTC-8"){
+                $date = date_create($date_time, timezone_open('America/Los_Angeles'));
+                date_timezone_set( $date, timezone_open('America/Los_Angeles'));
+            }
+            else if($record['timeZone']=="UTC+9"){
+                $date = date_create($date_time, timezone_open('Asia/Tokyo'));
+                date_timezone_set( $date, timezone_open('America/Los_Angeles'));
             }
             else {
-                if($record['timeZone']=="UTC-5"){
-                    $date = date_create($date_time, timezone_open('America/New_York'));
-                    date_timezone_set( $date, timezone_open('Asia/Tokyo'));
-                }
-                else if($record['timeZone']=="UTC-8"){
-                    $date = date_create($date_time, timezone_open('America/Los_Angeles'));
-                    date_timezone_set( $date, timezone_open('Asia/Tokyo'));
-                }
-                else if($record['timeZone']=="UTC+9"){
-                    $date = date_create($date_time, timezone_open('Asia/Tokyo'));
-                    date_timezone_set( $date, timezone_open('Asia/Tokyo'));
-                }
-                else {
-                    $date = date_create($date_time, timezone_open('Asia/Shanghai'));
-                    date_timezone_set( $date, timezone_open('Asia/Tokyo'));
-                }
+                $date = date_create($date_time, timezone_open('Asia/Shanghai'));
+                date_timezone_set( $date, timezone_open('America/Los_Angeles'));
             }
+        }
+        else if($_SESSION['timeZone']=="UTC+8"){
+            if($record['timeZone']=="UTC-5"){
+                $date = date_create($date_time, timezone_open('America/New_York'));
+                date_timezone_set( $date, timezone_open('Asia/Shanghai'));
+            }
+            else if($record['timeZone']=="UTC-8"){
+                $date = date_create($date_time, timezone_open('America/Los_Angeles'));
+                date_timezone_set( $date, timezone_open('Asia/Shanghai'));
+            }
+            else if($record['timeZone']=="UTC+9"){
+                $date = date_create($date_time, timezone_open('Asia/Tokyo'));
+                date_timezone_set( $date, timezone_open('Asia/Shanghai'));
+            }
+            else {
+                $date = date_create($date_time, timezone_open('Asia/Shanghai'));
+                date_timezone_set( $date, timezone_open('Asia/Shanghai'));
+            }
+        }
+        else {
+            if($record['timeZone']=="UTC-5"){
+                $date = date_create($date_time, timezone_open('America/New_York'));
+                date_timezone_set( $date, timezone_open('Asia/Tokyo'));
+            }
+            else if($record['timeZone']=="UTC-8"){
+                $date = date_create($date_time, timezone_open('America/Los_Angeles'));
+                date_timezone_set( $date, timezone_open('Asia/Tokyo'));
+            }
+            else if($record['timeZone']=="UTC+9"){
+                $date = date_create($date_time, timezone_open('Asia/Tokyo'));
+                date_timezone_set( $date, timezone_open('Asia/Tokyo'));
+            }
+            else {
+                $date = date_create($date_time, timezone_open('Asia/Shanghai'));
+                date_timezone_set( $date, timezone_open('Asia/Tokyo'));
+            }
+        }
+        //today in setting time zone;
+        $date_now = date('Y-m-d');
+        if($setting_timeZone=="UTC-5"){
+            $date_now = date_create($date_now);
+            date_timezone_set( $date_now, timezone_open('America/New_York'));
+        }
+        else if($setting_timeZone=="UTC-8"){
+            $date_now = date_create($date_now);
+            date_timezone_set( $date_now, timezone_open('America/Los_Angeles'));
+        }
+        else if($setting_timeZone=="UTC+9"){
+            $date_now = date_create($date_now);
+            date_timezone_set( $date_now, timezone_open('Asia/Tokyo'));
+        }
+        else{
+            $date_now = date_create($date_now);
+            date_timezone_set( $date_now, timezone_open('Asia/Shanghai'));
+        }
+        $date_now=date_format($date_now,"Y-m-d");
+        $date_task=date_format($date,"Y-m-d");
 
+        if($date_now==$date_task){
             $id=$record['taskid'];
             echo '<tr id="row_'."$id".'" class="row">';
             echo '<th class="TaskName">'.$record['name'].'</th>';

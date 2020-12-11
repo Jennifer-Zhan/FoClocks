@@ -291,17 +291,12 @@ if(isset($_POST['sortedByTime'])){
 					<div id="Accumulate_Outside">
 						<div id="AccumulateTimer">
 							<span class="close_accumulate">&times;</span>
-							<form class="input_3">
-								<input id="start" type="button" class="input_bnt" value="Start!" onclick="timedCount()">
-								<input type="text" id="txt">
-								<input id="stop" type="button" class="input_bnt" value="Stop!" onClick="stopCount()">
-								<input id="clear" type="button" class="input_bnt" value="Clear!" onClick="clearCount()">
-							</form>
+							<p id="AccumulateTimer_time"></p>
 						</div>
 					</div>
 					<div>
-					<button id="countdown_button">CountDown Timer</button>
-					<button id="accumulate_button">CountUp Timer</button>	
+					<button id="countdown_button">Pomodoro</button>
+					<button id="accumulate_button">Relax</button>	
 					</div>
 				</div>
 				<div class="famous_quotes">

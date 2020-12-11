@@ -56,6 +56,22 @@ $(document).ready(function(){
           }
       })
     }
+
+    function delete_from_database(){
+      var id= this.id.split("_");
+      var id = id[1];
+      $.ajax({
+          url:'CommandLine/delete_database.php',
+          method:'POST',
+          data:{
+            id: id
+          },
+          success:function(data){
+            alert(data);
+            window.location.href='http://localhost/project/main_page/index_r.php';
+          }
+      })
+    }
 /*
     var add_submit=document.getElementById("normal_add_submit_button");
     add_submit.addEventListener("click", refresh_function);
@@ -121,6 +137,22 @@ $(document).ready(function(){
       CountdownTimer.style.display = "block";
       AccumulateTimer.style.display = "none";
       Countdown_timer(25/60);
+      hours_r = 0;
+      minutes_r = 10;
+      seconds_r = 0;
+      show_time_r=hours_r + "h "+ minutes_r + "m " + seconds_r + "s ";
+      clearInterval(timer_interval_r);
+    }
+
+    AccumulateTimer_bnt.onclick = function() {
+      AccumulateTimer.style.display = "block";
+      CountdownTimer.style.display = "none";
+      Relax_timer(10/60);
+      hours = 0;
+      minutes = 25;
+      seconds = 0;
+      show_time=hours + "h "+ minutes + "m " + seconds + "s ";
+      clearInterval(timer_interval);
     }
 
     // When the user clicks on <span> (x), close the modal
@@ -129,12 +161,24 @@ $(document).ready(function(){
     var seconds;
     var show_time;
 
+    var hours_r;
+    var minutes_r;
+    var seconds_r;
+    var show_time_r;
+
 
     AccumulateSpan.onclick = function() {
       AccumulateTimer.style.display = "none";
+      hours_r = 0;
+      minutes_r = 10;
+      seconds_r = 0;
+      show_time_r=hours_r + "h "+ minutes_r + "m " + seconds_r + "s ";
+      clearInterval(timer_interval_r);
     }
 
     var timer_interval;
+    var timer_interval_r;
+
     function Countdown_timer(time){
       var click_time = new Date().getTime();
       timer_interval=setInterval(function(){
@@ -142,6 +186,16 @@ $(document).ready(function(){
       }, 1000);
       var CountdownTimer = document.getElementById("Countdown_Outside");
       CountdownTimer.style.display = "block";
+
+    }
+
+    function Relax_timer(time){
+      var click_time = new Date().getTime();
+      timer_interval_r=setInterval(function(){
+        calculate_r(time,click_time);
+      }, 1000);
+      var AccumulateTimer = document.getElementById("Accumulate_Outside");
+      AccumulateTimer.style.display = "block";
 
     }
 
@@ -164,6 +218,25 @@ $(document).ready(function(){
       console.log(show_time);
     }
 
+    function calculate_r(time,click_time){
+      var now = new Date().getTime();
+      distance_r = Math.floor(time*3600000-(now-click_time));
+      // Time calculations for days, hours, minutes and seconds
+      hours_r = Math.floor((distance_r % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      minutes_r = Math.floor((distance_r % (1000 * 60 * 60)) / (1000 * 60));
+      seconds_r = Math.floor((distance_r % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="demo"
+      show_time_r= hours_r + "h "+ minutes_r + "m " + seconds_r + "s ";
+      // If the count down is over, write some text
+      if (distance_r < 0) {
+        clearInterval(distance_r);
+        show_time_r = "EXPIRED";
+      }
+      document.getElementById("AccumulateTimer_time").innerHTML=show_time_r;
+      console.log(show_time_r);
+    }
+
     CountdownSpan.onclick = function() {
       CountdownTimer.style.display = "none";
       hours = 0;
@@ -174,6 +247,7 @@ $(document).ready(function(){
     }
 
     // when click on countup timer, close and stop the countdown timer.
+    /*
     AccumulateTimer_bnt.onclick = function() {
       AccumulateTimer.style.display = "block";
       CountdownTimer.style.display = "none";
@@ -182,12 +256,12 @@ $(document).ready(function(){
       seconds = 0;
       show_time=hours + "h "+ minutes + "m " + seconds + "s ";
       clearInterval(timer_interval);
-    }
+    }*/
     //accumulate timer functions
-    
+    /*
     document.getElementById("start").addEventListener("click", timedCount);
     document.getElementById("stop").addEventListener("click", stopCount);
-    document.getElementById("stop").addEventListener("click", clearCount);
+    document.getElementById("stop").addEventListener("click", clearCount);*/
     //Add help alert.
  
 
@@ -481,8 +555,13 @@ $(document).ready(function(){
             console.log(row[i].id);
             row[i].addEventListener("click", interact_function);
           }
-            // delete from the database.
-          
+           // delete from the database.
+          var delete_icon=document.getElementsByClassName("delete_button");
+          console.log(delete_icon.length);
+          for (var i=0; i<delete_icon.length; i++){
+            console.log(delete_icon[i].id);
+            delete_icon[i].addEventListener("click", delete_from_database);
+          }
         }
       })
 
@@ -509,6 +588,25 @@ $(document).ready(function(){
               window.location.href='http://localhost/project/main_page/index_r.php';
           }
       });  
+    })
+
+    $("#show_week").click(function(){
+      $(".display_lists").empty();
+      $.ajax({
+        url:'CommandLine/week.php',
+        method:'POST',
+        data:{
+        },
+        success:function(data){
+          $('.display_lists').html(data);
+          var row = document.getElementsByClassName("row");
+          for (var i=0; i<row.length; i++){
+            console.log(row[i].id);
+            row[i].addEventListener("click", interact_function);
+          }
+          
+        }
+      });
     })
     
     /*implement redirect page function*/
