@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+@import url('https://fonts.googleapis.com/css?family=JetBrains+Mono');
+
+body {
+  font-family: -apple-system, "Roboto Condensed", serif;
+  font-size: 13px;
+  /*margin: 0;*/
+  line-height: 20px;
+  color: #333;
+  max-width: 750px;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden;
+  background-color: #FAFAFA;
+}
+
+div.CL_block {
+  margin: 25px 0;
+  border-radius: 8px;
+  border: solid 1px #dbdbdb;
+  background: #fff;
+
+  height: 785px;
+}
+
+div.CL_inner {
+  padding: 25px;
+}
+
+p.command_line {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+a.title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #88B04B;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-family: 'JetBrains Mono';
+  text-decoration: none;
+}
+
+div.inst {
+  padding: 10px 14px;
+  margin-top: 45px;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+}
+
+p.sub_t {
+  font-size: 20px;
+  font-weight: bold;
+  float: left;
+  /*margin: 8px 60% 4px 132.5px;*/
+  margin-right: 90%;
+  width: 240px;
+}
+
+p.content {
+  font-size: 14px;
+  color: #88B04B;
+  font-weight: bold;
+}
+
+p.example_code {
+  font-size: 14px;
+  background-color: #FAFAFA;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+ion-icon {
+  color: #88B04B;
+  padding: 0;
+  font-size: 22px;
+  margin: 0;
+}
