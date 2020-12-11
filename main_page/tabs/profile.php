@@ -126,9 +126,9 @@ echo $statusMsg;
 						<p class="change_pics_hits">Theme Colors</p>
 <!--						<div class="color_selector">-->
 						<select id="time_zones" name="theme">
-							<option value="red">red</option>
-							<option value="green">green</option>
-							<option value="blue">blue</option>
+							<option value="red">Red</option>
+							<option value="green">Green</option>
+							<option value="blue">Blue</option>
 						</select>
 <!--						</div>-->
 						<!--
