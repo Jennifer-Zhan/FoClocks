@@ -77,7 +77,9 @@ if(isset($_POST['sortedByTime'])){
     <title>Foclocks</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <?php
-    
+    if(empty($_SESSION['theme'])){
+		$_SESSION['theme']="red";
+	}
 	if($_SESSION['theme']=="red"){
 		echo '<link id="red" rel="stylesheet" type="text/css" href="index_r.css" >';
 	}
