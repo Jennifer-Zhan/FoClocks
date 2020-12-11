@@ -11,9 +11,8 @@ if ($conn->connect_error) {
 
 $statusMsg = '';
 //default theme
-$_SESSION['theme']="red";
 // File upload path
-if(isset($_POST["edit_profile"]) && !empty($_FILES["file"]["name"])){
+if(isset($_POST["edit_profile"]) ){
 	//update the time zone; store in session
 	if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -57,134 +56,6 @@ if(isset($_POST["edit_profile"]) && !empty($_FILES["file"]["name"])){
 
 // Display status message
 echo $statusMsg;
-
-// refresh the task table with the new time zone 
-/*
-$sqlTask = "select * from onetime_task where deletion = 0 AND uid=$uid";
-$result = $db->query($sqlTask);
-$numRecords = $result->num_rows;
-echo '<table>';
-for ($i=0; $i < $numRecords; $i++) {
-	$record = $result->fetch_assoc();
-	$date_time=$record['day']." ".$record['time'];
-	if (session_status() == PHP_SESSION_NONE) {
-		session_start();
-	}
-	//manage time zone display
-	if($_SESSION['timeZone']=="UTC-5"){
-		if($record['timeZone']=="UTC-5"){
-			$date = date_create($date_time, timezone_open('America/New_York'));
-			date_timezone_set( $date, timezone_open('America/New_York'));
-		}
-		else if($record['timeZone']=="UTC-8"){
-			$date = date_create($date_time, timezone_open('America/Los_Angeles'));
-			date_timezone_set( $date, timezone_open('America/New_York'));
-		}
-		else if($record['timeZone']=="UTC+9"){
-			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
-			date_timezone_set( $date, timezone_open('America/New_York'));
-		}
-		else{
-			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
-			date_timezone_set( $date, timezone_open('America/New_York'));
-		}
-	}
-	else if($_SESSION['timeZone']=="UTC-8"){
-		if($record['timeZone']=="UTC-5"){
-			$date = date_create($date_time, timezone_open('America/New_York'));
-			date_timezone_set( $date, timezone_open('America/Los_Angeles'));
-		}
-		else if($record['timeZone']=="UTC-8"){
-			$date = date_create($date_time, timezone_open('America/Los_Angeles'));
-			date_timezone_set( $date, timezone_open('America/Los_Angeles'));
-		}
-		else if($record['timeZone']=="UTC+9"){
-			$date = date_create($date_time, timezone_open('Asia/Tokyo'));
-			date_timezone_set( $date, timezone_open('America/Los_Angeles'));
-		}
-		else {
-			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
-			date_timezone_set( $date, timezone_open('America/Los_Angeles'));
-		}
-	}
-	else if($_SESSION['timeZone']=="UTC+8"){
-		if($record['timeZone']=="UTC-5"){
-			$date = date_create($date_time, timezone_open('America/New_York'));
-			date_timezone_set( $date, timezone_open('Asia/Shanghai'));
-		}
-		else if($record['timeZone']=="UTC-8"){
-			$date = date_create($date_time, timezone_open('America/Los_Angeles'));
-			date_timezone_set( $date, timezone_open('Asia/Shanghai'));
-		}
-		else if($record['timeZone']=="UTC+9"){
-			$date = date_create($date_time, timezone_open('Asia/Tokyo'));
-			date_timezone_set( $date, timezone_open('Asia/Shanghai'));
-		}
-		else {
-			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
-			date_timezone_set( $date, timezone_open('Asia/Shanghai'));
-		}
-	}
-	else {
-		if($record['timeZone']=="UTC-5"){
-			$date = date_create($date_time, timezone_open('America/New_York'));
-			date_timezone_set( $date, timezone_open('Asia/Tokyo'));
-		}
-		else if($record['timeZone']=="UTC-8"){
-			$date = date_create($date_time, timezone_open('America/Los_Angeles'));
-			date_timezone_set( $date, timezone_open('Asia/Tokyo'));
-		}
-		else if($record['timeZone']=="UTC+9"){
-			$date = date_create($date_time, timezone_open('Asia/Tokyo'));
-			date_timezone_set( $date, timezone_open('Asia/Tokyo'));
-		}
-		else {
-			$date = date_create($date_time, timezone_open('Asia/Shanghai'));
-			date_timezone_set( $date, timezone_open('Asia/Tokyo'));
-		}
-	}
-
-	$id=$record['taskid'];
-	echo '<tr id="row_'."$id".'" class="row">';
-	echo '<th class="TaskName">'.$record['name'].'</th>';
-	echo '<th class="WorkDate">'.date_format($date, 'Y-m-d H:i:s').'</th>';
-	echo '<th class="timeZone">'.$record['timeZone'].'</th>';
-	echo '<th class="tag">'.$record['tag'].'</th>';
-	echo '<th class="details">'.$record['details'].'</th>';
-	echo '</tr>';
-}
-echo '</table>';
-$result->free();
-*/
-
-//adding info to user's profile
-/*
-if (isset($_POST['edit_profile'])) {
-    if ($_POST['edit_profile']) {
-    	session_start();
-
-        $name = $_FILES['file']['name'];
-  		$target_dir = "uploads/";
-  		$target_file = $target_dir . basename($_FILES["file"]["name"]);
-  		// Select file type
-  		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  		// Valid file extensions
-  		$extensions_arr = array("jpg","jpeg","png","gif");
-  		// Check extension
-  		if( in_array($imageFileType,$extensions_arr) ){
-	        $fname = $_POST['fname'];
-	        $lname = $_POST['lname'];
-	        $uid = $_SESSION['uid'];
-	        echo $uid;
-	        echo $name;
-	        echo '\n';
-	        echo $target_file;
-	        $Query_AddInfo = "UPDATE `profile_info` SET `image`='".$name."', `first_name`='".$fname."', `last_name`='".$lname."'";
-	        $conn->query($Query_AddInfo);
-	        move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
-	    }
-    }
-}*/
 ?>
 
 <!DOCTYPE html>
@@ -193,6 +64,9 @@ if (isset($_POST['edit_profile'])) {
 	<title>Function page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<?php
+	if(empty($_SESSION['theme'])){
+		$_SESSION['theme']="red";
+	}
 	if($_SESSION['theme']=="red"){
 		echo '<link id="red" rel="stylesheet" type="text/css" href="stylesheets/profile.css" >';
 	}
