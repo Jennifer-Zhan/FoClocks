@@ -10,7 +10,6 @@ if ($conn->connect_error) {
 }
 
 $statusMsg = '';
-//default theme
 // File upload path
 if(isset($_POST["edit_profile"]) ){
 	//update the time zone; store in session
