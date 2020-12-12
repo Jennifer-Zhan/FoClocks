@@ -1,12 +1,24 @@
-# FoClocks
-FoClocks is a time management app that perfectly combines keep-focus timer, well-organized everyday to-do list, deadline organization, and data record and analysis with a simple and easy-to-operate layout. It includes different types of timers that could satisfy various users’ preferences and could set different timers for different types of tasks. FoClocks could automatically generate the to-do list for everyday and is able to show the overview of the deadline calendar. The tasks are separated into one-time tasks and everyday tasks and could be set as completed but the data is still archived.
+Foclocks is mainly for providing with users an easy and clear way to track their tasks.
+For using html, js, php realize the web application and the main theme design is inspired by todoist.
 
-# Update
-We are currently turning our direction of FoClocks to a more programmer-focus time management app. We created our own instruction set for this app that could easily add, edit, delete tasks, and naviagte our website through typing command line in the console on our webpage. There will be a help alert appear when you click on the help button which could give you some tutorials on how to use our command line.
+Add, Change, Command Line, Display tasks, Timezone Clocks, Pomodoro, Quotes are realized by the database and php,
+and the theme color change is realized by the php
 
-# Credits
-Creators for FoClocks are Jennifer Zhan, Jensen Chen, Jiahui Wu, Jonathan Yang, Shuhan Li.
+More details of the function mentioned above is in our lab report.
 
-# referrence
-https://www.codexworld.com/upload-store-image-file-in-database-using-php-mysql/
-https://makitweb.com/return-json-response-ajax-using-jquery-php/
+What we did:
+
+    Jonathan Yang: Helped to realize the color theme change, and realize a prat of front end.
+    
+    Jiahui Wu: Finish the lab report, and part of front end.
+    
+    Jensen Chen: design the UI and finish most part of stylesheet, propose the functions in the web application.
+    
+    Shuhan Li: Helped to collect the quotes, and realize a part of front end.
+    
+    Jennifer Zhan: finish most part of the functions, crate the database.
+
+referrence:
+
+    https://www.codexworld.com/upload-store-image-file-in-database-using-php-mysql/
+    https://makitweb.com/return-json-response-ajax-using-jquery-php/
