@@ -1,3 +1,4 @@
+# About FoClocks
 Foclocks is mainly for providing with users an easy and clear way to track their tasks.
 For using html, js, php realize the web application and the main theme design is inspired by todoist.
 
@@ -6,19 +7,25 @@ and the theme color change is realized by the php
 
 More details of the function mentioned above is in our lab report.
 
-What we did:
+# How to use
+FoClocks is currently run on the localhost. After you clone our repository, you should first create a database name websys_project on phpMyAdmin, and import start.sql into the database. Then rename the folder your clone to 'project' and place the whole folder under htdocs in XAMPP. Finally, open http://localhost/project/ in your browser and the app works.
 
-    Jonathan Yang: Helped to realize the color theme change, and realize a prat of front end.
-    
-    Jiahui Wu: Finish the lab report, and part of front end.
-    
-    Jensen Chen: design the UI and finish most part of stylesheet, propose the functions in the web application.
-    
-    Shuhan Li: Helped to collect the quotes, and realize a part of front end.
-    
-    Jennifer Zhan: finish most part of the functions, crate the database.
+# Creators
+FoClocks Creators are Jennifer Zhan, Jensen Chen, Jiahui Wu, Jonathan Yang, Shuhan Li.
 
-referrence:
+# What we did
+Jonathan Yang: Helped to realize the color theme change, and realize a prat of front end.
+
+Jiahui Wu: Finish the lab report, and part of front end.
+
+Jensen Chen: design the UI and finish most part of stylesheet, propose the functions in the web application.
+
+Shuhan Li: Helped to collect the quotes, and realize a part of front end.
+
+Jennifer Zhan: finish most part of the functions, handle back-end, responsible for php and js.
+
+
+# referrence
 
     https://www.codexworld.com/upload-store-image-file-in-database-using-php-mysql/
     https://makitweb.com/return-json-response-ajax-using-jquery-php/
