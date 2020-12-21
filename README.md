@@ -10,21 +10,6 @@ More details of the function mentioned above is in our lab report.
 # How to use
 FoClocks is currently run on the localhost. After you clone our repository, you should first create a database name websys_project on phpMyAdmin, and import start.sql into the database. Then rename the folder your clone to 'project' and place the whole folder under htdocs in XAMPP. Finally, open http://localhost/project/ in your browser and the app works.
 
-# Creators
-FoClocks Creators are Jennifer Zhan, Jensen Chen, Jiahui Wu, Jonathan Yang, Shuhan Li.
-
-# What we did
-Jonathan Yang: Helped to realize the color theme change, and realize a prat of front end.
-
-Jiahui Wu: Finish the lab report, and part of front end.
-
-Jensen Chen: design the UI and finish most part of stylesheet, propose the functions in the web application.
-
-Shuhan Li: Helped to collect the quotes, and realize a part of front end.
-
-Jennifer Zhan: finish most part of the functions, handle back-end, responsible for php and js.
-
-
 # referrence
 
     https://www.codexworld.com/upload-store-image-file-in-database-using-php-mysql/
